@@ -39,13 +39,27 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
             color: Colors.black
           ), 
+          titleLarge: TextStyle(
+            fontSize: 20, 
+            fontWeight: FontWeight.bold,
+         color: Colors.black
+          ), 
+           titleSmall: TextStyle(
+            fontSize: 15, 
+            fontWeight: FontWeight.bold,
+         color: const Color.fromARGB(255, 124, 122, 122)
+          ), 
           bodyMedium: TextStyle(
             fontSize: 20, 
             fontWeight: FontWeight.bold,
             color: Colors.black
           ), 
+          bodySmall:  TextStyle(
+            fontSize: 17, 
+            fontWeight: FontWeight.bold,
+            color: const Color.fromARGB(255, 255, 255, 255)
+          ), 
         ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       home: LanguageApp(),
     );
