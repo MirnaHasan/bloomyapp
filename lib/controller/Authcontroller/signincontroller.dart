@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 
 abstract class SignInController extends GetxController{
 signIn();
+goToForgetPaaword ();
 
 }
 
@@ -16,10 +17,13 @@ class SignInControllerImp extends SignInController{
   late TextEditingController password ;
   @override
   signIn() {
-      Get.toNamed(AppRoutes.homeScreen);
+      // Get.toNamed(AppRoutes.homeScreen);
   
   }
-  
+  @override
+  goToForgetPaaword() {
+ Get.offNamed(AppRoutes.forgetpassword);
+  }
 
 
 @override
@@ -34,4 +38,6 @@ class SignInControllerImp extends SignInController{
   password.dispose();
     super.dispose();
   }
+  
+  
 }

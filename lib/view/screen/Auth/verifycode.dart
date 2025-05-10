@@ -1,0 +1,61 @@
+
+
+import 'package:bloomy/controller/Authcontroller/verifycodecontroller.dart';
+import 'package:bloomy/view/widget/auth/customtextbodyauth.dart';
+import 'package:bloomy/view/widget/auth/customtextsigninorsignup.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+class Verifycode extends StatelessWidget {
+  const Verifycode({super.key});
+  @override
+  Widget build(BuildContext context) {
+    VerifyCodeControllerImp controller = Get.put(VerifyCodeControllerImp ());
+    return Scaffold(
+      body: Container(
+        alignment: Alignment.center,
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+        child: ListView(
+          children: [
+            SizedBox(height: 40),
+            Text(
+              textAlign: TextAlign.center,
+
+              "Verification Code",
+
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            SizedBox(height: 20),
+            CustomTextBody(text: "Check Code"),
+            SizedBox(height: 40),
+            OtpTextField(
+              fieldWidth: 50,
+              borderRadius: BorderRadius.circular(20),
+        numberOfFields: 5,
+        borderColor: Color(0xFF512DA8),
+        //set to true to show as box or false to show as dash
+        showFieldAsBox: true, 
+        //runs when a code is typed in
+        onCodeChanged: (String code) {
+            //handle validation or checks here           
+        },
+        //runs when every textfield is filled
+        onSubmit: (String verificationCode){
+           
+        }, // end onSubmit
+    ),
+        SizedBox(height: 40),
+
+
+            CustomTextSigninOrSignUp(textbutton: "Save", onPressed: () {
+              controller.goToResetPassword();
+            }),
+            SizedBox(height: 40),
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -3,6 +3,7 @@ import 'package:bloomy/core/localization/changelocale.dart';
 import 'package:bloomy/core/localization/mytranslation.dart';
 import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/routes.dart';
+import 'package:bloomy/testpackages.dart';
 import 'package:bloomy/view/screen/language.dart';
 
 import 'package:flutter/material.dart';
@@ -61,7 +62,9 @@ class MyApp extends StatelessWidget {
           ), 
         ),
       ),
-      home: LanguageApp(),
+      home: 
+      // TestPackages(),
+      LanguageApp(),
     );
   }
 }

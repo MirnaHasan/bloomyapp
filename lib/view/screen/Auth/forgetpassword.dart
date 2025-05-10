@@ -1,0 +1,61 @@
+
+
+
+import 'package:bloomy/controller/Authcontroller/forgetpasswordcontroller.dart';
+
+import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
+import 'package:bloomy/view/widget/auth/customtextauth.dart';
+import 'package:bloomy/view/widget/auth/customtextbodyauth.dart';
+import 'package:bloomy/view/widget/auth/customtextsigninorsignup.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class ForgetPassword extends StatelessWidget {
+  const ForgetPassword({super.key});
+  @override
+  Widget build(BuildContext context) {
+    ForgetPasswordControllerImp controller = Get.put(ForgetPasswordControllerImp());
+    return Scaffold(
+      body: Container(
+        alignment: Alignment.center,
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+        child: ListView(
+          children: [
+            SizedBox(height: 40),
+            Text(
+              textAlign: TextAlign.center,
+
+              "Forget Password",
+
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            SizedBox(height: 20),
+            CustomTextAuth(title: "Check Your Email"),
+               SizedBox(height: 20),
+
+            CustomTextBody(text: "Please Enter Your Email To Recieve Verification Code To mirna@gmail.com"),
+            SizedBox(height: 40),
+            CustomMaterialButtonAuth(
+              labelText: "Email",
+              hintText: "Enter your email",
+              icon: Icon(Icons.email_outlined),
+              myController: controller.email,
+            ),
+          
+            SizedBox(height: 40),
+
+         
+       
+        
+            CustomTextSigninOrSignUp(
+              textbutton: "Check ",
+              onPressed: () {
+                controller.goToVerifyCode();
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

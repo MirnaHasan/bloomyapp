@@ -10,6 +10,7 @@ import 'package:bloomy/view/widget/auth/logoauth.dart';
 
 
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/instance_manager.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -48,8 +49,13 @@ class SignInScreen extends StatelessWidget {
         CustomMaterialButtonAuth(labelText: "Password", hintText:  "Enter your password",
            icon:  Icon(Icons.lock_clock_outlined), myController: controller.password,),
           SizedBox(height: 10,), 
-          Text( textAlign: TextAlign.right ,
-            "Forgot password ? ", style: Theme.of(context).textTheme.titleSmall) ,
+          InkWell(
+          onTap: () {
+            controller.goToForgetPaaword();
+          },
+            child: Text( textAlign: TextAlign.right ,
+              "Forgot password ? ", style: Theme.of(context).textTheme.titleSmall),
+          ) ,
                SizedBox(height: 30,),
             CustomTextSigninOrSignUp(textbutton: "Sign In", onPressed: (){
               controller.signIn();
