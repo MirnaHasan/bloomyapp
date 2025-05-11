@@ -1,55 +1,36 @@
-
 import 'package:bloomy/core/constant/approutes.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-abstract class SignUpController extends GetxController{
-goToSignIn();
-  signUp();
-
+abstract class ResetPassword extends GetxController {
+  goToSuccessResetPassword();
+  resetPassword();
 }
 
-class SignUpControllerImp extends SignUpController{
-    @override
-  signUp() {
-   
-    throw UnimplementedError();
-  }
-  
-
-  late TextEditingController email ; 
-  late TextEditingController password ;
-  
-  late TextEditingController username ; 
-  
-  late TextEditingController phone; 
+class ResetPasswordControllerImp extends ResetPassword {
+  late TextEditingController password;
+  late TextEditingController repassword;
   @override
-  goToSignIn() {
-      Get.toNamed(AppRoutes.signInScreen);
-  
+  resetPassword() {}
+
+  @override
+  goToSuccessResetPassword() {
+    Get.toNamed(AppRoutes.successrestpassword);
   }
 
-  
-
-
-@override
+  @override
   void onInit() {
-   email = TextEditingController();
-   password= TextEditingController();
-     username= TextEditingController();
-       phone= TextEditingController();
+    password = TextEditingController();
+    repassword = TextEditingController();
+
     super.onInit();
   }
+
   @override
   void dispose() {
-  email.dispose() ;
-  password.dispose();
-  username.dispose();
-  phone.dispose();
+    password.dispose();
+    repassword.dispose();
+
     super.dispose();
   }
-  
-
 }

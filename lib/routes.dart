@@ -7,6 +7,8 @@ import 'package:bloomy/view/screen/Auth/signinscreen.dart';
 
 import 'package:bloomy/view/screen/Auth/signinsignup.dart';
 import 'package:bloomy/view/screen/Auth/signupscreen.dart';
+import 'package:bloomy/view/screen/Auth/success_signup.dart';
+import 'package:bloomy/view/screen/Auth/successresetpassword.dart';
 import 'package:bloomy/view/screen/Auth/verifycode.dart';
 import 'package:bloomy/view/screen/homescreen.dart';
 
@@ -22,6 +24,9 @@ Map <String , Widget Function (BuildContext)> routes = {
   AppRoutes.homeScreen       : (context)=> HomeScreen() ,
   AppRoutes.forgetpassword   : (context)=> ForgetPassword() ,
   AppRoutes.resetpassword    : (context)=> ResetPassword() ,
-  AppRoutes.verifycode       : (context)=> Verifycode() ,
+  AppRoutes.verifycode       : (context)=> Verifycode(),
+  AppRoutes.successSignup       : (context)=> SuceessSignUp() ,
+  AppRoutes.successrestpassword       : (context)=> SuccessResetPassword(),
+
   
 };

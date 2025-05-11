@@ -7,40 +7,34 @@ import 'package:get/get.dart';
 
 abstract class VerifyCodeController extends GetxController{
 goToResetPassword();
-  signUp();
+  checkCode();
 
 }
 
 class  VerifyCodeControllerImp extends  VerifyCodeController{
+ late String verifyCode ;
     @override
-  signUp() {
+  checkCode() {
    
   
   }
-  
-
-
-  @override
- 
-
-  
-
+    @override
+  goToResetPassword() {
+Get.offNamed(AppRoutes.resetpassword);
+  }
 
 @override
   void onInit() {
  
     super.onInit();
   }
-  @override
-  void dispose() {
+  // @override
+  // void dispose() {
 
-    super.dispose();
-  }
+  //   super.dispose();
+  // }
   
-  @override
-  goToResetPassword() {
-Get.offNamed(AppRoutes.resetpassword);
-  }
+
   
 
 }

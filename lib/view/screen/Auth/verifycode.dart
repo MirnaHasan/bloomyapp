@@ -1,18 +1,18 @@
 
 
 import 'package:bloomy/controller/Authcontroller/verifycodecontroller.dart';
+import 'package:bloomy/view/widget/auth/customtextauth.dart';
 import 'package:bloomy/view/widget/auth/customtextbodyauth.dart';
-import 'package:bloomy/view/widget/auth/customtextsigninorsignup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 
 class Verifycode extends StatelessWidget {
   const Verifycode({super.key});
   @override
   Widget build(BuildContext context) {
-    VerifyCodeControllerImp controller = Get.put(VerifyCodeControllerImp ());
+    VerifyCodeControllerImp controller = Get.put(VerifyCodeControllerImp());
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
@@ -25,33 +25,33 @@ class Verifycode extends StatelessWidget {
 
               "Verification Code",
 
-              style: Theme.of(context).textTheme.titleLarge,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
             SizedBox(height: 20),
-            CustomTextBody(text: "Check Code"),
+            CustomTextAuth(title: "Check Code"),
+            SizedBox(height: 40),
+
+            CustomTextBody(
+              text: "Please Enter The Digit Code Sent To mirna@gmail.com",
+            ),
             SizedBox(height: 40),
             OtpTextField(
+              borderWidth: 2,
               fieldWidth: 50,
               borderRadius: BorderRadius.circular(20),
-        numberOfFields: 5,
-        borderColor: Color(0xFF512DA8),
-        //set to true to show as box or false to show as dash
-        showFieldAsBox: true, 
-        //runs when a code is typed in
-        onCodeChanged: (String code) {
-            //handle validation or checks here           
-        },
-        //runs when every textfield is filled
-        onSubmit: (String verificationCode){
-           
-        }, // end onSubmit
-    ),
-        SizedBox(height: 40),
-
-
-            CustomTextSigninOrSignUp(textbutton: "Save", onPressed: () {
-              controller.goToResetPassword();
-            }),
+              numberOfFields: 5,
+              borderColor: Color(0xFF512DA8),
+              //set to true to show as box or false to show as dash
+              showFieldAsBox: true,
+              //runs when a code is typed in
+              onCodeChanged: (String code) {
+                //handle validation or checks here
+              },
+              //runs when every textfield is filled
+              onSubmit: (String verificationCode) {
+                controller.goToResetPassword();
+              }, // end onSubmit
+            ),
             SizedBox(height: 40),
           ],
         ),

@@ -12,6 +12,7 @@ final String text ;
       text ,
        textAlign: TextAlign.center ,
         
-          style: Theme.of(context).textTheme.bodySmall!.copyWith(color: AppColor.accentGrey),);
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.normal,
+            color: const Color.fromARGB(179, 39, 39, 39)),);
   }
 }

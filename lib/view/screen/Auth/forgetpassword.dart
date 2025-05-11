@@ -27,13 +27,13 @@ class ForgetPassword extends StatelessWidget {
 
               "Forget Password",
 
-              style: Theme.of(context).textTheme.titleLarge,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 50),
             CustomTextAuth(title: "Check Your Email"),
-               SizedBox(height: 20),
+               SizedBox(height: 35),
 
-            CustomTextBody(text: "Please Enter Your Email To Recieve Verification Code To mirna@gmail.com"),
+            CustomTextBody(text: "Please Enter Your Email To Recieve Verification Code "),
             SizedBox(height: 40),
             CustomMaterialButtonAuth(
               labelText: "Email",

@@ -3,7 +3,7 @@ import 'package:bloomy/core/localization/changelocale.dart';
 import 'package:bloomy/core/localization/mytranslation.dart';
 import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/routes.dart';
-import 'package:bloomy/testpackages.dart';
+
 import 'package:bloomy/view/screen/language.dart';
 
 import 'package:flutter/material.dart';
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
             color: Colors.black
           ), 
           titleLarge: TextStyle(
-            fontSize: 20, 
+            fontSize: 26, 
             fontWeight: FontWeight.bold,
          color: Colors.black
           ), 
@@ -53,10 +53,10 @@ class MyApp extends StatelessWidget {
           bodyMedium: TextStyle(
             fontSize: 20, 
             fontWeight: FontWeight.bold,
-            color: Colors.black
+            color: const Color.fromARGB(255, 125, 123, 123)
           ), 
           bodySmall:  TextStyle(
-            fontSize: 17, 
+            fontSize: 16, 
             fontWeight: FontWeight.bold,
             color: const Color.fromARGB(255, 255, 255, 255)
           ), 

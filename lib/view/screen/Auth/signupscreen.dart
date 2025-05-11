@@ -1,19 +1,18 @@
 
 
 
-import 'package:bloomy/controller/Authcontroller/signincontroller.dart';
+
 import 'package:bloomy/controller/Authcontroller/signupcontroller.dart';
-import 'package:bloomy/core/constant/appcolor.dart';
+
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
-import 'package:bloomy/view/widget/auth/customtextauth.dart';
+
 import 'package:bloomy/view/widget/auth/customtextbodyauth.dart';
 import 'package:bloomy/view/widget/auth/customtextsigninorsignup.dart';
-import 'package:bloomy/view/widget/auth/logoauth.dart';
 
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
+
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});

@@ -1,6 +1,8 @@
 
-import 'package:bloomy/controller/Authcontroller/signupcontroller.dart';
+import 'package:bloomy/controller/Authcontroller/resetpasswordcontroller.dart';
+
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
+import 'package:bloomy/view/widget/auth/customtextauth.dart';
 import 'package:bloomy/view/widget/auth/customtextbodyauth.dart';
 import 'package:bloomy/view/widget/auth/customtextsigninorsignup.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +12,7 @@ class ResetPassword extends StatelessWidget {
   const ResetPassword({super.key});
   @override
   Widget build(BuildContext context) {
-    SignUpControllerImp controller = Get.put(SignUpControllerImp());
+ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
@@ -21,50 +23,35 @@ class ResetPassword extends StatelessWidget {
             Text(
               textAlign: TextAlign.center,
 
-              "Forget Password",
+              "Reset Password",
 
-              style: Theme.of(context).textTheme.titleLarge,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
             SizedBox(height: 20),
-            CustomTextBody(text: "Sign up with your email and password"),
+            CustomTextAuth(title: "New Password"),
             SizedBox(height: 40),
-            CustomMaterialButtonAuth(
-              labelText: "Email",
-              hintText: "Enter your email",
-              icon: Icon(Icons.email_outlined),
-              myController: controller.email,
-            ),
-            SizedBox(height: 40),
-            CustomMaterialButtonAuth(
-              labelText: "username",
-              hintText: "Enter your username",
-              icon: Icon(Icons.person_2_outlined),
-              myController: controller.username,
-            ),
-            SizedBox(height: 40),
-
+               CustomTextBody(text: "Please Enter New Password"),
+                SizedBox(height: 40),
             CustomMaterialButtonAuth(
               labelText: "Password",
               hintText: "Enter your password",
               icon: Icon(Icons.lock_clock_outlined),
               myController: controller.password,
             ),
-            SizedBox(height: 40),
+           SizedBox(height: 40),
+
             CustomMaterialButtonAuth(
-              labelText: "phone",
-              hintText: "Enter your phone",
-              icon: Icon(Icons.phone_android_outlined),
-              myController: controller.phone,
+              labelText: "RePassword",
+              hintText: "Re-enter your password",
+              icon: Icon(Icons.lock_clock_outlined),
+              myController: controller.repassword,
             ),
+          
             SizedBox(height: 80),
-            CustomTextSigninOrSignUp(textbutton: "Sign Up", onPressed: () {}),
-            SizedBox(height: 40),
-            CustomTextSigninOrSignUp(
-              textbutton: "Sign In",
-              onPressed: () {
-                controller.goToSignIn();
-              },
-            ),
+            CustomTextSigninOrSignUp(textbutton: "Save", onPressed: () {
+              controller.goToSuccessResetPassword();
+            }),
+          
           ],
         ),
       ),
