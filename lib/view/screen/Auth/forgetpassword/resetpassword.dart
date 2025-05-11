@@ -41,7 +41,7 @@ ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
            SizedBox(height: 40),
 
             CustomMaterialButtonAuth(
-              labelText: "RePassword",
+              labelText: "Password",
               hintText: "Re-enter your password",
               icon: Icon(Icons.lock_clock_outlined),
               myController: controller.repassword,

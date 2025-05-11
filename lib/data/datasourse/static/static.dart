@@ -2,15 +2,16 @@
 
 import 'package:bloomy/core/constant/appimages.dart';
 import 'package:bloomy/data/model/onboardingmodel.dart';
+import 'package:get/get_utils/get_utils.dart';
 
 List<onBoardingModel> onBoardingList = [
-  onBoardingModel(title: "مستعد تنشر البهجة و الحب ؟\n سجل الآن و ابدأ رحلتك العطرية", image: AppImageAsset.onBoardingImageOne),
+  onBoardingModel(title:"5".tr, image: AppImageAsset.onBoardingImageOne),
   onBoardingModel(
-    title: "اكتشف جمال الطبيعة بلمسة واحدة\n زهور تنبض بالحياة لأجلك",
+    title: "6".tr,
     image: AppImageAsset.onBoardingImageTwo,
   ),
   onBoardingModel(
-    title: "اختر باقتك المثالية في ثوان\n حسب المناسبة-حسب ذوقك",
+    title:"7".tr ,
     image: AppImageAsset.onBoardingImageThree,
   ),
 ];

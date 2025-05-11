@@ -51,7 +51,7 @@ class SignUpScreen extends StatelessWidget {
            icon:  Icon(Icons.phone_android_outlined), myController: controller.phone,),
             SizedBox(height: 80,),
           CustomTextSigninOrSignUp(textbutton: "Sign Up", onPressed: (){
-           
+           controller.signUp();
           }) ,
           SizedBox(height: 40,),
            CustomTextSigninOrSignUp(textbutton: "Sign In", onPressed: (){

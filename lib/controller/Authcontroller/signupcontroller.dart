@@ -12,7 +12,7 @@ class SignUpControllerImp extends SignUpController{
     @override
   signUp() {
    
-    throw UnimplementedError();
+    Get.offNamed(AppRoutes.checkEmail);
   }
   
 
@@ -24,7 +24,7 @@ class SignUpControllerImp extends SignUpController{
   late TextEditingController phone; 
   @override
   goToSignIn() {
-      Get.toNamed(AppRoutes.signInScreen);
+      Get.offNamed(AppRoutes.signInScreen);
   
   }
 
@@ -33,10 +33,10 @@ class SignUpControllerImp extends SignUpController{
 
 @override
   void onInit() {
-   email = TextEditingController();
-   password= TextEditingController();
-     username= TextEditingController();
-       phone= TextEditingController();
+  email = TextEditingController();
+  password= TextEditingController();
+  username= TextEditingController();
+  phone= TextEditingController();
     super.onInit();
   }
   @override

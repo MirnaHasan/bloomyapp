@@ -2,12 +2,12 @@ import 'package:bloomy/core/constant/approutes.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-abstract class ResetPassword extends GetxController {
+abstract class ResetPasswordController extends GetxController {
   goToSuccessResetPassword();
   resetPassword();
 }
 
-class ResetPasswordControllerImp extends ResetPassword {
+class ResetPasswordControllerImp extends ResetPasswordController {
   late TextEditingController password;
   late TextEditingController repassword;
   @override
@@ -15,7 +15,7 @@ class ResetPasswordControllerImp extends ResetPassword {
 
   @override
   goToSuccessResetPassword() {
-    Get.toNamed(AppRoutes.successrestpassword);
+    Get.offNamed(AppRoutes.successrestpassword);
   }
 
   @override

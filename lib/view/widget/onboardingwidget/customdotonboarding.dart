@@ -24,8 +24,8 @@ class CustomDotOnBoarding extends StatelessWidget {
                          color: const Color.fromARGB(255, 121, 167, 61),
                         borderRadius: BorderRadius.circular(6),
                       ),
-                      height: 8,
-                      width: controller.currentPage == index ? 26 : 6 ,
+                      height: 5,
+                      width: controller.currentPage == index ? 27 : 6 ,
 
                       duration: Duration(milliseconds: 900),
                     ),

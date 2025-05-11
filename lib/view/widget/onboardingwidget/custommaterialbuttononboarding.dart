@@ -3,6 +3,7 @@
 import 'package:bloomy/controller/onboardingcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
+import 'package:get/utils.dart';
 
 class CustomMaterialButtonOnBoarding extends GetView <OnBoardingControllerImp> {
    CustomMaterialButtonOnBoarding({super.key,});
@@ -17,7 +18,7 @@ class CustomMaterialButtonOnBoarding extends GetView <OnBoardingControllerImp> {
                   padding: EdgeInsets.symmetric(horizontal: 60 , vertical: 10),
                   color: const Color.fromARGB(255, 121, 167, 61),
                   onPressed: (){controller.next();}, 
-                child: Text("Continue", 
+                child: Text("4".tr, 
                 style: TextStyle(fontSize: 20),),
                 ),
     );
