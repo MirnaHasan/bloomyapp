@@ -1,6 +1,11 @@
 
 
+
+//هذا الملف من اجل تغيير ثيم الخط عند اختيار اللغة الانكليزية او العربية 
+// يجب ان يضاف الى sharedpref  لا تنسي ميرناااااا :) 
+
 import 'package:flutter/material.dart';
+
 
 ThemeData themeEnglish = ThemeData(
         fontFamily: "PlayfairDisplay",
