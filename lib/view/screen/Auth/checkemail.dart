@@ -54,7 +54,7 @@ class CheckEmail extends StatelessWidget {
             CustomTextSigninOrSignUp(
               textbutton: "Check ",
               onPressed: () {
-                Controller.goToSuccessSignUp();
+                Controller.goToVerifySignUp();
               },
             ),
           ],

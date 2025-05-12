@@ -1,17 +1,20 @@
 
 
+import 'package:bloomy/controller/Authcontroller/successsignupcontroller.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/view/widget/auth/customtextauth.dart';
 
 import 'package:bloomy/view/widget/auth/customtextsigninorsignup.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
+import 'package:get/get.dart';
 
 class SuceessSignUp extends StatelessWidget {
   const SuceessSignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    SuccessSignUpControllerImp controller = Get.put( SuccessSignUpControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -30,7 +33,7 @@ class SuceessSignUp extends StatelessWidget {
             CustomTextAuth(title: "تم التأكد من بريدك الإلكتروني بنجاح") ,
             Spacer() , 
             CustomTextSigninOrSignUp(textbutton: " Go To Sign In", onPressed: (){
-            
+            controller.goToSignInPage();
            
           }) ,
           SizedBox(height: 50,)

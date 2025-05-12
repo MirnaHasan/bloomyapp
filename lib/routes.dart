@@ -11,6 +11,7 @@ import 'package:bloomy/view/screen/Auth/signupscreen.dart';
 import 'package:bloomy/view/screen/Auth/success_signup.dart';
 import 'package:bloomy/view/screen/Auth/forgetpassword/successresetpassword.dart';
 import 'package:bloomy/view/screen/Auth/forgetpassword/verifycode.dart';
+import 'package:bloomy/view/screen/Auth/verifycodesignup.dart';
 import 'package:bloomy/view/screen/homescreen.dart';
 
 import 'package:bloomy/view/screen/onboardingscreen.dart';
@@ -29,7 +30,7 @@ Map <String , Widget Function (BuildContext)> routes = {
   AppRoutes.successSignup             : (context)=> SuceessSignUp() ,
   AppRoutes.successrestpassword       : (context)=> SuccessResetPassword(),
   AppRoutes.checkEmail                : (context)=> CheckEmail(),
-  
+   AppRoutes.verifycodesignup         : (context)=> VerifyCodeSignUp(),
 
   
 };

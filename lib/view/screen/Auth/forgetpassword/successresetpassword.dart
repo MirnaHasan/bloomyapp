@@ -1,16 +1,20 @@
 
 
+import 'package:bloomy/controller/Authcontroller/successresetpasswordcontroller.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/view/widget/auth/customtextauth.dart';
 import 'package:bloomy/view/widget/auth/customtextsigninorsignup.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
 
 class SuccessResetPassword extends StatelessWidget {
   const SuccessResetPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
+     SuccessResetPasswordControllerImp controller = Get.put( SuccessResetPasswordControllerImp());
     return  Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -29,7 +33,7 @@ class SuccessResetPassword extends StatelessWidget {
             CustomTextAuth(title: "تم تغيير كلمة السر  بنجاح") ,
             Spacer() , 
             CustomTextSigninOrSignUp(textbutton: " Go To Sign In", onPressed: (){
-            
+            controller.goToSignInPage();
            
           }) ,
           SizedBox(height: 50,)
