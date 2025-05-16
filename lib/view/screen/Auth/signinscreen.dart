@@ -2,7 +2,7 @@
 
 
 import 'package:bloomy/controller/Authcontroller/signincontroller.dart';
-import 'package:bloomy/core/functions/inputvalid.dart';
+import 'package:bloomy/core/functions/validinput.dart';
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
 import 'package:bloomy/view/widget/auth/customtextauth.dart';
 import 'package:bloomy/view/widget/auth/customtextbodyauth.dart';
@@ -47,17 +47,15 @@ class SignInScreen extends StatelessWidget {
            LogoAuth(),
             SizedBox(height: 30,) , 
             CustomMaterialButtonAuth(
+              isNumber: false,
+              valid: (val) { return validInput(val!, 8, 20, "email"); },
               labelText: "Email", hintText:  "Enter your email",
-             icon:  Icon(Icons.email_outlined), myController: controller.email,
-              valid: (val) {
-                return validInput(val!, 8, 30, "email");
-                },),
+             icon:  Icon(Icons.email_outlined), myController: controller.email,),
             SizedBox(height: 20,),
           
           CustomMaterialButtonAuth(
-             valid: (val) {
-                return validInput(val!, 7, 30, "password");
-                },
+              isNumber: false,
+            valid: (val) { return validInput(val!, 6, 20, "email"); },
             labelText: "Password", hintText:  "Enter your password",
              icon:  Icon(Icons.lock_clock_outlined), myController: controller.password,),
             SizedBox(height: 30,), 
@@ -68,11 +66,23 @@ class SignInScreen extends StatelessWidget {
               child: Text( textAlign: TextAlign.right ,
                 "Forgot password ? ", style: Theme.of(context).textTheme.titleSmall),
             ) ,
-                 SizedBox(height: 50,),
+                 SizedBox(height: 30,),
               CustomTextSigninOrSignUp(textbutton: "Sign In", onPressed: (){
                 controller.signIn();
                 
               }) ,
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                Text("Do you have an account? ",
+                 style: Theme.of(context).textTheme.titleSmall) ,
+                InkWell(onTap: () {
+                  controller.signUp();
+                },
+                child: Text("   Sing Up" ,
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(color: Colors.red))), 
+              ],)
             
               
            

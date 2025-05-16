@@ -18,7 +18,7 @@ class Verifycode extends StatelessWidget {
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
         child: Form(
-          key: controller.formState,
+          // key: controller.formState,
           child: ListView(
             children: [
               SizedBox(height: 40),
@@ -47,7 +47,7 @@ class Verifycode extends StatelessWidget {
                 showFieldAsBox: true,
                 //runs when a code is typed in
                 onCodeChanged: (String code) {
-                 controller.checkCode();
+              
                 },
                 //runs when every textfield is filled
                 onSubmit: (String verificationCode) {

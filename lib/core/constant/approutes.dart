@@ -5,7 +5,7 @@ class AppRoutes{
   //onBoardingRoute :)
   static const String onBoarding                  = "/onboarding";
   //AuthRoutes :)
-  static const String signInsignUp                = "/signInsignUp";
+ 
   static const String signInScreen                = "/signInScreen";
   static const String signUpScreen                = "/signUpScreen";
   static const String homeScreen                  = "/homecreen";

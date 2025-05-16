@@ -2,7 +2,7 @@
 
 
 import 'package:bloomy/controller/Authcontroller/forgetpasswordcontroller.dart';
-import 'package:bloomy/core/functions/inputvalid.dart';
+import 'package:bloomy/core/functions/validinput.dart';
 
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
 import 'package:bloomy/view/widget/auth/customtextauth.dart';
@@ -20,7 +20,8 @@ class ForgetPassword extends StatelessWidget {
       body: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-        child: Form(
+        child: 
+        Form(
           key: controller.formState,
           child: ListView(
             children: [
@@ -39,9 +40,8 @@ class ForgetPassword extends StatelessWidget {
               CustomTextBody(text: "Please Enter Your Email To Recieve Verification Code "),
               SizedBox(height: 40),
               CustomMaterialButtonAuth(
-                 valid: (val ) {
-                return validInput(val!, 8, 30, "email");
-                },
+                  isNumber: false,
+                 valid: (val) { return validInput(val!, 8, 20, "password"); },
                 labelText: "Email",
                 hintText: "Enter your email",
                 icon: Icon(Icons.email_outlined),
@@ -57,7 +57,6 @@ class ForgetPassword extends StatelessWidget {
                 textbutton: "Check ",
                 onPressed: () {
                   controller.checkEmail();
-                   controller.goToVerifyCode();
                 },
               ),
             ],

@@ -20,7 +20,7 @@ late PageController pageController ;
   next() {
 currentPage++;
 if(currentPage > onBoardingList.length-1 ){
-      Get.offNamed(AppRoutes.signInsignUp);
+      Get.offNamed(AppRoutes.signInScreen);
     }
   pageController.animateToPage(currentPage,
    duration: Duration(milliseconds: 900),

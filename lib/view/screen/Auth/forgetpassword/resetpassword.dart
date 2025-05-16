@@ -1,6 +1,6 @@
 
 import 'package:bloomy/controller/Authcontroller/resetpasswordcontroller.dart';
-import 'package:bloomy/core/functions/inputvalid.dart';
+import 'package:bloomy/core/functions/validinput.dart';
 
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
 import 'package:bloomy/view/widget/auth/customtextauth.dart';
@@ -18,7 +18,8 @@ ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
       body: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-        child: Form(
+        child: 
+        Form(
           key: controller.formState,
           child: ListView(
             children: [
@@ -36,9 +37,8 @@ ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
                  CustomTextBody(text: "Please Enter New Password"),
                   SizedBox(height: 40),
               CustomMaterialButtonAuth(
-                 valid: (val ) {
-                return validInput(val!, 7, 20, "password");
-                },
+                  isNumber: false,
+                valid: (val) { return validInput(val!, 6, 20, "password"); },
                 labelText: "Password",
                 hintText: "Enter your password",
                 icon: Icon(Icons.lock_clock_outlined),
@@ -47,9 +47,8 @@ ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
              SizedBox(height: 40),
           
               CustomMaterialButtonAuth(
-                 valid: (val ) {
-                return validInput(val!, 7, 20, "password");
-                },
+                  isNumber: false,
+                 valid: (val) { return validInput(val!, 6, 20, "password"); },
                 labelText: "Password",
                 hintText: "Re-enter your password",
                 icon: Icon(Icons.lock_clock_outlined),
@@ -59,7 +58,6 @@ ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
               SizedBox(height: 80),
               CustomTextSigninOrSignUp(textbutton: "Save", onPressed: () {
                 controller.resetPassword();
-                // controller.goToSuccessResetPassword();
               }),
             
             ],

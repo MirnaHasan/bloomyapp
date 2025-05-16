@@ -3,7 +3,7 @@
 
 
 import 'package:bloomy/controller/Authcontroller/signupcontroller.dart';
-import 'package:bloomy/core/functions/inputvalid.dart';
+import 'package:bloomy/core/functions/validinput.dart';
 
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
 
@@ -20,10 +20,11 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   SignUpControllerImp controller = Get.put(SignUpControllerImp());
+   Get.lazyPut(()=>SignUpControllerImp());
     return Scaffold(
 
-      body: Container(
+      body: 
+      GetBuilder<SignUpControllerImp>(builder: (controller)=>Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30 , vertical: 10),
         child: 
@@ -44,33 +45,24 @@ class SignUpScreen extends StatelessWidget {
               CustomMaterialButtonAuth(
                 
                 labelText: "Email", hintText:  "Enter your email",
-             icon:  Icon(Icons.email_outlined), myController: controller.email,
-              valid: (val ) {
-                return validInput(val!, 8, 30, "email");
-                },
-              ), 
+             icon:  Icon(Icons.email_outlined), myController: controller.email, 
+             valid: (val) { return validInput(val!, 8, 20, "email"); }, isNumber: false,), 
             SizedBox(height: 40,) , 
             CustomMaterialButtonAuth(
-               valid: (val ) {
-                return validInput(val!, 5, 20, "username");
-                },
-              
+              isNumber: false,
+              valid: (val) { return validInput(val!, 2, 20, "username"); },
               labelText: "username", hintText:  "Enter your username",
              icon:  Icon(Icons.person_2_outlined), myController: controller.username,),
             SizedBox(height: 40,),
           
           CustomMaterialButtonAuth(
-             valid: (val ) {
-                return validInput(val!, 6, 30, "password");
-                },
-            
+            valid: (val) { return validInput(val!, 6, 20, "password"); },
             labelText: "Password", hintText:  "Enter your password",
-             icon:  Icon(Icons.lock_clock_outlined), myController: controller.password),
+             icon:  Icon(Icons.lock_clock_outlined), myController: controller.password, isNumber: false,),
             SizedBox(height: 40,),
                CustomMaterialButtonAuth(
-                 valid: (val ) {
-                return validInput(val!, 10, 30, "phone");
-                },
+                isNumber: true,
+                valid: (val) { return validInput(val!, 6, 20, "phone"); },
                 
                 labelText: "phone", hintText:  "Enter your phone",
              icon:  Icon(Icons.phone_android_outlined), myController: controller.phone,),
@@ -79,10 +71,17 @@ class SignUpScreen extends StatelessWidget {
              controller.signUp();
             }) ,
             SizedBox(height: 40,),
-             CustomTextSigninOrSignUp(textbutton: "Sign In", onPressed: (){
-              controller.goToSignIn();
-             
-            }) ,
+                Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                Text("if you have an account? ",
+                 style: Theme.of(context).textTheme.titleSmall) ,
+                InkWell(onTap: () {
+                 controller.goToSignIn();
+                },
+                child: Text("   Sing In" ,
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(color: Colors.red))), 
+              ],)
              
                  
           
@@ -90,7 +89,7 @@ class SignUpScreen extends StatelessWidget {
            
           ],
                 ),
-        )),
+        )),)
     );
   }
 }

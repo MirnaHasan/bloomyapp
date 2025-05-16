@@ -15,15 +15,15 @@ goToResetPassword();
 class  VerifyCodeControllerImp extends  VerifyCodeController{
  late String verifyCode ;
  
-  GlobalKey <FormState> formState = GlobalKey<FormState>();
+  // GlobalKey <FormState> formState = GlobalKey<FormState>();
     @override
   checkCode() {
-     var formData = formState.currentState ;
- if (formData!.validate()){
-  print("valllid");
- }else{
-  print("not valid");
- }
+//      var formData = formState.currentState ;
+//  if (formData!.validate()){
+//   print("valllid");
+//  }else{
+//   print("not valid");
+//  }
    
   
   }

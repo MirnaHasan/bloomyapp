@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 abstract class ResetPasswordController extends GetxController {
-  goToSuccessResetPassword();
+  // goToSuccessResetPassword();
   resetPassword();
 }
 
@@ -16,6 +16,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   resetPassword() {
     var formData = formState.currentState ;
  if (formData!.validate()){
+    Get.offNamed(AppRoutes.successrestpassword);
   print("valllid");
  }else{
   print("not valid");
@@ -23,9 +24,9 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   }
 
   @override
-  goToSuccessResetPassword() {
-    Get.offNamed(AppRoutes.successrestpassword);
-  }
+  // goToSuccessResetPassword() {
+  
+  // }
 
   @override
   void onInit() {

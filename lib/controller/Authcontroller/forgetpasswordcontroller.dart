@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 abstract class ForgetPasswordController extends GetxController{
-goToVerifyCode();
+// goToVerifyCode();
   checkEmail();
 
 }
@@ -15,6 +15,7 @@ class ForgetPasswordControllerImp extends ForgetPasswordController{
   checkEmail() {
     var formData = formState.currentState ;
  if (formData!.validate()){
+   Get.offNamed(AppRoutes.verifycode);
   print("valllid");
  }else{
   print("not valid");
@@ -26,10 +27,10 @@ class ForgetPasswordControllerImp extends ForgetPasswordController{
   late TextEditingController email ; 
 
   @override
-  goToVerifyCode(){
-      Get.offNamed(AppRoutes.verifycode);
+  // goToVerifyCode(){
+     
   
-  }
+  // }
 
   
 
