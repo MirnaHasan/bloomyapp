@@ -2,6 +2,7 @@
 
 
 import 'package:bloomy/controller/Authcontroller/forgetpasswordcontroller.dart';
+import 'package:bloomy/core/functions/inputvalid.dart';
 
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
 import 'package:bloomy/view/widget/auth/customtextauth.dart';
@@ -19,41 +20,48 @@ class ForgetPassword extends StatelessWidget {
       body: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-        child: ListView(
-          children: [
-            SizedBox(height: 40),
-            Text(
-              textAlign: TextAlign.center,
-
-              "Forget Password",
-
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            SizedBox(height: 50),
-            CustomTextAuth(title: "Check Your Email"),
-               SizedBox(height: 35),
-
-            CustomTextBody(text: "Please Enter Your Email To Recieve Verification Code "),
-            SizedBox(height: 40),
-            CustomMaterialButtonAuth(
-              labelText: "Email",
-              hintText: "Enter your email",
-              icon: Icon(Icons.email_outlined),
-              myController: controller.email,
-            ),
+        child: Form(
+          key: controller.formState,
+          child: ListView(
+            children: [
+              SizedBox(height: 40),
+              Text(
+                textAlign: TextAlign.center,
           
-            SizedBox(height: 40),
-
-         
-       
-        
-            CustomTextSigninOrSignUp(
-              textbutton: "Check ",
-              onPressed: () {
-                controller.goToVerifyCode();
-              },
-            ),
-          ],
+                "Forget Password",
+          
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              SizedBox(height: 50),
+              CustomTextAuth(title: "Check Your Email"),
+                 SizedBox(height: 35),
+          
+              CustomTextBody(text: "Please Enter Your Email To Recieve Verification Code "),
+              SizedBox(height: 40),
+              CustomMaterialButtonAuth(
+                 valid: (val ) {
+                return validInput(val!, 8, 30, "email");
+                },
+                labelText: "Email",
+                hintText: "Enter your email",
+                icon: Icon(Icons.email_outlined),
+                myController: controller.email,
+              ),
+            
+              SizedBox(height: 40),
+          
+           
+                 
+          
+              CustomTextSigninOrSignUp(
+                textbutton: "Check ",
+                onPressed: () {
+                  controller.checkEmail();
+                   controller.goToVerifyCode();
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

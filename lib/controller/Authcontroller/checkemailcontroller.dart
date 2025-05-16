@@ -11,13 +11,20 @@ goToVerifySignUp() ;
 }
 class CheckEmailControllerImp extends CheckEmailController{
   late TextEditingController email ; 
+  
+  GlobalKey <FormState> formState = GlobalKey<FormState>();
     @override
   checkEmail() {
- 
+ var formData = formState.currentState ;
+ if (formData!.validate()){
+  print("valllid");
+ }else{
+  print("not valid");
+ }
   }
   @override
   goToVerifySignUp(){
-      Get.offNamed(AppRoutes.verifycodesignup);
+      // Get.offNamed(AppRoutes.verifycodesignup);
   }
 @override
   void onInit() {

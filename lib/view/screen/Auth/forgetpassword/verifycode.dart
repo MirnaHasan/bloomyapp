@@ -17,43 +17,46 @@ class Verifycode extends StatelessWidget {
       body: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-        child: ListView(
-          children: [
-            SizedBox(height: 40),
-            Text(
-              textAlign: TextAlign.center,
-
-              "Verification Code",
-
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            SizedBox(height: 20),
-            CustomTextAuth(title: "Check Code"),
-            SizedBox(height: 40),
-
-            CustomTextBody(
-              text: "Please Enter The Digit Code Sent To mirna@gmail.com",
-            ),
-            SizedBox(height: 40),
-            OtpTextField(
-              borderWidth: 2,
-              fieldWidth: 50,
-              borderRadius: BorderRadius.circular(20),
-              numberOfFields: 5,
-              borderColor: Color(0xFF512DA8),
-              //set to true to show as box or false to show as dash
-              showFieldAsBox: true,
-              //runs when a code is typed in
-              onCodeChanged: (String code) {
-                //handle validation or checks here
-              },
-              //runs when every textfield is filled
-              onSubmit: (String verificationCode) {
-                controller.goToResetPassword();
-              }, // end onSubmit
-            ),
-            SizedBox(height: 40),
-          ],
+        child: Form(
+          key: controller.formState,
+          child: ListView(
+            children: [
+              SizedBox(height: 40),
+              Text(
+                textAlign: TextAlign.center,
+          
+                "Verification Code",
+          
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              SizedBox(height: 20),
+              CustomTextAuth(title: "Check Code"),
+              SizedBox(height: 40),
+          
+              CustomTextBody(
+                text: "Please Enter The Digit Code Sent To mirna@gmail.com",
+              ),
+              SizedBox(height: 40),
+              OtpTextField(
+                borderWidth: 2,
+                fieldWidth: 50,
+                borderRadius: BorderRadius.circular(20),
+                numberOfFields: 5,
+                borderColor: Color(0xFF512DA8),
+                //set to true to show as box or false to show as dash
+                showFieldAsBox: true,
+                //runs when a code is typed in
+                onCodeChanged: (String code) {
+                 controller.checkCode();
+                },
+                //runs when every textfield is filled
+                onSubmit: (String verificationCode) {
+                  controller.goToResetPassword();
+                }, // end onSubmit
+              ),
+              SizedBox(height: 40),
+            ],
+          ),
         ),
       ),
     );

@@ -1,5 +1,6 @@
 
 import 'package:bloomy/controller/Authcontroller/resetpasswordcontroller.dart';
+import 'package:bloomy/core/functions/inputvalid.dart';
 
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
 import 'package:bloomy/view/widget/auth/customtextauth.dart';
@@ -17,42 +18,52 @@ ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
       body: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-        child: ListView(
-          children: [
-            SizedBox(height: 40),
-            Text(
-              textAlign: TextAlign.center,
-
-              "Reset Password",
-
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            SizedBox(height: 20),
-            CustomTextAuth(title: "New Password"),
-            SizedBox(height: 40),
-               CustomTextBody(text: "Please Enter New Password"),
-                SizedBox(height: 40),
-            CustomMaterialButtonAuth(
-              labelText: "Password",
-              hintText: "Enter your password",
-              icon: Icon(Icons.lock_clock_outlined),
-              myController: controller.password,
-            ),
-           SizedBox(height: 40),
-
-            CustomMaterialButtonAuth(
-              labelText: "Password",
-              hintText: "Re-enter your password",
-              icon: Icon(Icons.lock_clock_outlined),
-              myController: controller.repassword,
-            ),
+        child: Form(
+          key: controller.formState,
+          child: ListView(
+            children: [
+              SizedBox(height: 40),
+              Text(
+                textAlign: TextAlign.center,
           
-            SizedBox(height: 80),
-            CustomTextSigninOrSignUp(textbutton: "Save", onPressed: () {
-              controller.goToSuccessResetPassword();
-            }),
+                "Reset Password",
           
-          ],
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              SizedBox(height: 20),
+              CustomTextAuth(title: "New Password"),
+              SizedBox(height: 40),
+                 CustomTextBody(text: "Please Enter New Password"),
+                  SizedBox(height: 40),
+              CustomMaterialButtonAuth(
+                 valid: (val ) {
+                return validInput(val!, 7, 20, "password");
+                },
+                labelText: "Password",
+                hintText: "Enter your password",
+                icon: Icon(Icons.lock_clock_outlined),
+                myController: controller.password,
+              ),
+             SizedBox(height: 40),
+          
+              CustomMaterialButtonAuth(
+                 valid: (val ) {
+                return validInput(val!, 7, 20, "password");
+                },
+                labelText: "Password",
+                hintText: "Re-enter your password",
+                icon: Icon(Icons.lock_clock_outlined),
+                myController: controller.repassword,
+              ),
+            
+              SizedBox(height: 80),
+              CustomTextSigninOrSignUp(textbutton: "Save", onPressed: () {
+                controller.resetPassword();
+                // controller.goToSuccessResetPassword();
+              }),
+            
+            ],
+          ),
         ),
       ),
     );

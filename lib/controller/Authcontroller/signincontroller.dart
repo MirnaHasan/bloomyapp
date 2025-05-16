@@ -15,9 +15,16 @@ class SignInControllerImp extends SignInController{
 
   late TextEditingController email ; 
   late TextEditingController password ;
+  GlobalKey <FormState> formState = GlobalKey<FormState>();
   @override
   signIn() {
-      // Get.toNamed(AppRoutes.homeScreen);
+    var formData = formState.currentState ;
+    if(formData!.validate()){
+      print("valid");
+    }else{
+      print("not valid");
+    }
+
   
   }
   @override

@@ -2,6 +2,7 @@
 
 
 import 'package:bloomy/controller/Authcontroller/signincontroller.dart';
+import 'package:bloomy/core/functions/inputvalid.dart';
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
 import 'package:bloomy/view/widget/auth/customtextauth.dart';
 import 'package:bloomy/view/widget/auth/customtextbodyauth.dart';
@@ -32,40 +33,52 @@ class SignInScreen extends StatelessWidget {
       body: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30 , vertical: 10),
-        child: ListView(
-        
-        children: [
+        child: 
+        Form(
+          key: controller.formState,
+          child: ListView(
           
-          CustomTextAuth(title: "BLOOMY WELCOME YOU") ,
-        SizedBox(height: 30,) ,
-          CustomTextBody(text: "Sign in with your email and password") ,
-          SizedBox(height: 40,),
-         LogoAuth(),
-          SizedBox(height: 30,) , 
-          CustomMaterialButtonAuth(labelText: "Email", hintText:  "Enter your email",
-           icon:  Icon(Icons.email_outlined), myController: controller.email,),
-          SizedBox(height: 20,),
-
-        CustomMaterialButtonAuth(labelText: "Password", hintText:  "Enter your password",
-           icon:  Icon(Icons.lock_clock_outlined), myController: controller.password,),
-          SizedBox(height: 30,), 
-          InkWell(
-          onTap: () {
-            controller.goToForgetPaaword();
-          },
-            child: Text( textAlign: TextAlign.right ,
-              "Forgot password ? ", style: Theme.of(context).textTheme.titleSmall),
-          ) ,
-               SizedBox(height: 50,),
-            CustomTextSigninOrSignUp(textbutton: "Sign In", onPressed: (){
-              controller.signIn();
-              
-            }) ,
-          
+          children: [
             
-         
-        ],
-      )),
+            CustomTextAuth(title: "BLOOMY WELCOME YOU") ,
+          SizedBox(height: 30,) ,
+            CustomTextBody(text: "Sign in with your email and password") ,
+            SizedBox(height: 40,),
+           LogoAuth(),
+            SizedBox(height: 30,) , 
+            CustomMaterialButtonAuth(
+              labelText: "Email", hintText:  "Enter your email",
+             icon:  Icon(Icons.email_outlined), myController: controller.email,
+              valid: (val) {
+                return validInput(val!, 8, 30, "email");
+                },),
+            SizedBox(height: 20,),
+          
+          CustomMaterialButtonAuth(
+             valid: (val) {
+                return validInput(val!, 7, 30, "password");
+                },
+            labelText: "Password", hintText:  "Enter your password",
+             icon:  Icon(Icons.lock_clock_outlined), myController: controller.password,),
+            SizedBox(height: 30,), 
+            InkWell(
+            onTap: () {
+              controller.goToForgetPaaword();
+            },
+              child: Text( textAlign: TextAlign.right ,
+                "Forgot password ? ", style: Theme.of(context).textTheme.titleSmall),
+            ) ,
+                 SizedBox(height: 50,),
+              CustomTextSigninOrSignUp(textbutton: "Sign In", onPressed: (){
+                controller.signIn();
+                
+              }) ,
+            
+              
+           
+          ],
+                ),
+        )),
     );
   }
 }

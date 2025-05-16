@@ -9,8 +9,16 @@ goToVerifyCode();
 
 }
 class ForgetPasswordControllerImp extends ForgetPasswordController{
+  
+  GlobalKey <FormState> formState = GlobalKey<FormState>();
     @override
   checkEmail() {
+    var formData = formState.currentState ;
+ if (formData!.validate()){
+  print("valllid");
+ }else{
+  print("not valid");
+ }
  
   }
   
