@@ -78,7 +78,7 @@ class SignInScreen extends StatelessWidget {
                 Text("Do you have an account? ",
                  style: Theme.of(context).textTheme.titleSmall) ,
                 InkWell(onTap: () {
-                  controller.signUp();
+                  controller.goTosignUp();
                 },
                 child: Text("   Sing Up" ,
                 style: Theme.of(context).textTheme.titleSmall!.copyWith(color: Colors.red))), 

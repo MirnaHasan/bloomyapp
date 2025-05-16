@@ -57,7 +57,7 @@ ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
             
               SizedBox(height: 80),
               CustomTextSigninOrSignUp(textbutton: "Save", onPressed: () {
-                controller.resetPassword();
+                controller.goToSuccessResetPassword();
               }),
             
             ],

@@ -56,7 +56,7 @@ class ForgetPassword extends StatelessWidget {
               CustomTextSigninOrSignUp(
                 textbutton: "Check ",
                 onPressed: () {
-                  controller.checkEmail();
+                  controller.goToVerifyCode();
                 },
               ),
             ],

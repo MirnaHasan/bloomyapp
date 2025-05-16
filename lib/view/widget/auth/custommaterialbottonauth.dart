@@ -13,7 +13,7 @@ class CustomMaterialButtonAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      keyboardType: isNumber? TextInputType.number : TextInputType.text,
+      keyboardType: isNumber? TextInputType.numberWithOptions(decimal: true) : TextInputType.text,
       validator: valid,
            controller: myController,
             decoration: InputDecoration(

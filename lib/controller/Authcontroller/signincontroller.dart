@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 
 abstract class SignInController extends GetxController{
 signIn();
-signUp();
+goTosignUp();
 goToForgetPaaword ();
 
 }
@@ -48,7 +48,7 @@ class SignInControllerImp extends SignInController{
   }
   
   @override
-  signUp() {
+  goTosignUp() {
   Get.offNamed(AppRoutes.signUpScreen);
   }
   
