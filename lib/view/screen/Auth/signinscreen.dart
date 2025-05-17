@@ -2,6 +2,7 @@
 
 
 import 'package:bloomy/controller/Authcontroller/signincontroller.dart';
+import 'package:bloomy/core/functions/alertexitapp.dart';
 import 'package:bloomy/core/functions/validinput.dart';
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
 import 'package:bloomy/view/widget/auth/customtextauth.dart';
@@ -13,6 +14,7 @@ import 'package:bloomy/view/widget/auth/logoauth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/instance_manager.dart';
+import 'package:get/state_manager.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -30,7 +32,10 @@ class SignInScreen extends StatelessWidget {
        
         style: Theme.of(context).textTheme.titleLarge,),
       ),
-      body: Container(
+      body: 
+     WillPopScope(
+       onWillPop: alertExitApp ,
+      child:  Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30 , vertical: 10),
         child: 
@@ -53,11 +58,17 @@ class SignInScreen extends StatelessWidget {
              icon:  Icon(Icons.email_outlined), myController: controller.email,),
             SizedBox(height: 20,),
           
-          CustomMaterialButtonAuth(
+       GetBuilder<SignInControllerImp>(builder: (controller)=>   CustomMaterialButtonAuth(
+            onTapIcon: (){
+              controller.showPassword();
+            },
+            obscureText: controller.isshowPass,
               isNumber: false,
-            valid: (val) { return validInput(val!, 6, 20, "email"); },
+            valid: (val) { return validInput(val!, 6, 20, "password"); },
             labelText: "Password", hintText:  "Enter your password",
-             icon:  Icon(Icons.lock_clock_outlined), myController: controller.password,),
+
+             icon:  Icon(Icons.lock_clock_outlined), myController: controller.password,),),
+
             SizedBox(height: 30,), 
             InkWell(
             onTap: () {
@@ -88,7 +99,7 @@ class SignInScreen extends StatelessWidget {
            
           ],
                 ),
-        )),
+        )),)
     );
   }
 }

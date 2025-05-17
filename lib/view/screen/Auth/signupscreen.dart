@@ -3,6 +3,7 @@
 
 
 import 'package:bloomy/controller/Authcontroller/signupcontroller.dart';
+import 'package:bloomy/core/functions/alertexitapp.dart';
 import 'package:bloomy/core/functions/validinput.dart';
 
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
@@ -24,7 +25,9 @@ class SignUpScreen extends StatelessWidget {
     return Scaffold(
 
       body: 
-      GetBuilder<SignUpControllerImp>(builder: (controller)=>Container(
+      WillPopScope(
+         onWillPop: alertExitApp ,
+        child:  GetBuilder<SignUpControllerImp>(builder: (controller)=>Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30 , vertical: 10),
         child: 
@@ -89,7 +92,8 @@ class SignUpScreen extends StatelessWidget {
            
           ],
                 ),
-        )),)
+        )),),)
+     
     );
   }
 }
