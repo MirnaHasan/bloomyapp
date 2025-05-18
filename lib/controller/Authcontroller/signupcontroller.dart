@@ -4,11 +4,16 @@ import 'package:get/get.dart';
 
 abstract class SignUpController extends GetxController{
 goToSignIn();
-  signUp();
+signUp();
 
 }
 
 class SignUpControllerImp extends SignUpController{
+  bool obscureshowpassword = true ; 
+  showObScure(){
+    obscureshowpassword =obscureshowpassword == true ? false : true ;
+    update(); 
+  }
   
   GlobalKey <FormState> formState = GlobalKey<FormState>();
     @override

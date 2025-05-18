@@ -57,11 +57,17 @@ class SignUpScreen extends StatelessWidget {
               labelText: "username", hintText:  "Enter your username",
              icon:  Icon(Icons.person_2_outlined), myController: controller.username,),
             SizedBox(height: 40,),
-          
-          CustomMaterialButtonAuth(
+          GetBuilder<SignUpControllerImp>(builder: (controller)=> CustomMaterialButtonAuth(
+            onTapIcon: () {
+              controller.showObScure();
+            },
+            obscureText: controller.obscureshowpassword ,
             valid: (val) { return validInput(val!, 6, 20, "password"); },
-            labelText: "Password", hintText:  "Enter your password",
-             icon:  Icon(Icons.lock_clock_outlined), myController: controller.password, isNumber: false,),
+            labelText: "Password", 
+            hintText:  "Enter your password",
+            icon:  Icon(Icons.lock_clock_outlined),
+            myController: controller.password, isNumber: false,),),
+         
             SizedBox(height: 40,),
                CustomMaterialButtonAuth(
                 isNumber: true,

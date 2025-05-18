@@ -28,14 +28,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     ChangLocalController controller = Get.put(ChangLocalController ());
     return GetMaterialApp(
-      translations: MyTranslation(),
       debugShowCheckedModeBanner: false,
-      routes: routes,
+      translations: MyTranslation(),
+     
       locale:controller.language,
       theme: controller.appTheme ,
-      home: 
-      // TestPackages(),
-      LanguageApp(),
+    //  home : LanguageApp(), // تم استخدام middleware لذلك حذف home
+      getPages: routes,
     );
   }
 }
