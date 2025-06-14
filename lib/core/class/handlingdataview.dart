@@ -1,5 +1,7 @@
 import 'package:bloomy/core/class/statusrequest.dart';
+import 'package:bloomy/core/constant/appimages.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class HandlingDataView extends StatelessWidget {
   const HandlingDataView({super.key, required this.statusRequest, required this.widget});
@@ -9,10 +11,10 @@ class HandlingDataView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  
-    statusRequest == StatusRequest.loading ? Center(child: Text("loading ..")) : 
-    statusRequest == StatusRequest.failure ? Center(child: Text("No Data" , style: TextStyle(fontSize: 20),)) :
-    statusRequest == StatusRequest.offlineFailure ? Center(child: Text("OffLine Failure")) :
-    statusRequest == StatusRequest.serverfailure ? Center(child: Text("Server Failure")) : widget
+    statusRequest == StatusRequest.loading ? Center(child: Lottie.asset(AppImage.loading , width: 250 , height: 250)) : 
+    statusRequest == StatusRequest.failure ? Center(child:  Lottie.asset(AppImage.noData , width: 250 , height: 250) ) :
+    statusRequest == StatusRequest.offlineFailure ? Center(child:  Lottie.asset(AppImage.offline , width: 250 , height: 250)) :
+    statusRequest == StatusRequest.serverfailure ? Center(child:  Lottie.asset(AppImage.serverfailure , width: 250 , height: 250)) : widget
 
     
     ;

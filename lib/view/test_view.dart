@@ -1,7 +1,7 @@
 
 import 'package:bloomy/controller/test_controller.dart';
 import 'package:bloomy/core/class/handlingdataview.dart';
-import 'package:bloomy/core/class/statusrequest.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
