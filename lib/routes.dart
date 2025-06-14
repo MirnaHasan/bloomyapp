@@ -17,13 +17,15 @@ import 'package:bloomy/view/screen/homescreen.dart';
 import 'package:bloomy/view/screen/language.dart';
 
 import 'package:bloomy/view/screen/onboardingscreen.dart';
+import 'package:bloomy/view/test_view.dart';
 
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 
 
 List<GetPage<dynamic>>? routes = [
-   GetPage(name: "/" , page: ()=>LanguageApp(), middlewares: [MyMiddleWare()]) ,
+  //  GetPage(name: "/" , page: ()=>LanguageApp(), middlewares: [MyMiddleWare()]) ,
+   GetPage(name: "/" , page: ()=>TestView()) ,
   GetPage(name: AppRoutes.onBoarding  , page: ()=>OnBoardingScreen(),) ,
   GetPage(name: AppRoutes.signInScreen   , page: ()=>SignInScreen() ,) ,
   GetPage(name:   AppRoutes.signUpScreen   , page: ()=> SignUpScreen() ) ,

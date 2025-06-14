@@ -1,4 +1,5 @@
 
+import 'package:bloomy/binding/mybinding.dart';
 import 'package:bloomy/core/localization/changelocale.dart';
 import 'package:bloomy/core/localization/mytranslation.dart';
 import 'package:bloomy/core/services/services.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       translations: MyTranslation(),
-     
+     initialBinding: MyBindings(),
       locale:controller.language,
       theme: controller.appTheme ,
     //  home : LanguageApp(), // تم استخدام middleware لذلك حذف home
