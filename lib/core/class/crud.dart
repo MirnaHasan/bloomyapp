@@ -15,12 +15,13 @@ class Crud {
   // و تقوم بفحص هل يوجد اتصال بالانترنت
 
   Future<Either<StatusRequest, Map>> postData(String linkUrl, Map data) async {
-    try {
+    // try {
       if (await checkInternet()) {
         var response = await http.post(Uri.parse(linkUrl), body: data);
+        print(response.statusCode);
         if (response.statusCode == 200 || response.statusCode == 201) {
           Map responsebody = await jsonDecode(response.body);
-       
+       print("========$responsebody");
           return right(responsebody);
           
         } else {
@@ -30,8 +31,8 @@ class Crud {
         return left(StatusRequest.offlineFailure);
       }
     } 
-    catch (_) {
-      return left(StatusRequest.serverfailure);
-    }
-  }
+    // catch (_) {
+    //   return left(StatusRequest.serverException);
+    // }
+  // }
 }

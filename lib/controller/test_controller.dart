@@ -9,12 +9,11 @@ class TestController extends GetxController{
 
    TestData testData= TestData(Get.find()) ; 
    List data = [];
-
-    late StatusRequest statusRequest ;
+  StatusRequest? statusRequest ;
     
     getDataFromDatabase()async{
       statusRequest = StatusRequest.loading;
-      update();
+      // update();
       var response = await testData.getData();
       print(response);
       statusRequest =  await handlingData(response);

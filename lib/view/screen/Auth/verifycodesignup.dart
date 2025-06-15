@@ -1,7 +1,9 @@
 
 
-import 'package:bloomy/controller/Authcontroller/verifycodecontroller.dart';
+
 import 'package:bloomy/controller/verifycodesignupcontroller.dart';
+import 'package:bloomy/core/class/statusrequest.dart';
+
 import 'package:bloomy/view/widget/auth/customtextauth.dart';
 import 'package:bloomy/view/widget/auth/customtextbodyauth.dart';
 import 'package:flutter/material.dart';
@@ -9,13 +11,16 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
 
+
 class VerifyCodeSignUp extends StatelessWidget {
   const VerifyCodeSignUp ({super.key});
   @override
   Widget build(BuildContext context) {
-    VerifyCodeSignUpControllerImp controller = Get.put(VerifyCodeSignUpControllerImp());
+    Get.put(VerifyCodeSignUpControllerImp());
     return Scaffold(
-      body: Container(
+      body: GetBuilder<VerifyCodeSignUpControllerImp>(builder: (controller)=> 
+      controller.statusRequest == StatusRequest.loading ?
+      Center(child: Text("Loading ...")) : Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
         child: ListView(
@@ -33,7 +38,7 @@ class VerifyCodeSignUp extends StatelessWidget {
             SizedBox(height: 40),
 
             CustomTextBody(
-              text: "Please Enter The Digit Code Sent To mirna@gmail.com",
+              text: "Please Enter The Digit Code Sent To ${controller.email} ",
             ),
             SizedBox(height: 40),
             OtpTextField(
@@ -56,7 +61,8 @@ class VerifyCodeSignUp extends StatelessWidget {
             SizedBox(height: 40),
           ],
         ),
-      ),
+      ), 
+      )
     );
   }
 }

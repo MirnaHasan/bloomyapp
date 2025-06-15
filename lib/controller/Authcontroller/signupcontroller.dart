@@ -1,4 +1,7 @@
+import 'package:bloomy/core/class/statusrequest.dart';
 import 'package:bloomy/core/constant/approutes.dart';
+import 'package:bloomy/core/functions/handlingdata.dart';
+import 'package:bloomy/data/datasourse/remote/auth/signup.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -16,16 +19,36 @@ class SignUpControllerImp extends SignUpController{
   }
   
   GlobalKey <FormState> formState = GlobalKey<FormState>();
+  StatusRequest? statusRequest ;
+  List data = [] ; 
+  SignUpData signupData = SignUpData(Get.find());
     @override
-  signUp() {
+  signUp() async{
     var formData  = formState.currentState ;
     if (formData!.validate()){
-      
-    Get.offNamed(AppRoutes.verifycodesignup);
-   
-      print("valid");
-    }else{
-      print("not valid");
+      statusRequest = StatusRequest.loading ; 
+      update() ; 
+      var response = await signupData.postData(username.text, email.text, password.text, phone.text);
+
+      statusRequest = await handlingData(response);
+      print("==============$response");
+      if (StatusRequest.success == statusRequest){
+        if(response["status"] == "success"){
+          //  data.addAll(response); 
+    Get.offNamed(AppRoutes.verifycodesignup ,arguments: {
+      "email" : email.text ,
+    });
+        }else{
+           Get.defaultDialog(
+          title: "Alret" , 
+          middleText:  "Phone Number Or Email Already Exited"
+        ) ; 
+          statusRequest = StatusRequest.failure ;
+          
+        }
+      }
+update();
+
     }
    
   }
@@ -53,6 +76,7 @@ class SignUpControllerImp extends SignUpController{
   password= TextEditingController();
   username= TextEditingController();
   phone= TextEditingController();
+
     super.onInit();
   }
   @override

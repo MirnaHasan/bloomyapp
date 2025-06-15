@@ -11,6 +11,7 @@ failure,
 serverfailure , 
 // فشل بسبب عدم الاتصال بالانترنت 
 offlineFailure ,
+serverException ; 
 
 
 
