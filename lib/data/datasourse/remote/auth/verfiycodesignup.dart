@@ -7,12 +7,13 @@ class VerfiycodeSignupData {
 VerfiycodeSignupData (this.crud);
 Crud crud ;
 
-postData(String email , String verfiycode)async{
-var response = await crud.postData(linkApi.linkVerfiyCode, {
+postData(String email , String  verifycode)async{
+var response = await crud.postData(linkApi.linkVerfiyCodesignup, {
 "email" : email ,
-"verfiycode" : verfiycode 
+"verifycode" :  verifycode ,
 
 });
+
 return  response.fold((l)=>l, (r)=>r) ;
 
 }
