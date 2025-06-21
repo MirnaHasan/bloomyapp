@@ -6,8 +6,11 @@ class linkApi {
   //Auth///==================================================
   static const String linkSignUp = "$linkServer/auth/signup.php";
   static const String linkVerfiyCodesignup = "$linkServer/auth/verfiycode.php";
-  //Home
+  //Home==============================================
   static const String linkLogIn = "$linkServer/auth/login.php";
-
+  ///ForgetPassword===============================================================
+ static const String resetpasswordLink = "$linkServer/forgetpassword/resetpassword.php";
+ static const String checkemailLink = "$linkServer/forgetpassword/checkemail.php";
+  static const String verifycodeforgetpasswordLink = "$linkServer/forgetpassword/verifycode.php";
 
 }
