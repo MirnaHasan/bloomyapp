@@ -8,7 +8,6 @@ class AppRoutes{
  
   static const String signInScreen                = "/signInScreen";
   static const String signUpScreen                = "/signUpScreen";
-  static const String homeScreen                  = "/homecreen";
   static const String forgetpassword              = "/forgetpassword";
   static const String resetpassword               = "/resetpassword";
   static const String verifycode                  = "/verifycode";
@@ -16,5 +15,8 @@ class AppRoutes{
   static const String successrestpassword         = "/successrestpassword";
   static const String checkEmail                  = "/checkemail";
   static const String verifycodesignup            = "/verifycodesignup";
+  ///
+  ///Home 
+   static const String homepage                  = "/homepage";
 
 }

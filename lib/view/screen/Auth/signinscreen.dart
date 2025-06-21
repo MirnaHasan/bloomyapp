@@ -2,6 +2,7 @@
 
 
 import 'package:bloomy/controller/Authcontroller/signincontroller.dart';
+import 'package:bloomy/core/class/statusrequest.dart';
 import 'package:bloomy/core/functions/alertexitapp.dart';
 import 'package:bloomy/core/functions/validinput.dart';
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
@@ -21,7 +22,7 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignInControllerImp controller = Get.put(SignInControllerImp());
+     Get.put(SignInControllerImp());
     return Scaffold(
 
        appBar: AppBar(
@@ -35,7 +36,9 @@ class SignInScreen extends StatelessWidget {
       body: 
      WillPopScope(
        onWillPop: alertExitApp ,
-      child:  Container(
+      child: GetBuilder<SignInControllerImp>(builder: (controller)=>
+      controller.statusRequest == StatusRequest.loading ?
+      Center(child: Text("Loading ..."),) :Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30 , vertical: 10),
         child: 
@@ -99,7 +102,8 @@ class SignInScreen extends StatelessWidget {
            
           ],
                 ),
-        )),)
+        )),
+      ) )
     );
   }
 }
