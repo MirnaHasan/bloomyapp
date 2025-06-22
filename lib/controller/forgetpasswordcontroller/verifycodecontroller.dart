@@ -4,57 +4,49 @@ import 'package:bloomy/core/class/statusrequest.dart';
 import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
 import 'package:bloomy/data/datasourse/remote/forgetpassword/verifycodeforgetpassword.dart';
-
-
 import 'package:get/get.dart';
 
 
-abstract class VerifyCodeController extends GetxController{
-goToResetPassword(verifycode);
+abstract class VerifyCodeController extends GetxController {
   checkCode();
- 
-
+  goToResetPassword(String verifycode);
 }
 
-class  VerifyCodeControllerImp extends  VerifyCodeController{
+class VerifyCodeControllerImp extends VerifyCodeController {
+  String? email;
 
-  String? email ;
-  VerifyCodeForgetPasswordData verifycodeforgetpasswordData =VerifyCodeForgetPasswordData(Get.find());
-  StatusRequest? statusRequest ;
- 
-    @override
-  checkCode() {
+  VerifyCodeForgetPasswordData verifyCodeForgetPasswordData =
+      VerifyCodeForgetPasswordData(Get.find());
 
-   
-  
-  }
-    @override
-  goToResetPassword(verifycode)async {
-    statusRequest = StatusRequest.loading ; 
+  StatusRequest? statusRequest;
+
+  @override
+  checkCode() {}
+
+  @override
+  goToResetPassword(verifycode) async {
+    statusRequest = StatusRequest.loading;
     update();
-    var response = await verifycodeforgetpasswordData.postData(email!, verifycode) ; 
+    var response =
+        await verifyCodeForgetPasswordData.postData(email!, verifycode);
     statusRequest = handlingData(response);
-    if (StatusRequest.success==statusRequest){
-      if(response['status']== 'success'){
-Get.offNamed(AppRoutes.resetpassword , arguments: {"email": email});
-      }else{
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == "success") {
+        Get.offNamed(AppRoutes.resetpassword , arguments: {
+          "email" : email
+        });
+      } else {
         Get.defaultDialog(
-          title:  "Warning" ,
-          middleText: "Verify Code Isn't Correct"
-        );
-        statusRequest = StatusRequest.failure ;
+            title: "ُWarning", middleText: "Verify Code Not Correct");
+        statusRequest = StatusRequest.failure;
       }
-      update();
     }
-
+    update();
   }
-@override
+
+  @override
   void onInit() {
-   email = Get.arguments['email'];
+    email = Get.arguments['email'];
     super.onInit();
   }
-  
-
-  
-
 }

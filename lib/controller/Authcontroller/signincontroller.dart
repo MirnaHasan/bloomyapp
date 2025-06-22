@@ -36,7 +36,7 @@ class SignInControllerImp extends SignInController{
       update() ; 
       var response = await logindata.postData( email.text, password.text, );
 
-      statusRequest = await handlingData(response);
+      statusRequest =  handlingData(response);
       print("==============$response");
       if (StatusRequest.success == statusRequest){
         if(response["status"] == "success"){

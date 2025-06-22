@@ -4,7 +4,7 @@
 
 import 'package:bloomy/core/class/statusrequest.dart';
 
-handlingData(response)async{
+handlingData(response){
   if(response is StatusRequest){
     return response ;
 

@@ -30,7 +30,7 @@ class SignUpControllerImp extends SignUpController{
       update() ; 
       var response = await signupData.postData(username.text, email.text, password.text, phone.text);
 
-      statusRequest = await handlingData(response);
+      statusRequest =  handlingData(response);
       print("==============$response");
       if (StatusRequest.success == statusRequest){
         if(response["status"] == "success"){

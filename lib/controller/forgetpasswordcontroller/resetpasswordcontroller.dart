@@ -24,34 +24,33 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   }
 
   @override
-  goToSuccessResetPassword() async{
-    var formData = formState.currentState ;
-    if(password.text != repassword.text){
-      Get.defaultDialog(
-        title: "Warning" ,
-        middleText: "Passwords dont match"
-      );
+   goToSuccessResetPassword() async {
+    if (password.text != repassword.text) {
+      return Get.defaultDialog(
+          title: "warning", middleText: "Password Not Match");
     }
- if (formData!.validate()){
-  statusRequest = StatusRequest.loading ;
-  update();
-  var response = await resetPasswordData.postData(email!, password.text) ; 
-  statusRequest = handlingData(response);
-  if (StatusRequest.success == statusRequest){
-    if(response['status']== 'success'){
-      Get.offNamed(AppRoutes.successrestpassword);
-    }else{
-      Get.defaultDialog(
-        title: "Warning",
-        middleText: "" 
-      );
-      statusRequest = StatusRequest.failure;
+
+    if (formState.currentState!.validate()) {
+      statusRequest = StatusRequest.loading;
+      update();
+      var response = await resetPasswordData.postData(email!, password.text);
+      print("=============================== Controller $response ");
+      statusRequest = handlingData(response);
+      if (StatusRequest.success == statusRequest) {
+        if (response['status'] == "success") {
+          // data.addAll(response['data']);
+          Get.offNamed(AppRoutes.successrestpassword);
+        } else {
+          Get.defaultDialog(
+              title: "ُWarning", middleText: "Try Again");
+          statusRequest = StatusRequest.failure;
+        }
+      }
+      update();
+    } else {
+      print("Not Valid");
     }
   }
-   update(); 
-
- }
-   }
 
   @override
   void onInit() {
