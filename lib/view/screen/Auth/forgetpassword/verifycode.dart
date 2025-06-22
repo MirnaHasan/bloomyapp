@@ -1,6 +1,6 @@
 
 
-import 'package:bloomy/controller/Authcontroller/verifycodecontroller.dart';
+import 'package:bloomy/controller/forgetpasswordcontroller/verifycodecontroller.dart';
 import 'package:bloomy/view/widget/auth/customtextauth.dart';
 import 'package:bloomy/view/widget/auth/customtextbodyauth.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +51,7 @@ class Verifycode extends StatelessWidget {
                 },
                 //runs when every textfield is filled
                 onSubmit: (String verificationCode) {
-                  controller.goToResetPassword();
+                  controller.goToResetPassword(verificationCode);
                 }, // end onSubmit
               ),
               SizedBox(height: 40),

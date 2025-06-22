@@ -1,5 +1,5 @@
 
-import 'package:bloomy/controller/Authcontroller/resetpasswordcontroller.dart';
+import 'package:bloomy/controller/forgetpasswordcontroller/resetpasswordcontroller.dart';
 import 'package:bloomy/core/functions/validinput.dart';
 
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';

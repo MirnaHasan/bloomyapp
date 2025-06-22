@@ -1,7 +1,7 @@
 
 
 
-import 'package:bloomy/controller/Authcontroller/forgetpasswordcontroller.dart';
+import 'package:bloomy/controller/forgetpasswordcontroller/forgetpasswordcontroller.dart';
 import 'package:bloomy/core/functions/validinput.dart';
 
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
@@ -56,7 +56,7 @@ class ForgetPassword extends StatelessWidget {
               CustomTextSigninOrSignUp(
                 textbutton: "Check ",
                 onPressed: () {
-                  controller.goToVerifyCode();
+                  controller.checkEmail();
                 },
               ),
             ],
