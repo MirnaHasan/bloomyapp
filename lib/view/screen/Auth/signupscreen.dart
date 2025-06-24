@@ -3,8 +3,8 @@
 
 
 import 'package:bloomy/controller/Authcontroller/signupcontroller.dart';
-import 'package:bloomy/core/class/statusrequest.dart';
-import 'package:bloomy/core/constant/appimages.dart';
+import 'package:bloomy/core/class/handlingdataview.dart';
+
 import 'package:bloomy/core/functions/alertexitapp.dart';
 import 'package:bloomy/core/functions/validinput.dart';
 
@@ -16,7 +16,7 @@ import 'package:bloomy/view/widget/auth/customtextsigninorsignup.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
+
 
 
 class SignUpScreen extends StatelessWidget {
@@ -31,8 +31,8 @@ class SignUpScreen extends StatelessWidget {
       WillPopScope(
          onWillPop: alertExitApp ,
         child:  GetBuilder<SignUpControllerImp>(builder: (controller)=>
-        controller.statusRequest == StatusRequest.loading ?
-        Center(child: Lottie.asset(AppImage.loading)) :
+        HandlingDataRequest(statusRequest: controller.statusRequest!,
+         widget: 
         Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30 , vertical: 10),
@@ -104,7 +104,9 @@ class SignUpScreen extends StatelessWidget {
            
           ],
                 ),
-        )),),)
+        )))
+        
+     ,),)
      
     );
   }

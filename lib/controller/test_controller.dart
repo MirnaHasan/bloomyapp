@@ -9,7 +9,7 @@ class TestController extends GetxController{
 
    TestData testData= TestData(Get.find()) ; 
    List data = [];
-  StatusRequest? statusRequest ;
+  StatusRequest statusRequest = StatusRequest.none ;
     
     getDataFromDatabase()async{
       statusRequest = StatusRequest.loading;

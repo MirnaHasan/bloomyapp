@@ -19,7 +19,7 @@ class SignUpControllerImp extends SignUpController{
   }
   
   GlobalKey <FormState> formState = GlobalKey<FormState>();
-  StatusRequest? statusRequest ;
+  StatusRequest statusRequest = StatusRequest.none;
   List data = [] ; 
   SignUpData signupData = SignUpData(Get.find());
     @override

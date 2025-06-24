@@ -2,6 +2,7 @@
 
 
 import 'package:bloomy/controller/forgetpasswordcontroller/forgetpasswordcontroller.dart';
+import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/core/class/statusrequest.dart';
 import 'package:bloomy/core/functions/validinput.dart';
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
@@ -20,8 +21,8 @@ class ForgetPassword extends StatelessWidget {
     );
     return Scaffold(
       body: GetBuilder<ForgetPasswordControllerImp>(builder: (controller)=>
-      controller.statusRequest == StatusRequest.loading ? Center(child: Text("Loading ..."),)
-      : Container(
+      HandlingDataRequest(statusRequest: controller.statusRequest, 
+      widget:Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
         child: Form(
@@ -67,7 +68,8 @@ class ForgetPassword extends StatelessWidget {
           ),
         ),
       ),
-      
+       )
+    
       
       )
     );

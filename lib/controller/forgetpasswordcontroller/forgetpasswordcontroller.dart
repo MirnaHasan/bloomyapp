@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 abstract class ForgetPasswordController extends GetxController {
   checkEmail();
   CheckEmailData checkemailData = CheckEmailData(Get.find());
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest=StatusRequest.none;
 }
 
 class ForgetPasswordControllerImp extends ForgetPasswordController {

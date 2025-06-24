@@ -2,6 +2,7 @@
 
 
 import 'package:bloomy/controller/verifycodesignupcontroller.dart';
+import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/core/class/statusrequest.dart';
 
 import 'package:bloomy/view/widget/auth/customtextauth.dart';
@@ -19,8 +20,9 @@ class VerifyCodeSignUp extends StatelessWidget {
     Get.put(VerifyCodeSignUpControllerImp());
     return Scaffold(
       body: GetBuilder<VerifyCodeSignUpControllerImp>(builder: (controller)=> 
-      controller.statusRequest == StatusRequest.loading ?
-      Center(child: Text("Loading ...")) : Container(
+      HandlingDataRequest(
+        statusRequest: controller.statusRequest ,
+        widget: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
         child: ListView(
@@ -62,7 +64,8 @@ class VerifyCodeSignUp extends StatelessWidget {
             SizedBox(height: 40),
           ],
         ),
-      ), 
+      ),  )
+     
       )
     );
   }

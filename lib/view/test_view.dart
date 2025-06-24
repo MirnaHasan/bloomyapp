@@ -19,7 +19,7 @@ class TestView extends StatelessWidget {
       ),
       body: 
     GetBuilder<TestController>(builder: (controller){
-      return HandlingDataView(
+      return HandlingDataRequest(
       statusRequest: controller.statusRequest! ,
       widget: ListView.builder( itemCount: controller.data.length, 
     itemBuilder:(context , i ){

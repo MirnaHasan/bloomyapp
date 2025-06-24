@@ -1,6 +1,7 @@
 
 
 import 'package:bloomy/controller/forgetpasswordcontroller/verifycodecontroller.dart';
+import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/view/widget/auth/customtextauth.dart';
 import 'package:bloomy/view/widget/auth/customtextbodyauth.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,9 @@ class Verifycode extends StatelessWidget {
   Widget build(BuildContext context) {
     VerifyCodeControllerImp controller = Get.put(VerifyCodeControllerImp());
     return Scaffold(
-      body: Container(
+      body: GetBuilder<VerifyCodeControllerImp>(builder: (controller)=>
+      HandlingDataRequest(statusRequest: controller.statusRequest,
+       widget:  Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
         child: Form(
@@ -58,7 +61,9 @@ class Verifycode extends StatelessWidget {
             ],
           ),
         ),
-      ),
+      ),)
+      )
+     
     );
   }
 }

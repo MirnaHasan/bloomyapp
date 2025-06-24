@@ -9,7 +9,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 abstract class SignInController extends GetxController{
-  StatusRequest? statusRequest ;
+  StatusRequest statusRequest = StatusRequest.none;
   LoginData logindata = LoginData(Get.find());
 
 signIn();

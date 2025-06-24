@@ -1,6 +1,7 @@
 
 
 import 'package:bloomy/controller/Authcontroller/successresetpasswordcontroller.dart';
+import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/view/widget/auth/customtextauth.dart';
 import 'package:bloomy/view/widget/auth/customtextsigninorsignup.dart';
@@ -21,7 +22,9 @@ class SuccessResetPassword extends StatelessWidget {
         title: Text("Success Reset Password" , 
         style: Theme.of(context).textTheme.titleLarge,
       ),),
-      body: Container(
+      body: GetBuilder<SuccessResetPasswordControllerImp>(builder: (controller)=>
+      HandlingDataRequest(statusRequest: controller.statusRequest, 
+      widget: Container(
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
@@ -40,7 +43,10 @@ class SuccessResetPassword extends StatelessWidget {
 
           ],
         ),
+      ))
+      
       )
+      
     );
   }
 }
