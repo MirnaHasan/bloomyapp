@@ -13,11 +13,9 @@ class Verifycode extends StatelessWidget {
   const Verifycode({super.key});
   @override
   Widget build(BuildContext context) {
-    VerifyCodeControllerImp controller = Get.put(VerifyCodeControllerImp());
+  VerifyCodeControllerImp controller = Get.put(VerifyCodeControllerImp());
     return Scaffold(
-      body: GetBuilder<VerifyCodeControllerImp>(builder: (controller)=>
-      HandlingDataRequest(statusRequest: controller.statusRequest,
-       widget:  Container(
+      body:  Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
         child: Form(
@@ -61,9 +59,7 @@ class Verifycode extends StatelessWidget {
             ],
           ),
         ),
-      ),)
-      )
-     
+      ),
     );
   }
 }

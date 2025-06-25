@@ -31,7 +31,7 @@ class SignUpScreen extends StatelessWidget {
       WillPopScope(
          onWillPop: alertExitApp ,
         child:  GetBuilder<SignUpControllerImp>(builder: (controller)=>
-        HandlingDataRequest(statusRequest: controller.statusRequest!,
+        HandlingDataRequest(statusRequest: controller.statusRequest,
          widget: 
         Container(
         alignment: Alignment.center,

@@ -40,7 +40,7 @@ class SignInScreen extends StatelessWidget {
       child: GetBuilder<SignInControllerImp>(
         builder: (controller)=>
       HandlingDataRequest(
-        statusRequest: controller.statusRequest!, 
+        statusRequest: controller.statusRequest, 
       widget: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 30 , vertical: 10),

@@ -18,7 +18,7 @@ class ResetPassword extends StatelessWidget {
  Get.put(ResetPasswordControllerImp());
     return Scaffold(
       body: GetBuilder<ResetPasswordControllerImp>(builder: (controller)=>
-      HandlingDataRequest(statusRequest: controller.statusRequest!, 
+      HandlingDataRequest(statusRequest: controller.statusRequest, 
       widget: 
       Container(
         alignment: Alignment.center,
