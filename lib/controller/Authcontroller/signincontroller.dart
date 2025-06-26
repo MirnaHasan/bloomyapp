@@ -4,6 +4,7 @@
 import 'package:bloomy/core/class/statusrequest.dart';
 import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
+import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/data/datasourse/remote/auth/login.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/widgets.dart';
@@ -12,6 +13,7 @@ import 'package:get/get.dart';
 abstract class SignInController extends GetxController{
   StatusRequest statusRequest = StatusRequest.none;
   LoginData logindata = LoginData(Get.find());
+  MyServices myServices = Get.find();
 
 signIn();
 goTosignUp();
@@ -41,6 +43,11 @@ class SignInControllerImp extends SignInController{
       print("==============$response");
       if (StatusRequest.success == statusRequest){
         if(response["status"] == "success"){
+          myServices.sharedPreferences.setInt("id", response['data']['users_id']);
+           myServices.sharedPreferences.setString("username", response['data']['users_name']);
+            myServices.sharedPreferences.setString("phone", response['data']['users_phone']);
+             myServices.sharedPreferences.setString("email", response['data']['users_email']);
+              myServices.sharedPreferences.setString("step", "2");
           //  data.addAll(response); 
     Get.offNamed(AppRoutes.homepage );
         }else{

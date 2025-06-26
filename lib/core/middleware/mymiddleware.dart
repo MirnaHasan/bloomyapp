@@ -14,11 +14,15 @@ MyServices myServices = Get.find();
   int? get priority => 1;
   @override
   RouteSettings? redirect(String? route) {
-    if (myServices.sharedPreferences.getString("onboarding")== "1"){
+      if (myServices.sharedPreferences.getString("step")== "2"){
+      return RouteSettings(name: AppRoutes.homepage);
+    }
+    if (myServices.sharedPreferences.getString("step")== "1"){
       return RouteSettings(name: AppRoutes.signInScreen);
     }
-   
     
+   
+   return null ; 
   }
 
 
