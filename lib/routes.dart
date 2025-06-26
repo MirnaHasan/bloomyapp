@@ -3,11 +3,12 @@
 import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/middleware/mymiddleware.dart';
 import 'package:bloomy/view/screen/Auth/forgetpassword/forgetpassword.dart';
+import 'package:bloomy/view/screen/Auth/forgetpassword/resetpassword.dart';
 import 'package:bloomy/view/screen/Auth/forgetpassword/successresetpassword.dart';
 import 'package:bloomy/view/screen/Auth/forgetpassword/verifycode.dart';
 
 
-import 'package:bloomy/view/screen/forgetpassword/resetpassword.dart';
+
 import 'package:bloomy/view/screen/Auth/signinscreen.dart';
 
 

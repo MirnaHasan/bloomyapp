@@ -5,6 +5,7 @@ import 'package:bloomy/core/class/statusrequest.dart';
 import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
 import 'package:bloomy/data/datasourse/remote/auth/login.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -64,6 +65,12 @@ update();
 
 @override
   void onInit() {
+    FirebaseMessaging.instance.getToken().then((value) {
+      print("====================================") ;
+      print(value);
+      String? token = value ;
+      
+    },);
    email = TextEditingController();
    password= TextEditingController();
     super.onInit();
