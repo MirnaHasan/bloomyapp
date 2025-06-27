@@ -1,6 +1,7 @@
 
 
 import 'package:bloomy/controller/homecontroller.dart';
+import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -46,6 +47,42 @@ class HomePage extends StatelessWidget {
             
             ),),
             ],),),
+            Container( 
+             margin: EdgeInsets.symmetric(vertical: 25 , horizontal: 15),
+              child: Stack(children: [
+                Container(
+                  alignment: Alignment.center,
+                  height: 180 , 
+                decoration: BoxDecoration(
+                  color: AppColor.green , 
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+                child: ListTile(
+                  title: Text("A Summer Surprise" , style: TextStyle(
+                    fontSize: 24 , 
+                    color: Colors.white
+                  ),),
+                  subtitle: Text("Discount 20%" , style: TextStyle(
+                    color: Colors.white , 
+                    fontSize: 32
+                  ),),
+                ),
+                ) , 
+                Positioned(
+                  top: -20,
+                  right: -20,
+                  child: Container(
+                  width: 180,
+                  height: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(180),
+                    color: const Color.fromARGB(255, 98, 144, 42)
+                  ),
+                ))
+
+            ],),)
+            
+          
           
           ],
         ),
