@@ -12,5 +12,7 @@ class linkApi {
  static const String resetpasswordLink = "$linkServer/forgetpassword/resetpassword.php";
  static const String checkemailLink = "$linkServer/forgetpassword/checkemail.php";
   static const String verifycodeforgetpasswordLink = "$linkServer/forgetpassword/verifycode.php";
+  //==========================================home===========================================
+    static const String homeLink = "$linkServer/home.php";
 
 }

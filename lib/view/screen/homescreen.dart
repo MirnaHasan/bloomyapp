@@ -13,11 +13,12 @@ class HomePage extends StatelessWidget {
     HomeComtrollerImp controller = Get.put(HomeComtrollerImp());
     return Scaffold(
       body:  Container(
+         padding: EdgeInsets.symmetric(horizontal: 15),
         child: ListView(
           children: [
             Container(
               margin: EdgeInsets.only(top: 10),
-              padding: EdgeInsets.symmetric(horizontal: 15),
+             
               child: Row(children: [
               Expanded(child: TextFormField(
                 
@@ -48,7 +49,7 @@ class HomePage extends StatelessWidget {
             ),),
             ],),),
             Container( 
-             margin: EdgeInsets.symmetric(vertical: 25 , horizontal: 15),
+             margin: EdgeInsets.symmetric(vertical: 25 ),
               child: Stack(children: [
                 Container(
                   alignment: Alignment.center,
