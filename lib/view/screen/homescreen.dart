@@ -1,8 +1,10 @@
 
 
 import 'package:bloomy/controller/homecontroller.dart';
+import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,9 +12,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HomeComtrollerImp controller = Get.put(HomeComtrollerImp());
+     Get.put(HomeComtrollerImp());
     return Scaffold(
-      body:  Container(
+      body: GetBuilder<HomeComtrollerImp>(builder: (controller)=> 
+      HandlingDataView(statusRequest: controller.statusRequest, widget: Container(
          padding: EdgeInsets.symmetric(horizontal: 15),
         child: ListView(
           children: [
@@ -81,14 +84,27 @@ class HomePage extends StatelessWidget {
                   ),
                 ))
 
-            ],),)
+            ],),) , 
+            Container(
+              height: 200,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+              itemCount:  controller.categories.length,
+              itemBuilder:(context , index){
+                return Container(
+                  // child: SvgPicture.network(),
+                ) ;
+              }
+              
+              
+              ),)
             
           
           
           ],
         ),
-      )
-    );
+      ))
+    ));
    
   }
 }
