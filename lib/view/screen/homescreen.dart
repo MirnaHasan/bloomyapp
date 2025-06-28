@@ -3,6 +3,8 @@
 import 'package:bloomy/controller/homecontroller.dart';
 import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
+import 'package:bloomy/data/model/categories.dart';
+import 'package:bloomy/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -88,11 +90,17 @@ class HomePage extends StatelessWidget {
             Container(
               height: 200,
               child: ListView.builder(
+                
                 scrollDirection: Axis.horizontal,
               itemCount:  controller.categories.length,
               itemBuilder:(context , index){
+                print("${linkApi.linkimages}/${controller.categories[index]['categories_image']}");
+
                 return Container(
-                  // child: SvgPicture.network(),
+                  height: 300,
+                  child: 
+                  SvgPicture.network("${linkApi.linkimages}/${controller.categories[index]['categories_image']}"),
+
                 ) ;
               }
               
