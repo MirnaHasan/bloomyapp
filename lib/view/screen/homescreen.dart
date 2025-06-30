@@ -88,18 +88,33 @@ class HomePage extends StatelessWidget {
 
             ],),) , 
             Container(
-              height: 200,
-              child: ListView.builder(
+            
+
+              height:  170,
+              width: 170,
+              child: ListView.separated(
+              separatorBuilder: (context, index) => SizedBox(width: 40,),
                 
-                scrollDirection: Axis.horizontal,
+              scrollDirection: Axis.horizontal,
               itemCount:  controller.categories.length,
               itemBuilder:(context , index){
                 print("${linkApi.linkimages}/${controller.categories[index]['categories_image']}");
 
                 return Container(
+                  decoration: BoxDecoration(color:AppColor.greenAccent ,
+                   borderRadius: BorderRadius.circular(20
+                   ),
+                  ), 
+                
+                  width: 250 ,
+                  height: 300,child : ClipRRect(   borderRadius: BorderRadius.circular(20) ,
+
+                  child:Image.network(
+           width: 250 ,
                   height: 300,
-                  child: 
-        Image.network("${linkApi.linkimages}/${controller.categories[index]['categories_image']}")
+
+                    "${linkApi.linkimages}/${controller.categories[index]['categories_image']}" ,
+                    fit: BoxFit.cover) )
                 
 
                 ) ;
