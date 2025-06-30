@@ -99,7 +99,8 @@ class HomePage extends StatelessWidget {
                 return Container(
                   height: 300,
                   child: 
-                  SvgPicture.network("${linkApi.linkimages}/${controller.categories[index]['categories_image']}"),
+        Image.network("${linkApi.linkimages}/${controller.categories[index]['categories_image']}")
+                
 
                 ) ;
               }
