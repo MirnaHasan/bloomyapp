@@ -3,6 +3,7 @@
 import 'package:bloomy/controller/homecontroller.dart';
 import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
+import 'package:bloomy/core/constant/appimages.dart';
 import 'package:bloomy/data/model/categories.dart';
 import 'package:bloomy/linkapi.dart';
 import 'package:flutter/material.dart';
@@ -82,15 +83,15 @@ class HomePage extends StatelessWidget {
                   height: 180,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(180),
-                    color: const Color.fromARGB(255, 131, 182, 70)
+                     color: const Color.fromARGB(255, 131, 182, 70)
                   ),
                 ))
 
             ],),) , 
-            Container(
+          SizedBox(
             
 
-              height:  170,
+              height:  210,
               width: 170,
               child: ListView.separated(
               separatorBuilder: (context, index) => SizedBox(width: 40,),
@@ -100,29 +101,94 @@ class HomePage extends StatelessWidget {
               itemBuilder:(context , index){
                 print("${linkApi.linkimages}/${controller.categories[index]['categories_image']}");
 
-                return Container(
-                  decoration: BoxDecoration(color:AppColor.greenAccent ,
-                   borderRadius: BorderRadius.circular(20
-                   ),
-                  ), 
-                
-                  width: 250 ,
-                  height: 300,child : ClipRRect(   borderRadius: BorderRadius.circular(20) ,
-
-                  child:Image.network(
-           width: 250 ,
-                  height: 300,
-
-                    "${linkApi.linkimages}/${controller.categories[index]['categories_image']}" ,
-                    fit: BoxFit.cover) )
-                
-
+                return Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(color:AppColor.greenAccent ,
+                       borderRadius: BorderRadius.circular(20
+                       ),
+                      ), 
+                    
+                      width: 160 ,
+                      height: 160 , child: ClipRRect(   borderRadius: BorderRadius.circular(20) ,
+                    
+                      child:Image.network(
+                               width: 160 ,
+                      height: 160 ,
+                    
+                        "${linkApi.linkimages}/${controller.categories[index]['categories_image']}" ,
+                        fit: BoxFit.cover) )
+                    
+                    
+                    ),
+                    SizedBox(height: 10) ,
+                     Text(
+                      textAlign: TextAlign.center ,
+                      style: TextStyle (
+                        fontSize:  16 , 
+                        color: AppColor.green , ) , 
+                      
+                      "${controller.categories[index]['categories_name' ] }") , 
+                 
+                  ],
                 ) ;
               }
               
               
-              ),)
-            
+              ),) , 
+                 
+                      Text("Flowers For You", style: TextStyle( fontSize:  20,fontWeight: FontWeight.bold ,
+                        color: AppColor.green ))
+                       ,
+            SizedBox(height: 10 ) , 
+          SizedBox(
+  height: 200,
+  child: ListView.separated(
+    separatorBuilder: (context, index) => SizedBox(width: 5),
+    scrollDirection: Axis.horizontal,
+    itemCount: 4,
+    itemBuilder: (context, i) {
+      return Stack(
+        children: [
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 10),
+            height: 170,
+            width: 140,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              image: DecorationImage(
+                image: AssetImage(AppImage.imageproduct),
+                fit: BoxFit.cover, // ✅ تملأ الحاوية بالكامل
+              ),
+            ),
+          ),
+          Container(
+            height: 170,
+            width: 150 ,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.black.withOpacity(0.2),
+            ),
+          ),
+          Positioned(
+          left:10, 
+          bottom: 40 ,
+         
+            child: Text(
+              "Flowers",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: const Color.fromARGB(255, 39, 39, 39),
+              ),
+            ),
+          ),
+        ],
+      );
+    },
+  ),
+)
+
           
           
           ],

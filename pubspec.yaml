@@ -101,6 +101,7 @@ flutter:
     - assets/images/three.png
     - assets/images/logo.png
     - assets/images/imagefour.jpg
+    - assets/images/1.jpg
     - assets/lottieimages/loading.json
     - assets/lottieimages/nodata.json
     - assets/lottieimages/offline.json
