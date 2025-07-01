@@ -17,7 +17,7 @@ class HomeComtrollerImp extends HomeController {
   MyServices myServices = Get.find();
   HomeData homeData =HomeData(Get.find());
   StatusRequest statusRequest = StatusRequest.none ;
-  List data = [] ;
+  List items = [] ;
   List categories = [] ;
   initialData() {
     username = myServices.sharedPreferences.getString("username");
@@ -42,6 +42,7 @@ class HomeComtrollerImp extends HomeController {
       if (StatusRequest.success == statusRequest){
         if(response['status']== 'success'){
       categories.addAll(response['categories']);
+        items.addAll(response['items']);
         }else{
           statusRequest = StatusRequest.failure ;
         }

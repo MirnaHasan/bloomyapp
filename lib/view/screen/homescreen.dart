@@ -4,10 +4,8 @@ import 'package:bloomy/controller/homecontroller.dart';
 import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/core/constant/appimages.dart';
-import 'package:bloomy/data/model/categories.dart';
 import 'package:bloomy/linkapi.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
@@ -137,49 +135,54 @@ class HomePage extends StatelessWidget {
               
               ),) , 
                  
-                      Text("Flowers For You", style: TextStyle( fontSize:  20,fontWeight: FontWeight.bold ,
+                      Text("Offers For You", style: TextStyle( fontSize:  20,fontWeight: FontWeight.bold ,
                         color: AppColor.green ))
                        ,
             SizedBox(height: 10 ) , 
           SizedBox(
   height: 200,
   child: ListView.separated(
-    separatorBuilder: (context, index) => SizedBox(width: 5),
+    separatorBuilder: (context, index) => SizedBox(width: 19),
     scrollDirection: Axis.horizontal,
-    itemCount: 4,
+    itemCount: controller.items.length,
     itemBuilder: (context, i) {
       return Stack(
         children: [
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10),
-            height: 170,
-            width: 140,
+            height: 180,
+            width: 160,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              image: DecorationImage(
-                image: AssetImage(AppImage.imageproduct),
-                fit: BoxFit.cover, // ✅ تملأ الحاوية بالكامل
-              ),
             ),
-          ),
-          Container(
-            height: 170,
-            width: 150 ,
-            decoration: BoxDecoration(
+            child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              color: Colors.black.withOpacity(0.2),
+              child: Image.network(    height: 180,
+            width: 160 ,
+                "${linkApi.linkimages}/${controller.items[i]['items_image']}", fit: BoxFit.cover,)),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4.0),
+            child: Container(
+             
+              height: 180,
+              width: 170 ,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.black.withOpacity(0.6),
+              ) , 
             ),
           ),
           Positioned(
           left:10, 
-          bottom: 40 ,
+          bottom: 30 ,
          
             child: Text(
-              "Flowers",
+              "${controller.items[i]['items_name']}",
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: const Color.fromARGB(255, 39, 39, 39),
+                color: const Color.fromARGB(255, 255, 254, 254),
               ),
             ),
           ),

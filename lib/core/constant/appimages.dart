@@ -9,7 +9,7 @@ class AppImage{
   static const String onBoardingImageThree = "$rootImages/three.png";
   static const String logoImage            = "$rootImages/logo.png";
   static const String imageSinginSignup    = "$rootImages/imagefour.jpg" ;
-    static const String imageproduct= "$rootImages/1.jpg";
+    // static const String imageproduct= "$rootImages/1.jpg";
 
    static const String loading             = "$rootLottie/loading.json" ;
    static const String noData            = "$rootLottie/nodata.json" ;
