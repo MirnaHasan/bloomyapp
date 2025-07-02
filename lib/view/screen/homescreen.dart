@@ -2,9 +2,11 @@
 
 import 'package:bloomy/controller/homecontroller.dart';
 import 'package:bloomy/core/class/handlingdataview.dart';
-import 'package:bloomy/core/constant/appcolor.dart';
-import 'package:bloomy/core/constant/appimages.dart';
-import 'package:bloomy/linkapi.dart';
+import 'package:bloomy/view/widget/home/customappbar.dart';
+import 'package:bloomy/view/widget/home/customcardhome.dart';
+import 'package:bloomy/view/widget/home/customtitlehome.dart';
+import 'package:bloomy/view/widget/home/listcategorieshome.dart';
+import 'package:bloomy/view/widget/home/listitemshome.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,184 +22,24 @@ class HomePage extends StatelessWidget {
          padding: EdgeInsets.symmetric(horizontal: 15),
         child: ListView(
           children: [
-            Container(
-              margin: EdgeInsets.only(top: 10),
-             
-              child: Row(children: [
-              Expanded(child: TextFormField(
-                
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search) ,
-                hintText:" Find products " , hintStyle:  TextStyle( fontSize: 18 ) ,
-                fillColor: Colors.grey[200],
-                filled: true,
-                border: OutlineInputBorder(
-                 borderSide: BorderSide.none,
-                 borderRadius: BorderRadius.circular(20) ,
-                
-                )
-              )
+           CustomAppBar(titleAppBar: "Find products", onPressedIcon: () {  }, onPressedSearch: () {  },) ,
+           CustomCardHome(titleCard: "A Summer Surprise", bodyCard: "Discount 20%" ),
+           ListCategoriesHome() ,
+          CustomTitleHome(title: "Products For You",) ,
+          SizedBox(height: 16),
+          ListItemsHome() ,
+          SizedBox(height: 10),
+          CustomTitleHome(title: "Offers",),
+           SizedBox(height: 16),
+          ListItemsHome(),
 
-              )) ,
-              SizedBox(width: 10 ) ,
-                Container(  decoration: BoxDecoration(    
-                  borderRadius:    BorderRadius.circular(10 ),
-                   color: Colors.grey[200],) ,
-                  width: 60 ,
-               
-                  padding: EdgeInsets.symmetric(vertical: 4) , 
-                  child: IconButton(onPressed: (){} , 
-            icon: Icon(Icons.notifications_active_outlined , size: 30  , color: Colors.grey[600] , )
-            
-            
-            ),),
-            ],),),
-            Container( 
-             margin: EdgeInsets.symmetric(vertical: 25 ),
-              child: Stack(children: [
-                Container(
-                  alignment: Alignment.center,
-                  height: 180 , 
-                decoration: BoxDecoration(
-                  color: AppColor.green , 
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                ),
-                child: ListTile(
-                  title: Text("A Summer Surprise" , style: TextStyle(
-                    fontSize: 24 , 
-                    color: Colors.white
-                  ),),
-                  subtitle: Text("Discount 20%" , style: TextStyle(
-                    color: Colors.white , 
-                    fontSize: 32
-                  ),),
-                ),
-                ) , 
-                Positioned(
-                  top: -20,
-                  right: -20,
-                  child: Container(
-                  width: 180,
-                  height: 180,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(180),
-                     color: const Color.fromARGB(255, 131, 182, 70)
-                  ),
-                ))
 
-            ],),) , 
-          SizedBox(
-            
-
-              height:  210,
-              width: 170,
-              child: ListView.separated(
-              separatorBuilder: (context, index) => SizedBox(width: 40,),
-                
-              scrollDirection: Axis.horizontal,
-              itemCount:  controller.categories.length,
-              itemBuilder:(context , index){
-                print("${linkApi.linkimages}/${controller.categories[index]['categories_image']}");
-
-                return Column(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(color:AppColor.greenAccent ,
-                       borderRadius: BorderRadius.circular(20
-                       ),
-                      ), 
-                    
-                      width: 160 ,
-                      height: 160 , child: ClipRRect(   borderRadius: BorderRadius.circular(20) ,
-                    
-                      child:Image.network(
-                               width: 160 ,
-                      height: 160 ,
-                    
-                        "${linkApi.linkimages}/${controller.categories[index]['categories_image']}" ,
-                        fit: BoxFit.cover) )
-                    
-                    
-                    ),
-                    SizedBox(height: 10) ,
-                     Text(
-                      textAlign: TextAlign.center ,
-                      style: TextStyle (
-                        fontSize:  16 , 
-                        color: AppColor.green , ) , 
-                      
-                      "${controller.categories[index]['categories_name' ] }") , 
-                 
                   ],
-                ) ;
-              }
-              
-              
-              ),) , 
-                 
-                      Text("Offers For You", style: TextStyle( fontSize:  20,fontWeight: FontWeight.bold ,
-                        color: AppColor.green ))
-                       ,
-            SizedBox(height: 10 ) , 
-          SizedBox(
-  height: 200,
-  child: ListView.separated(
-    separatorBuilder: (context, index) => SizedBox(width: 19),
-    scrollDirection: Axis.horizontal,
-    itemCount: controller.items.length,
-    itemBuilder: (context, i) {
-      return Stack(
-        children: [
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 10),
-            height: 180,
-            width: 160,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.network(    height: 180,
-            width: 160 ,
-                "${linkApi.linkimages}/${controller.items[i]['items_image']}", fit: BoxFit.cover,)),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4.0),
-            child: Container(
-             
-              height: 180,
-              width: 170 ,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.black.withOpacity(0.6),
-              ) , 
-            ),
-          ),
-          Positioned(
-          left:10, 
-          bottom: 30 ,
-         
-            child: Text(
-              "${controller.items[i]['items_name']}",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: const Color.fromARGB(255, 255, 254, 254),
+                ),
               ),
             ),
-          ),
-        ],
-      );
-    },
-  ),
-)
-
-          
-          
-          ],
-        ),
-      ))
-    ));
+      ),
+    );
    
   }
 }
