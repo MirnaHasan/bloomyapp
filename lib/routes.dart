@@ -16,6 +16,7 @@ import 'package:bloomy/view/screen/Auth/signupscreen.dart';
 import 'package:bloomy/view/screen/Auth/success_signup.dart';
 
 import 'package:bloomy/view/screen/Auth/verifycodesignup.dart';
+import 'package:bloomy/view/screen/home.dart';
 import 'package:bloomy/view/screen/homescreen.dart';
 import 'package:bloomy/view/screen/language.dart';
 
@@ -42,7 +43,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoutes.verifycodesignup   , page: ()=>VerifyCodeSignUp(),) ,
   ///++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   ///Home+=====================================
-    GetPage(name:   AppRoutes.homepage  , page: ()=> HomePage() ,) ,
+    GetPage(name:   AppRoutes.homepage  , page: ()=> HomeScreen() ,) ,
   
 
 ];
