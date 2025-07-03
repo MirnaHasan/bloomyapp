@@ -21,23 +21,22 @@ class Home extends StatelessWidget {
          padding: EdgeInsets.symmetric(horizontal: 15),
         child: ListView(
           children: [
-           CustomAppBar(titleAppBar: "Find products", onPressedIcon: () {  }, onPressedSearch: () {  },) ,
+           CustomAppBar(titleAppBar: "Find Products", onPressedIcon:(){}, onPressedSearch:(){},) ,
            CustomCardHome(titleCard: "A Summer Surprise", bodyCard: "Discount 20%" ),
-           ListCategoriesHome() ,
-          CustomTitleHome(title: "Products For You",) ,
-          SizedBox(height: 16),
-          ListItemsHome() ,
-          SizedBox(height: 10),
-          CustomTitleHome(title: "Offers",),
+           CustomTitleHome(title: "Categories",),
            SizedBox(height: 16),
-          ListItemsHome(),
-
-
+           ListCategoriesHome() ,
+           CustomTitleHome(title: "Products For You",) ,
+           SizedBox(height: 16),
+           ListItemsHome(),
+           SizedBox(height: 10),
+           CustomTitleHome(title: "Offers",),
+           SizedBox(height: 16),
+           ListItemsHome(),
                   ],
                 ),
               ),
-            ),
-      
+            ), 
     );
    
   }
