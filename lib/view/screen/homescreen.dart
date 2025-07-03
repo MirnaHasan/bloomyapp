@@ -27,21 +27,18 @@ class HomeScreen extends StatelessWidget {
           children: [
             Row(
               children: [
-                CustomBottomAppBar("Home", Icons.home, (){controller.changepage(0) ;}, Colors.amberAccent) ,
-                 CustomBottomAppBar("settings", Icons.settings, (){controller.changepage(1) ;}, Colors.amberAccent) ,
-          
+              CustomBottomAppBar("Home", Icons.home, (){controller.changepage(0);},
+               controller.currentpage == 0 ? true : false ) , 
+               CustomBottomAppBar("Settings", Icons.settings, (){controller.changepage(1);}, controller.currentpage ==1 ? true : false) ,
               ],
             ),
             Spacer() , 
               Row(
               children: [
-               CustomBottomAppBar("profile" ,Icons.power_off_outlined , (){
-                controller.changepage(2) ;
-               } ,  Colors.amberAccent ) ,
-             CustomBottomAppBar("favourite", Icons.favorite_outline_outlined, (){
-controller.changepage(3) ;
-
-             } ,  Colors.amberAccent)
+             CustomBottomAppBar("Profile", Icons.person_off_outlined, (){controller.changepage(2);}, 
+             controller.currentpage == 2 ? true : false 
+             ) , 
+             CustomBottomAppBar("Favourite", Icons.favorite_outline_outlined, (){controller.changepage(3);}, controller.currentpage==3 ?true : false),
               ],
             ),
           ],
