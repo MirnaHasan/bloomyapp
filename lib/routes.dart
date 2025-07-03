@@ -18,6 +18,7 @@ import 'package:bloomy/view/screen/Auth/success_signup.dart';
 import 'package:bloomy/view/screen/Auth/verifycodesignup.dart';
 import 'package:bloomy/view/screen/home.dart';
 import 'package:bloomy/view/screen/homescreen.dart';
+import 'package:bloomy/view/screen/items.dart';
 import 'package:bloomy/view/screen/language.dart';
 
 import 'package:bloomy/view/screen/onboardingscreen.dart';
@@ -44,6 +45,7 @@ List<GetPage<dynamic>>? routes = [
   ///++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   ///Home+=====================================
     GetPage(name:   AppRoutes.homepage  , page: ()=> HomeScreen() ,) ,
+        GetPage(name:   AppRoutes.items  , page: ()=> Items() ,) ,
   
 
 ];

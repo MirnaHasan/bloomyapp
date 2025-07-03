@@ -11,5 +11,7 @@ class AppColor {
   static const Color accentGrey      = const Color.fromARGB(179, 133, 132, 132);
   static const Color green           = Color.fromARGB(255, 98, 167, 19) ;
    static const Color greenAccent     = Color.fromARGB(255, 132, 168, 90) ;
+  static const Color greytwo     = Color.fromARGB(255, 64, 64, 64) ; 
+   
 }
 

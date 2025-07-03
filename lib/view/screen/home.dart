@@ -2,7 +2,7 @@
 
 import 'package:bloomy/controller/homecontroller.dart';
 import 'package:bloomy/core/class/handlingdataview.dart';
-import 'package:bloomy/view/widget/home/customappbar.dart';
+import 'package:bloomy/view/widget/customappbar.dart';
 import 'package:bloomy/view/widget/home/customcardhome.dart';
 import 'package:bloomy/view/widget/home/customtitlehome.dart';
 import 'package:bloomy/view/widget/home/listcategorieshome.dart';

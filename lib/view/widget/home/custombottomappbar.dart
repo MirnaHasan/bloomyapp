@@ -25,13 +25,15 @@ class CustomBottomAppBar extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(iconData, color: active == true ? AppColor.green : Colors.black),
+          Icon(iconData, color: active == true ? AppColor.green:AppColor.greytwo) ,
           Text(
             textbutton,
             style: TextStyle(
-              color: active == true ? AppColor.green : Colors.black,
+              fontSize: 15,
+              // fontWeight: FontWeight.bold,
+              color: active == true ? AppColor.green:AppColor.greytwo) ,
             ),
-          ),
+          
         ],
       ),
     );

@@ -1,13 +1,16 @@
 
 import 'package:bloomy/core/class/statusrequest.dart';
+import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
 import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/data/datasourse/remote/homedata.dart';
+import 'package:bloomy/view/widget/home/listcategorieshome.dart';
 import 'package:get/get.dart';
 
  abstract class HomeController extends GetxController {
  initialData() ;
  getdata();
+ goToItems(List categories , int selectedCategory) ;
 
 }
 
@@ -49,5 +52,13 @@ class HomeComtrollerImp extends HomeController {
         
       }
        update();
+  }
+  
+  @override
+  goToItems( categories ,selectedCategory) {
+   Get.toNamed(AppRoutes.items, arguments: {
+    "categories" : categories , 
+  "selectedcategory" : selectedCategory ,
+   });
   }
 }

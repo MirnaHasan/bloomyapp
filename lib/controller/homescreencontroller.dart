@@ -29,6 +29,12 @@ class HomescreencontrollerImp extends HomeScreenController {
       children: [Center(child: Text("favourite"))],
     ),     
   ];
+  List titleBottomAppBar = [
+    "Home" , 
+    "Settings" , 
+    "Profile" , 
+    "favourite"
+  ] ;
   @override
   changepage(int i) {
     currentpage= i ;

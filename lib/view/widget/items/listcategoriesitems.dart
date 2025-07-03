@@ -1,3 +1,5 @@
+
+
 import 'package:bloomy/controller/homecontroller.dart';
 
 import 'package:bloomy/core/constant/appcolor.dart';
@@ -7,8 +9,8 @@ import 'package:bloomy/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ListCategoriesHome extends GetView<HomeComtrollerImp> {
-  const ListCategoriesHome({super.key});
+class ListCategoriesItems extends GetView<HomeComtrollerImp> {
+  const ListCategoriesItems({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +46,10 @@ class Categories extends GetView<HomeComtrollerImp> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        controller.goToItems(controller.categories, i!
-         );
-      },
+      // onTap: (){
+      //   controller.goToItems(controller.categories, i!
+      //    );
+      // },
       child: Column(
               children: [
                 Container(
