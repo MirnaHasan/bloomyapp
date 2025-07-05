@@ -1,7 +1,9 @@
+import 'package:bloomy/controller/homecontroller.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CustomCardHome extends StatelessWidget {
+class CustomCardHome extends GetView<HomeComtrollerImp> {
   final String titleCard ;
   final String bodyCard ;
 
@@ -32,7 +34,8 @@ class CustomCardHome extends StatelessWidget {
                 ) , 
                 Positioned(
                   top: -20,
-                  right: -20,
+                  right:controller.lang == "en" ? -20: null,
+                  left: controller.lang == "ar" ? -20: null, 
                   child: Container(
                   width: 180,
                   height: 180,

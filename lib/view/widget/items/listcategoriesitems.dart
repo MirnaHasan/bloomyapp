@@ -4,6 +4,7 @@
 import 'package:bloomy/controller/itemscontroller.dart';
 
 import 'package:bloomy/core/constant/appcolor.dart';
+import 'package:bloomy/core/functions/translatedatabase.dart';
 import 'package:bloomy/data/model/categories.dart';
 
 import 'package:bloomy/linkapi.dart';
@@ -86,7 +87,7 @@ class Categories extends GetView<ItemscontrollerImp> {
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 18, color: AppColor.greytwo , ),
                         
-                    "${categoriesModel.categoriesName}",
+                  translatFromDataBase(categoriesModel.categoriesNameAr , categoriesModel.categoriesName)
                   ), 
                 ) ,) 
                

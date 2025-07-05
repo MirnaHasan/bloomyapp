@@ -20,9 +20,7 @@ class Items extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: EdgeInsets.all(15),
-        child: GetBuilder<ItemscontrollerImp>(builder: (controller)=>
-        HandlingDataView(statusRequest: controller.statusRequest,
-        widget: ListView(
+        child:ListView(
           children: [
             CustomAppBar(
               titleAppBar: "Find Products",
@@ -31,6 +29,9 @@ class Items extends StatelessWidget {
             ),
             SizedBox(height: 20),
             ListCategoriesItems(),
+            GetBuilder<ItemscontrollerImp>(builder: (controller)=>
+        HandlingDataView(statusRequest: controller.statusRequest,
+        widget: 
              SizedBox(
               child: GridView.builder(
                 itemCount: controller.data.length,
@@ -42,11 +43,11 @@ class Items extends StatelessWidget {
                 ),
                 itemBuilder: (BuildContext context, int i) {
                   return 
-            CustomListItems(itemsModel:ItemsModel.fromJson(controller.data[i]) );} )),
+            CustomListItems(itemsModel:ItemsModel.fromJson(controller.data[i]) );} )),))
           
           ],
-        ),))
-      ),
+        ),)
+      
     );
   }
 }

@@ -1,5 +1,6 @@
 
 import 'package:bloomy/core/constant/appcolor.dart';
+import 'package:bloomy/core/functions/translatedatabase.dart';
 import 'package:bloomy/data/model/items.dart';
 import 'package:bloomy/linkapi.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -32,7 +33,7 @@ class CustomListItems extends StatelessWidget {
                             ),
                             SizedBox(height: 10),
                             Text(
-                               "${itemsModel.itemsName}" ,
+                             translatFromDataBase(itemsModel.itemsNameAr, itemsModel.itemsName) ,
                               style: TextStyle(
                                 color: AppColor.black,
                                 fontSize: 16,

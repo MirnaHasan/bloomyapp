@@ -40,7 +40,7 @@ class ItemscontrollerImp extends ItemsController {
 
   @override
   getItems(categoryid) async {
-    data.clear();
+     data.clear();
     statusRequest = StatusRequest.loading;
     update();
     var response = await itemsData.getData(categoryid);

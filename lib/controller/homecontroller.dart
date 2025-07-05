@@ -17,13 +17,17 @@ import 'package:get/get.dart';
 
 class HomeComtrollerImp extends HomeController {
   String? username;
+  String? lang ;
+  int? id ;
   MyServices myServices = Get.find();
   HomeData homeData =HomeData(Get.find());
   StatusRequest statusRequest = StatusRequest.none ;
   List items = [] ;
   List categories = [] ;
   initialData() {
+    lang = myServices.sharedPreferences.getString("lang");
     username = myServices.sharedPreferences.getString("username");
+    id = myServices.sharedPreferences.getInt("id");
   }
 
   @override
