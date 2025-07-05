@@ -6,8 +6,11 @@ class ItemsData{
 
   ItemsData(this.crud);
   Crud crud ;
-  getData()async{
-var response = await crud.postData(linkApi.linkitems , {});
+  getData(String id )async{
+var response = await crud.postData(linkApi.linkitems , {
+  "id" : id.toString() ,
+});
+print("========================$response");
 return response.fold((l)=>l,(r)=>r);
 
 

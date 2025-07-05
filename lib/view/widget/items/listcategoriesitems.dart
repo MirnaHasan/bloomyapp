@@ -49,7 +49,7 @@ class Categories extends GetView<ItemscontrollerImp> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        controller.chaneCategory(i);
+        controller.chaneCategory(i!, categoriesModel.categoriesId.toString());
       },
       child: Column(
               children: [
