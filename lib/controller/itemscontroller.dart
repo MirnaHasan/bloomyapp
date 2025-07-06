@@ -1,12 +1,15 @@
 import 'package:bloomy/core/class/statusrequest.dart';
+import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
 import 'package:bloomy/data/datasourse/remote/itemsdata.dart';
+import 'package:bloomy/data/model/items.dart';
 import 'package:get/get.dart';
 
 abstract class ItemsController extends GetxController {
   initialData();
   chaneCategory(int val, String cateval);
   getItems(String categoryid);
+  goToProductDetails (ItemsModel itemsModel);
 }
 
 class ItemscontrollerImp extends ItemsController {
@@ -54,6 +57,13 @@ class ItemscontrollerImp extends ItemsController {
       }
     }
     update();
+  }
+  
+  @override
+  goToProductDetails(ItemsModel itemsModel) {
+  Get.toNamed(AppRoutes.productdetails , arguments: {
+    "itemsmodel" : itemsModel
+  });
   }
 }
  

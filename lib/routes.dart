@@ -22,6 +22,7 @@ import 'package:bloomy/view/screen/items.dart';
 import 'package:bloomy/view/screen/language.dart';
 
 import 'package:bloomy/view/screen/onboardingscreen.dart';
+import 'package:bloomy/view/screen/productdetails.dart';
 
 
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -29,8 +30,9 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 
 
 List<GetPage<dynamic>>? routes = [
-  GetPage(name: "/" , page: ()=>LanguageApp(), middlewares: [MyMiddleWare()]) ,
+   GetPage(name: "/" , page: ()=>LanguageApp(), middlewares: [MyMiddleWare()]) ,
   //  GetPage(name: "/" , page: ()=>TestView()) ,
+  // GetPage(name: "/" , page: ()=>ProductDetails()) ,
   GetPage(name: AppRoutes.onBoarding  , page: ()=>OnBoardingScreen(),) ,
   ///Auth +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   GetPage(name: AppRoutes.signInScreen   , page: ()=>SignInScreen() ,) ,
@@ -46,6 +48,7 @@ List<GetPage<dynamic>>? routes = [
   ///Home+=====================================
     GetPage(name:   AppRoutes.homepage  , page: ()=> HomeScreen() ,) ,
         GetPage(name:   AppRoutes.items  , page: ()=> Items() ,) ,
+           GetPage(name:   AppRoutes.productdetails  , page: ()=> ProductDetails() ,) ,
   
 
 ];

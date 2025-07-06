@@ -1,19 +1,23 @@
 
+import 'package:bloomy/controller/itemscontroller.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/core/functions/translatedatabase.dart';
 import 'package:bloomy/data/model/items.dart';
 import 'package:bloomy/linkapi.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CustomListItems extends StatelessWidget {
+class CustomListItems extends GetView<ItemscontrollerImp>  {
   final ItemsModel itemsModel ;
   const CustomListItems({super.key, required this.itemsModel});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      controller.goToProductDetails(itemsModel);
+                    },
                     child: Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
