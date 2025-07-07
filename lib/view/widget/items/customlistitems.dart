@@ -29,12 +29,16 @@ class CustomListItems extends GetView<ItemscontrollerImp>  {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             // ✅ Expanded للصورة
-                            Expanded(
-                              child: CachedNetworkImage(
-                                imageUrl: linkApi.linkimages +"/"+ "${itemsModel.itemsImage}" ,
-                                fit: BoxFit.cover,
+                          Expanded(
+                                child: Hero(
+                                  tag: "${itemsModel.itemsId}",
+                                  child: CachedNetworkImage(
+                                    imageUrl: linkApi.linkimages +"/"+ "${itemsModel.itemsImage}" ,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
-                            ),
+                            
                             SizedBox(height: 10),
                             Text(
                              translatFromDataBase(itemsModel.itemsNameAr, itemsModel.itemsName) ,
