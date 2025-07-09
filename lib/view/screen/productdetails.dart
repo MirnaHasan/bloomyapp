@@ -13,39 +13,58 @@ class ProductDetails extends StatelessWidget {
     ProductDetailsControllerImp controller = Get.put(ProductDetailsControllerImp());
 
     return Scaffold(
+      bottomNavigationBar: Container(
+        margin: EdgeInsets.symmetric(vertical: 10 , horizontal: 10),
+        height: 50 ,
+        child: MaterialButton(
+  color: AppColor.greenAccent,
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(12),
+  ),
+  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+  onPressed: () {
+    // action here
+  },
+  child: Text(
+    "أضف إلى السلة",
+    style: TextStyle(color: Colors.white , fontWeight: FontWeight.bold),
+  ),
+),),
       backgroundColor: Colors.grey[100],
       body: ListView(
+        
         children: [
           Stack(
             clipBehavior: Clip.none,
             children: [
               // خلفية علوية
               Container(
-                height: 250,
+                height: 200,
                 decoration: BoxDecoration(
-                  color: AppColor.greenAccent,
-                  borderRadius: BorderRadius.vertical(
-                    bottom: Radius.circular(30),
-                  ),
+                  //  color: Color(0XFFa5b0ba),
+                   
+                  color: AppColor.greenAccent ,
+                  // borderRadius: BorderRadius.vertical(
+                  //   bottom: Radius.circular(60),
+                  // ),
                 ),
               ),
 
               // صورة المنتج
               Positioned(
-                 top: 80,
-                left: Get.width * 0.05,
-                right: Get.width * 0.05,
+                 top: 40,
+                left: Get.width * 0.1,
+                right: Get.width * 0.1,
                 child: Hero(
                   tag: "${controller.itemsModel.itemsId}",
                   child: ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(30),
-                      bottomRight: Radius.circular(30),
-                       topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
+                    
+                    borderRadius: BorderRadius.circular(
+                     30
                     ),
                     child: Image.network(
                       "${linkApi.linkimages}/${controller.itemsModel.itemsImage}",
+                      
                       height: 400,
                       fit: BoxFit.cover,
                     ),
@@ -53,12 +72,12 @@ class ProductDetails extends StatelessWidget {
                 ),
               ),
 
-              // بطاقة التفاصيل
-              Positioned(
-                top: 520,
-                left: 0,
-                right: 0,
-                child: Container(
+            
+            ],
+          ),
+          SizedBox(height: 280),
+             // بطاقة التفاصيل
+             Container(
                   padding: const EdgeInsets.all(20),
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   decoration: BoxDecoration(
@@ -66,7 +85,8 @@ class ProductDetails extends StatelessWidget {
                     borderRadius: BorderRadius.circular(25),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black12,
+                     
+                        color: const Color.fromARGB(31, 1, 1, 1),
                         blurRadius: 10,
                         offset: Offset(0, 4),
                       )
@@ -103,30 +123,14 @@ class ProductDetails extends StatelessWidget {
                               color: AppColor.primaryColor,
                             ),
                           ),
-                        MaterialButton(
-  color: AppColor.greenAccent,
-  shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(12),
-  ),
-  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-  onPressed: () {
-    // action here
-  },
-  child: Text(
-    "أضف إلى السلة",
-    style: TextStyle(color: Colors.white),
-  ),
-),
+          
 
                         ],
                       )
                     ],
                   ),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(height: 100), // لتجنب التداخل عند الأسفل
+              
         ],
       ),
     );
