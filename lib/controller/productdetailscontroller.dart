@@ -10,6 +10,19 @@ abstract class ProductDetailsController extends GetxController {
 
 class ProductDetailsControllerImp extends ProductDetailsController{
 late ItemsModel itemsModel ;
+List subItems = [
+  {"name" : "small", 
+  "id" : 1, 
+  "active" : "0"} , 
+    {"name" : "medium", 
+  "id" : 2, 
+  "active" : "0"} , 
+    {"name" : "big", 
+  "id" : 3, 
+  "active" : "1"}
+  
+
+];
 
   @override
   void onInit() {

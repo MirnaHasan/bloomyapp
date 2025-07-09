@@ -1,9 +1,13 @@
 import 'package:bloomy/controller/productdetailscontroller.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/core/functions/translatedatabase.dart';
-import 'package:bloomy/linkapi.dart';
+
+import 'package:bloomy/view/widget/productdetails/subitemslistsize.dart';
+import 'package:bloomy/view/widget/productdetails/toppageitemsdetails.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../widget/productdetails/priceandquantity.dart';
 
 class ProductDetails extends StatelessWidget {
   const ProductDetails({super.key});
@@ -32,105 +36,73 @@ class ProductDetails extends StatelessWidget {
 ),),
       backgroundColor: Colors.grey[100],
       body: ListView(
-        
         children: [
-          Stack(
-            clipBehavior: Clip.none,
-            children: [
-              // خلفية علوية
-              Container(
-                height: 200,
-                decoration: BoxDecoration(
-                  //  color: Color(0XFFa5b0ba),
-                   
-                  color: AppColor.greenAccent ,
-                  // borderRadius: BorderRadius.vertical(
-                  //   bottom: Radius.circular(60),
-                  // ),
-                ),
-              ),
-
-              // صورة المنتج
-              Positioned(
-                 top: 40,
-                left: Get.width * 0.1,
-                right: Get.width * 0.1,
-                child: Hero(
-                  tag: "${controller.itemsModel.itemsId}",
-                  child: ClipRRect(
-                    
-                    borderRadius: BorderRadius.circular(
-                     30
-                    ),
-                    child: Image.network(
-                      "${linkApi.linkimages}/${controller.itemsModel.itemsImage}",
-                      
-                      height: 400,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-
-            
-            ],
-          ),
+          TopPageItemsDetails(),
           SizedBox(height: 280),
-             // بطاقة التفاصيل
-             Container(
-                  padding: const EdgeInsets.all(20),
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(25),
-                    boxShadow: [
-                      BoxShadow(
-                     
-                        color: const Color.fromARGB(31, 1, 1, 1),
-                        blurRadius: 10,
-                        offset: Offset(0, 4),
-                      )
-                    ],
+          // بطاقة التفاصيل
+          Container(
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(25),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color.fromARGB(31, 1, 1, 1),
+                  blurRadius: 10,
+                  offset: Offset(0, 4),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  translatFromDataBase(
+                    "${controller.itemsModel.itemsNameAr}",
+                    "${controller.itemsModel.itemsName}",
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                       translatFromDataBase("${controller.itemsModel.itemsNameAr}","${controller.itemsModel.itemsName}"),
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: AppColor.primaryColor,
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        translatFromDataBase("${controller.itemsModel.itemsDescAr}","${controller.itemsModel.itemsDesc}"),
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.grey[700],
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "${controller.itemsModel.itemsPrice} \$",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: AppColor.primaryColor,
-                            ),
-                          ),
-          
-
-                        ],
-                      )
-                    ],
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: AppColor.primaryColor,
                   ),
                 ),
-              
+                SizedBox(height: 10),
+                Text(
+                  translatFromDataBase(
+                    "${controller.itemsModel.itemsDescAr}",
+                    "${controller.itemsModel.itemsDesc}",
+                  ),
+                  style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+                ),
+                SizedBox(height: 20),
+                PriceAndQuantityItems(
+                  onAdd: () {},
+                  onRemove: () {},
+                  price: "${controller.itemsModel.itemsPrice}",
+                  count: "${controller.itemsModel.itemsCount}",
+                ),
+              ],
+            ),
+          ),
+
+          // SizedBox(height: 30,) ,
+          Container(
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(
+              "Size",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: AppColor.primaryColor,
+                fontSize: 24,
+              ),
+            ),
+          ),
+
+          SubItemsSizeList(),
+          SizedBox(height: 40),
         ],
       ),
     );
