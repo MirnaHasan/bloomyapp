@@ -14,26 +14,29 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ProductDetailsControllerImp controller = Get.put(ProductDetailsControllerImp());
+    ProductDetailsControllerImp controller = Get.put(
+      ProductDetailsControllerImp(),
+    );
 
     return Scaffold(
       bottomNavigationBar: Container(
-        margin: EdgeInsets.symmetric(vertical: 10 , horizontal: 10),
-        height: 50 ,
+        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        height: 50,
         child: MaterialButton(
-  color: AppColor.greenAccent,
-  shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(12),
-  ),
-  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-  onPressed: () {
-    // action here
-  },
-  child: Text(
-    "أضف إلى السلة",
-    style: TextStyle(color: Colors.white , fontWeight: FontWeight.bold),
-  ),
-),),
+          color: AppColor.greenAccent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          onPressed: () {
+            // action here
+          },
+          child: Text(
+            "أضف إلى السلة",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
       backgroundColor: Colors.grey[100],
       body: ListView(
         children: [
