@@ -1,6 +1,7 @@
 import 'package:bloomy/core/class/statusrequest.dart';
 import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
+import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/data/datasourse/remote/itemsdata.dart';
 import 'package:bloomy/data/model/items.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,7 @@ abstract class ItemsController extends GetxController {
 }
 
 class ItemscontrollerImp extends ItemsController {
+  MyServices myServices = Get.find();
   ItemsData itemsData = ItemsData(Get.find());
   StatusRequest statusRequest = StatusRequest.none;
   List data = [];
@@ -46,7 +48,7 @@ class ItemscontrollerImp extends ItemsController {
      data.clear();
     statusRequest = StatusRequest.loading;
     update();
-    var response = await itemsData.getData(categoryid);
+    var response = await itemsData.getData(categoryid , myServices.sharedPreferences.getString("id")! );
     print(response);
     statusRequest = await handlingData(response);
     if (StatusRequest.success == statusRequest) {
@@ -62,7 +64,7 @@ class ItemscontrollerImp extends ItemsController {
   @override
   goToProductDetails(ItemsModel itemsModel) {
   Get.toNamed(AppRoutes.productdetails , arguments: {
-    "itemsmodel" : itemsModel
+    "itemsmodel" : itemsModel 
   });
   }
 }

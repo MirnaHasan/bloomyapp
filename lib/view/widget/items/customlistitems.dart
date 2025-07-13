@@ -10,8 +10,8 @@ import 'package:get/get.dart';
 
 class CustomListItems extends GetView<ItemscontrollerImp>  {
   final ItemsModel itemsModel ;
-  final bool active ;
-  const CustomListItems( {super.key, required this.itemsModel , required this.active});
+ 
+  const CustomListItems( {super.key, required this.itemsModel , });
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +87,8 @@ class CustomListItems extends GetView<ItemscontrollerImp>  {
                                   ),
                                 ),
                                 Icon(
-                                active ?  Icons.favorite : Icons.favorite_border_outlined,
+                                 itemsModel.favorite == "1" ? Icons.favorite : Icons.favorite_border_outlined ,
+                               
                                   color: AppColor.green,
                                 )
                               ],

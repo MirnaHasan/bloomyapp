@@ -43,7 +43,7 @@ class Items extends StatelessWidget {
                 ),
                 itemBuilder: (BuildContext context, int i) {
                   return 
-            CustomListItems(itemsModel:ItemsModel.fromJson(controller.data[i]), active: false, );} )),))
+            CustomListItems(itemsModel:ItemsModel.fromJson(controller.data[i]),);} )),))
           
           ],
         ),)
