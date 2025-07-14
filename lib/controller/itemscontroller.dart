@@ -41,15 +41,16 @@ class ItemscontrollerImp extends ItemsController {
     cateid = cateval;
     getItems(cateid);
     update();
+
   }
 
   @override
   getItems(categoryid) async {
-     data.clear();
-    statusRequest = StatusRequest.loading;
-    update();
-    var response = await itemsData.getData(categoryid , myServices.sharedPreferences.getString("id")! );
-    print(response);
+    data.clear() ;
+    statusRequest = StatusRequest.loading ;
+    update() ; 
+    var response = await itemsData.getData( categoryid , myServices.sharedPreferences.getInt("id").toString() );
+        print(response);
     statusRequest = await handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {

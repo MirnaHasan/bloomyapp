@@ -34,7 +34,7 @@ class CustomListItems extends GetView<ItemscontrollerImp>  {
                                 child: Hero(
                                   tag: "${itemsModel.itemsId}",
                                   child: CachedNetworkImage(
-                                    imageUrl: linkApi.linkimages +"/"+ "${itemsModel.itemsImage}" ,
+                                    imageUrl: "${linkApi.linkimages}/${itemsModel.itemsImage}" ,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -87,7 +87,11 @@ class CustomListItems extends GetView<ItemscontrollerImp>  {
                                   ),
                                 ),
                                 Icon(
-                                 itemsModel.favorite == "1" ? Icons.favorite : Icons.favorite_border_outlined ,
+                         
+                                     itemsModel.favorite  == "1" 
+                                ? Icons.favorite
+                                : Icons.favorite_border_outlined ,
+
                                
                                   color: AppColor.green,
                                 )
