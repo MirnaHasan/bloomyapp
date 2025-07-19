@@ -1,4 +1,5 @@
 
+import 'package:bloomy/controller/favoritecontroller.dart';
 import 'package:bloomy/controller/itemscontroller.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/core/functions/translatedatabase.dart';
@@ -86,15 +87,28 @@ class CustomListItems extends GetView<ItemscontrollerImp>  {
                                     fontFamily: 'sans',
                                   ),
                                 ),
-                                Icon(
-                         
-                                     itemsModel.favorite  == "1" 
-                                ? Icons.favorite
-                                : Icons.favorite_border_outlined ,
+                                GetBuilder<FavoriteController>(
+  builder: (controller) => IconButton(
+    onPressed: () {
+      final id = itemsModel.itemsId;
+      final currentVal = controller.isFavorite[id];
 
-                               
-                                  color: AppColor.green,
-                                )
+      if (currentVal == "1") {
+        controller.setFavorite(id, "0");
+      } else {
+        controller.setFavorite(id, "1");
+      }
+    },
+    icon: Icon(
+      controller.isFavorite[itemsModel.itemsId] == "1"
+          ? Icons.favorite
+          : Icons.favorite_border_outlined,
+      color: AppColor.green,
+    ),
+  ),
+),
+
+                              
                               ],
                             ),
                           ],

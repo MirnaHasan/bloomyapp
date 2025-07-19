@@ -1,3 +1,4 @@
+import 'package:bloomy/controller/favoritecontroller.dart';
 import 'package:bloomy/controller/itemscontroller.dart';
 import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/data/model/items.dart';
@@ -17,6 +18,7 @@ class Items extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(ItemscontrollerImp());
+    FavoriteController controllerFavorite = Get.put( FavoriteController());
     return Scaffold(
       body: Container(
         padding: EdgeInsets.all(15),
@@ -42,6 +44,7 @@ class Items extends StatelessWidget {
                   childAspectRatio: 0.6, // أقل لتوسيع الارتفاع (الصورة تأخذ مساحة أكبر)
                 ),
                 itemBuilder: (BuildContext context, int i) {
+                  controllerFavorite.isFavorite[controller.data[i]['Items_id']] = controller.data[i]['favorite'] ;
                   return 
             CustomListItems(itemsModel:ItemsModel.fromJson(controller.data[i]),);} )),))
           
