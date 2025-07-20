@@ -29,5 +29,8 @@ class linkApi {
     static const String homeLink = "$linkServer/home.php";
     //===============================linkitems=============================
      static const String linkitems = "$linkServer/items/items.php";
+     //=====================favorite============================================
+      static const String linkaddfavorite = "$linkServer/favorite/add.php";
+      static const String linkremovefavorite = "$linkServer/favorite/remove.php";
 
 }

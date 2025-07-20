@@ -95,8 +95,10 @@ class CustomListItems extends GetView<ItemscontrollerImp>  {
 
       if (currentVal == "1") {
         controller.setFavorite(id, "0");
+      controller.removeFavoritefromdata(itemsModel.itemsId.toString());
       } else {
         controller.setFavorite(id, "1");
+        controller.addFavoritefromdata(itemsModel.itemsId.toString());
       }
     },
     icon: Icon(
