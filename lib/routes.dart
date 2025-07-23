@@ -20,6 +20,7 @@ import 'package:bloomy/view/screen/home.dart';
 import 'package:bloomy/view/screen/homescreen.dart';
 import 'package:bloomy/view/screen/items.dart';
 import 'package:bloomy/view/screen/language.dart';
+import 'package:bloomy/view/screen/myfavorite.dart';
 
 import 'package:bloomy/view/screen/onboardingscreen.dart';
 import 'package:bloomy/view/screen/productdetails.dart';
@@ -47,9 +48,11 @@ List<GetPage<dynamic>>? routes = [
   ///++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   ///Home+=====================================
     GetPage(name:   AppRoutes.homepage  , page: ()=> HomeScreen() ,) ,
-        GetPage(name:   AppRoutes.items  , page: ()=> Items() ,) ,
-           GetPage(name:   AppRoutes.productdetails  , page: ()=> ProductDetails() ,) ,
-  
+    GetPage(name:   AppRoutes.items  , page: ()=> Items() ,) ,
+    GetPage(name:   AppRoutes.productdetails  , page: ()=> ProductDetails() ,) ,
+    //==================================myfavorite=======================================================================
+
+   GetPage(name:   AppRoutes.myfavorite  , page: ()=> MyFavorite() ,) ,
 
 ];
 
