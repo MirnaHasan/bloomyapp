@@ -32,5 +32,6 @@ class linkApi {
      //=====================favorite============================================
       static const String linkaddfavorite = "$linkServer/favorite/add.php";
       static const String linkremovefavorite = "$linkServer/favorite/remove.php";
+      static const String linkviewfavorite = "$linkServer/favorite/viewmyfavorite.php";
 
 }
