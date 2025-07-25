@@ -40,6 +40,22 @@ viewMyFavorite
     }
   
 }
+
+deletefromMyFavorite
+( String favoriteid ){
+ 
+    var response =  myfavoriteData.deletfromFavorite(favoriteid);
+  
+
+
+        data.removeWhere((element)=>element.favoriteId.toString() == favoriteid);
+    
+      update() ;
+    
+  
+}
+
+
 @override
   void onInit() {
 viewMyFavorite() ;

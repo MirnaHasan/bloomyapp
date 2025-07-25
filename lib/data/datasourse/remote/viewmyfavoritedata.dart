@@ -11,7 +11,13 @@ class MyFavoriteData{
     });
     return response.fold((l)=>l, (r)=>r);
   }
-  
+
+    deletfromFavorite(String favoriteid )async{
+    var response = await crud.postData(linkApi.linkdeletfromfavorite, {
+   "favoriteid" : favoriteid
+    });
+    return response.fold((l)=>l, (r)=>r);
+  }
 
 
 
