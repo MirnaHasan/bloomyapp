@@ -4,6 +4,7 @@
 
 import 'package:bloomy/controller/verifycodesignupcontroller.dart';
 import 'package:bloomy/core/class/handlingdataview.dart';
+import 'package:bloomy/core/constant/appcolor.dart';
 
 
 import 'package:bloomy/view/widget/auth/customtextauth.dart';
@@ -63,6 +64,10 @@ class VerifyCodeSignUp extends StatelessWidget {
               }, // end onSubmit
             ),
             SizedBox(height: 40),
+            InkWell(onTap: (){
+              controller.resendVerfiyCode();
+            },
+            child: Center(child: Text("Resend verfiycode", style: TextStyle(fontSize: 20 , color: AppColor.green),),),)
           ],
         ),
       ),  )

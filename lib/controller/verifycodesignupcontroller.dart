@@ -13,6 +13,7 @@ import 'package:get/get.dart';
 abstract class VerifyCodeSignUpController extends GetxController{
   goToSuccessSignUp(String verificationCodeSignup) ;
   checkCode();
+  resendVerfiyCode() ;
 
 }
 
@@ -55,6 +56,13 @@ update();
     email = Get.arguments['email'];
  
     super.onInit();
+  }
+  
+  @override
+  resendVerfiyCode(){
+ 
+  verfiycodeSignupData.resendData(email!, ) ; 
+    
   }
   // @override
   // void dispose() {

@@ -19,6 +19,7 @@ class linkApi {
   //Auth///==================================================
   static const String linkSignUp = "$linkServer/auth/signup.php";
   static const String linkVerfiyCodesignup = "$linkServer/auth/verfiycode.php";
+    static const String linkresendverfiycode = "$linkServer/auth/resendverfiycode.php" ;
   //Home==============================================
   static const String linkLogIn = "$linkServer/auth/login.php";
   ///ForgetPassword===============================================================
@@ -34,4 +35,6 @@ class linkApi {
       static const String linkremovefavorite = "$linkServer/favorite/remove.php";
       static const String linkviewfavorite = "$linkServer/favorite/viewmyfavorite.php";
       static const String linkdeletfromfavorite = "$linkServer/favorite/deletfromfavorite.php";
+      
+        
 }

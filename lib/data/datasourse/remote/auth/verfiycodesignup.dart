@@ -17,6 +17,16 @@ var response = await crud.postData(linkApi.linkVerfiyCodesignup, {
 return  response.fold((l)=>l, (r)=>r) ;
 
 }
+resendData(String email )async{
+var response = await crud.postData(linkApi.linkresendverfiycode, {
+"email" : email ,
+
+
+});
+
+return  response.fold((l)=>l, (r)=>r) ;
+
+}
 
 
 

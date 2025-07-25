@@ -43,6 +43,7 @@ class SignInControllerImp extends SignInController{
       print("==============$response");
       if (StatusRequest.success == statusRequest){
         if(response["status"] == "success"){
+          if (response['data']['users_approve']== 1){
           myServices.sharedPreferences.setInt("id", response['data']['users_id']);
            myServices.sharedPreferences.setString("username", response['data']['users_name']);
             myServices.sharedPreferences.setString("phone", response['data']['users_phone']);
@@ -50,6 +51,11 @@ class SignInControllerImp extends SignInController{
               myServices.sharedPreferences.setString("step", "2");
           //  data.addAll(response); 
     Get.offNamed(AppRoutes.homepage );
+          }else{
+            Get.toNamed(AppRoutes.verifycodesignup , arguments: {
+              "email" : email.text 
+            }) ;
+          }
         }else{
            Get.defaultDialog(
           title: "Alret" , 
