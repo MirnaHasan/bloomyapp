@@ -26,7 +26,7 @@ class Items extends StatelessWidget {
           children: [
             CustomAppBar(
               titleAppBar: "Find Products",
-              onPressedIcon: () {},
+              // onPressedIcon: () {},
               onPressedSearch: () {}, onPressedIconFavorite: () {  },
             ),
             SizedBox(height: 20),

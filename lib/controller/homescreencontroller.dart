@@ -1,6 +1,8 @@
 
 
 import 'package:bloomy/view/screen/home.dart';
+import 'package:bloomy/view/screen/settings.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -24,16 +26,25 @@ class HomescreencontrollerImp extends HomeScreenController {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [Center(child: Text("profile"))]
     ),
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [Center(child: Text("favourite"))],
-    ),     
+    Settings() ,
+    // Column(
+    //   mainAxisAlignment: MainAxisAlignment.center,
+    //   children: [Center(child: Text("favourite"))],
+    // ),     
   ];
-  List titleBottomAppBar = [
-    "Home" , 
-    "Settings" , 
-    "Profile" , 
-    "favourite"
+  List bottomappbar = [
+   {"title" : "home" , 
+   "icon" : Icons.home ,
+   } ,
+    {"title" : "notifications" , 
+   "icon" : Icons.notifications_active_outlined ,
+   } ,
+    {"title" : "profile" , 
+   "icon" : Icons.person_pin_sharp ,
+   } ,
+    {"title" : "settings" , 
+   "icon" : Icons.settings ,
+   } ,
   ] ;
   @override
   changepage(int i) {

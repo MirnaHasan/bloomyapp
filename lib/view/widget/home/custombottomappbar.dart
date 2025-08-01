@@ -10,11 +10,11 @@ class CustomBottomAppBar extends StatelessWidget {
   final IconData iconData;
   final void Function()? onPressed;
   final bool active;
-  const CustomBottomAppBar(
-    this.textbutton,
-    this.iconData,
-    this.onPressed,
-    this.active, {
+  const CustomBottomAppBar({
+    required  this.textbutton,
+   required this.iconData,
+    required this.onPressed,
+   required this.active, 
     super.key,
   });
 
@@ -26,13 +26,13 @@ class CustomBottomAppBar extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(iconData, color: active == true ? AppColor.green:AppColor.greytwo) ,
-          Text(
-            textbutton,
-            style: TextStyle(
-              fontSize: 15,
-              // fontWeight: FontWeight.bold,
-              color: active == true ? AppColor.green:AppColor.greytwo) ,
-            ),
+          // Text(
+          //   textbutton,
+          //   style: TextStyle(
+          //     fontSize: 15,
+             
+          //     color: active == true ? AppColor.green:AppColor.greytwo) ,
+          //   ),
           
         ],
       ),

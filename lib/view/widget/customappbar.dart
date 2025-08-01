@@ -4,12 +4,15 @@ import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String titleAppBar ; 
-  final  void Function()? onPressedIcon ;
+  // final  void Function()? onPressedIcon ;
   final  void Function()? onPressedSearch ;
   final  void Function()? onPressedIconFavorite;
 
   
-  const CustomAppBar({super.key, required this.titleAppBar, required this.onPressedIcon,required this.onPressedSearch,required this.onPressedIconFavorite});
+  const CustomAppBar({super.key, required this.titleAppBar, 
+  // required this.onPressedIcon
+  
+  required this.onPressedSearch,required this.onPressedIconFavorite});
 
   @override
   Widget build(BuildContext context) {
@@ -32,18 +35,18 @@ class CustomAppBar extends StatelessWidget {
               )
 
               )) ,
-              SizedBox(width: 10 ) ,
-                Container(  decoration: BoxDecoration(    
-                  borderRadius:    BorderRadius.circular(10 ),
-                   color: Colors.grey[200],) ,
-                  width: 60 ,
+            //   SizedBox(width: 10 ) ,
+            //     Container(  decoration: BoxDecoration(    
+            //       borderRadius:    BorderRadius.circular(10 ),
+            //        color: Colors.grey[200],) ,
+            //       width: 60 ,
                
-                  padding: EdgeInsets.symmetric(vertical: 4) , 
-                  child: IconButton(onPressed: onPressedIcon, 
-            icon: Icon(Icons.notifications_active_outlined , size: 30  , color: Colors.grey[600] , )
+            //       padding: EdgeInsets.symmetric(vertical: 4) , 
+            //       child: IconButton(onPressed: onPressedIcon, 
+            // icon: Icon(Icons.notifications_active_outlined , size: 30  , color: Colors.grey[600] , )
             
             
-            ),),
+            // ),),
               SizedBox(width: 10 ) ,
                 Container(  decoration: BoxDecoration(    
                   borderRadius:    BorderRadius.circular(10 ),

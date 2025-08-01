@@ -22,9 +22,11 @@ class CustomBottomAppBarHome extends StatelessWidget {
              (index) {
               int i = index> 2 ? index-1 : index ; 
               return  index == 2 ? Spacer() : 
-              CustomBottomAppBar( controller.titleBottomAppBar[i], 
-              Icons.home, (){controller.changepage(i);},
-             controller.currentpage == i ? true : false ) ;
+            CustomBottomAppBar( 
+             textbutton:  controller.bottomappbar[i]['title'],
+              iconData:     controller.bottomappbar[i]['icon'],
+               onPressed: (){controller.changepage(i);}, 
+               active: controller.currentpage == i ? true : false,   ) ;
              }
              )
     

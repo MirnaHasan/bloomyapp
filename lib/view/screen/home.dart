@@ -3,7 +3,7 @@
 import 'package:bloomy/controller/homecontroller.dart';
 import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/core/constant/approutes.dart';
-import 'package:bloomy/view/screen/myfavorite.dart';
+
 import 'package:bloomy/view/widget/customappbar.dart';
 import 'package:bloomy/view/widget/home/customcardhome.dart';
 import 'package:bloomy/view/widget/home/customtitlehome.dart';
@@ -23,7 +23,10 @@ class Home extends StatelessWidget {
          padding: EdgeInsets.symmetric(horizontal: 15),
         child: ListView(
           children: [
-           CustomAppBar(titleAppBar: "Find Products", onPressedIcon:(){}, onPressedSearch:(){}, 
+           CustomAppBar(
+            titleAppBar: "Find Products",
+            // onPressedIcon:(){},
+             onPressedSearch:(){}, 
            onPressedIconFavorite: () { Get.toNamed(AppRoutes.myfavorite); },) ,
            CustomCardHome(titleCard: "A Summer Surprise", bodyCard: "Discount 20%" ),
            CustomTitleHome(title: "Categories",),
