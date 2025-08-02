@@ -2,7 +2,7 @@ import 'package:bloomy/controller/productdetailscontroller.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/core/functions/translatedatabase.dart';
 
-import 'package:bloomy/view/widget/productdetails/subitemslistsize.dart';
+
 import 'package:bloomy/view/widget/productdetails/toppageitemsdetails.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -91,20 +91,20 @@ class ProductDetails extends StatelessWidget {
           ),
 
           // SizedBox(height: 30,) ,
-          Container(
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              "Size",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: AppColor.primaryColor,
-                fontSize: 24,
-              ),
-            ),
-          ),
+          // Container(
+          //   padding: const EdgeInsets.all(20),
+          //   margin: const EdgeInsets.symmetric(horizontal: 20),
+          //   child: Text(
+          //     "Size",
+          //     style: TextStyle(
+          //       fontWeight: FontWeight.bold,
+          //       color: AppColor.primaryColor,
+          //       fontSize: 24,
+          //     ),
+          //   ),
+          // ),
 
-          SubItemsSizeList(),
+          // SubItemsSizeList(),
           SizedBox(height: 40),
         ],
       ),

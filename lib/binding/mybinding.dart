@@ -7,6 +7,6 @@ class MyBindings extends Bindings{
   @override
   void dependencies() {
   Get.put(Crud());
+ 
   }
-
 }

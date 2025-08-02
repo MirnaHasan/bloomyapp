@@ -16,6 +16,7 @@ import 'package:bloomy/view/screen/Auth/signupscreen.dart';
 import 'package:bloomy/view/screen/Auth/success_signup.dart';
 
 import 'package:bloomy/view/screen/Auth/verifycodesignup.dart';
+import 'package:bloomy/view/screen/cart.dart';
 import 'package:bloomy/view/screen/home.dart';
 import 'package:bloomy/view/screen/homescreen.dart';
 import 'package:bloomy/view/screen/items.dart';
@@ -31,7 +32,8 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 
 
 List<GetPage<dynamic>>? routes = [
-   GetPage(name: "/" , page: ()=>LanguageApp(), middlewares: [MyMiddleWare()]) ,
+  //  GetPage(name: "/" , page: ()=>LanguageApp(), middlewares: [MyMiddleWare()]) ,
+     GetPage(name: "/" , page: ()=>Cart()) ,
   //  GetPage(name: "/" , page: ()=>TestView()) ,
   // GetPage(name: "/" , page: ()=>ProductDetails()) ,
   GetPage(name: AppRoutes.onBoarding  , page: ()=>OnBoardingScreen(),) ,
@@ -53,6 +55,8 @@ List<GetPage<dynamic>>? routes = [
     //==================================myfavorite=======================================================================
 
    GetPage(name:   AppRoutes.myfavorite  , page: ()=> MyFavorite() ,) ,
+   //===================================cart====================
+   GetPage(name:   AppRoutes.cart  , page: ()=> Cart() ,) ,
 
 ];
 
