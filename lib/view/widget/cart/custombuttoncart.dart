@@ -26,7 +26,9 @@ class CustomButtonCart extends StatelessWidget {
             child: Text(
               textButton,
 
-              style: Theme.of(context).textTheme.titleMedium,
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(color: Colors.white , 
+              
+              fontWeight: FontWeight.normal),
             ),
           ),
         

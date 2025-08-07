@@ -15,35 +15,58 @@ class Cart extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Price :" , style: TextStyle(
-                 fontFamily: 'sans' ,
-              ),) , 
-              Text("1200\$" ,  style: TextStyle(
-                 fontFamily: 'sans' ,
-              ),) , 
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text("Price :" , style: TextStyle(
+                   fontWeight: FontWeight.normal ,
+                   fontFamily: 'sans' ,
+                ),),
+              ) , 
+              Container(
+                 padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text("1200\$" ,  style: TextStyle(
+                   fontWeight: FontWeight.normal ,
+                   fontFamily: 'sans' ,
+                ),),
+              ) , 
             ],) , 
-             Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("shapping:" , style: TextStyle(
-                 fontFamily: 'sans' ,
-              ),) , 
-              Text("1200\$" ,  style: TextStyle(
-                 fontFamily: 'sans' ,
-              ),) , 
+              Container( padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text("shapping:" , style: TextStyle(
+                   fontWeight: FontWeight.normal ,
+                   fontFamily: 'sans' ,
+                ),),
+              ) , 
+              Container(  padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text("1200\$" ,  style: TextStyle(
+                   fontWeight: FontWeight.normal ,
+                   fontFamily: 'sans' ,
+                ),),
+              ) , 
             ],) , 
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Divider(color: Colors.black,)) ,
-             Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("The Total Price :" , style: TextStyle(
-                 fontFamily: 'sans' ,
-              ),) , 
-              Text("1200\$" ,  style: TextStyle(
-                 fontFamily: 'sans' ,
-              ),) , 
+              Container(
+                 padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text("The Total Price :" , style: TextStyle(
+                  color: AppColor.green,
+                   fontFamily: 'sans' ,
+                  
+                ),),
+              ) , 
+              Container(  padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text("1200\$" ,  style: TextStyle(
+                  color: AppColor.green,
+                 
+                   fontFamily: 'sans' ,
+                ),),
+              ) , 
               
             ],) , 
              SizedBox(height: 20,) ,
@@ -69,6 +92,7 @@ class Cart extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Text("My Cart" , style: TextStyle(
                       fontSize: 25 , 
+                      fontWeight: FontWeight.normal
                      
                     ),),
                   ),
@@ -77,8 +101,26 @@ class Cart extends StatelessWidget {
                  
               ],
             )) ,
+            SizedBox(height: 10,) ,
             Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.only(bottom: 5),
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              // height: 20 ,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20) , 
+              color: AppColor.greenAccent
+
+            ),
+            child: Text("You Have 3 Items In Your List " , 
+            
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.normal
+              // fontFamily: 'sans'
+            ),
+            textAlign: TextAlign.center),) ,
+            Container(
+            padding: EdgeInsets.all(10),
               child: Column(
                 children: [
                   Card(
