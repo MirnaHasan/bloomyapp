@@ -35,6 +35,13 @@ class linkApi {
       static const String linkremovefavorite = "$linkServer/favorite/remove.php";
       static const String linkviewfavorite = "$linkServer/favorite/viewmyfavorite.php";
       static const String linkdeletfromfavorite = "$linkServer/favorite/deletfromfavorite.php";
+      //======================cart================================================
       
+      static const String linkviewcart = "$linkServer/cart/viewcart.php";
+
+
+      static const String linkdeletfromcart = "$linkServer/cart/deletfromcart.php";
+      
+      static const String linkaddtocart = "$linkServer/cart/addtocart.php";
         
 }

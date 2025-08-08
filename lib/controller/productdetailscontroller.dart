@@ -1,5 +1,6 @@
 
 
+import 'package:bloomy/controller/cart_controller.dart';
 import 'package:bloomy/data/model/items.dart';
 import 'package:get/get.dart';
 
@@ -10,6 +11,7 @@ abstract class ProductDetailsController extends GetxController {
 
 class ProductDetailsControllerImp extends ProductDetailsController{
 late ItemsModel itemsModel ;
+CartController cartController = Get.put(CartController()) ;
 List subItems = [
   {"name" : "small", 
   "id" : 1, 

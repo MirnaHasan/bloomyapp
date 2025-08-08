@@ -32,8 +32,8 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 
 
 List<GetPage<dynamic>>? routes = [
-  //  GetPage(name: "/" , page: ()=>LanguageApp(), middlewares: [MyMiddleWare()]) ,
-     GetPage(name: "/" , page: ()=>Cart()) ,
+  GetPage(name: "/" , page: ()=>LanguageApp(), middlewares: [MyMiddleWare()]) ,
+    //  GetPage(name: "/" , page: ()=>Cart()) ,
   //  GetPage(name: "/" , page: ()=>TestView()) ,
   // GetPage(name: "/" , page: ()=>ProductDetails()) ,
   GetPage(name: AppRoutes.onBoarding  , page: ()=>OnBoardingScreen(),) ,

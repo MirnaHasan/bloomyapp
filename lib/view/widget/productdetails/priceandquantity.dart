@@ -17,7 +17,7 @@ class PriceAndQuantityItems extends StatelessWidget {
                       
                         children: [
                           Row(children: [  
-                          IconButton(onPressed: (){}, icon: Icon(Icons.add)),
+                          IconButton(onPressed: onAdd, icon: Icon(Icons.add)),
                           Container(
                             padding: EdgeInsets.only(bottom: 10),
                             alignment: Alignment.center,
@@ -29,7 +29,7 @@ class PriceAndQuantityItems extends StatelessWidget {
                             ),
                             child: Text( 
                               "$count" , style: TextStyle(fontSize: 20,height: 1.1),),),
-                            IconButton(onPressed: (){}, icon: Icon(Icons.remove)),],) ,
+                            IconButton(onPressed: onRemove, icon: Icon(Icons.remove)),],) ,
                        Spacer(),
 
                           Text(
