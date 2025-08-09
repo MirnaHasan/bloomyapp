@@ -13,7 +13,7 @@ abstract class ProductDetailsController extends GetxController {
 class ProductDetailsControllerImp extends ProductDetailsController{
 late ItemsModel itemsModel ;
  late String heroTag;
-int ?countitems ;
+int countitems = 0 ;
 StatusRequest statusRequest = StatusRequest.none ;
 CartController cartController = Get.put(CartController()) ;
 List subItems = [
@@ -43,6 +43,19 @@ List subItems = [
       countitems= await cartController.getcountitemscart(itemsModel.itemsId.toString()) ;
        statusRequest = StatusRequest.success ;
        update();
+  }
+  add(){
+     cartController.add(itemsModel.itemsId.toString());
+    countitems = countitems+1 ; 
+    update();
+  }
+  remove(){
+    if (countitems>0){
+      cartController.delete((itemsModel.itemsId.toString()));
+          countitems = countitems-1 ; 
+          update() ;
+    }
+
   }
 
 }
