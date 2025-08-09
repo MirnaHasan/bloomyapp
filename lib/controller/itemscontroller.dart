@@ -7,10 +7,11 @@ import 'package:bloomy/data/model/items.dart';
 import 'package:get/get.dart';
 
 abstract class ItemsController extends GetxController {
+  
   initialData();
   chaneCategory(int val, String cateval);
   getItems(String categoryid);
-  goToProductDetails (ItemsModel itemsModel);
+  goToProductDetails (ItemsModel itemsModel , String heroTag);
 }
 
 class ItemscontrollerImp extends ItemsController {
@@ -63,9 +64,10 @@ class ItemscontrollerImp extends ItemsController {
   }
   
   @override
-  goToProductDetails(ItemsModel itemsModel) {
+  goToProductDetails(ItemsModel itemsModel , String heroTag) {
   Get.toNamed(AppRoutes.productdetails , arguments: {
-    "itemsmodel" : itemsModel 
+    "itemsmodel" : itemsModel , 
+    "heroTag": heroTag,
   });
   }
 }

@@ -17,6 +17,7 @@ class Items extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     Get.put(ItemscontrollerImp());
     FavoriteController controllerFavorite = Get.put( FavoriteController());
     return Scaffold(
@@ -44,9 +45,13 @@ class Items extends StatelessWidget {
                   childAspectRatio: 0.6, // أقل لتوسيع الارتفاع (الصورة تأخذ مساحة أكبر)
                 ),
                 itemBuilder: (BuildContext context, int i) {
+                   final itemModel = ItemsModel.fromJson(controller.data[i]);
                   controllerFavorite.isFavorite[controller.data[i]['Items_id']] = controller.data[i]['favorite'] ;
                   return 
-            CustomListItems(itemsModel:ItemsModel.fromJson(controller.data[i]),);} )),))
+            CustomListItems(
+           itemsModel: itemModel,
+    heroTag: "product_${itemModel.itemsId}_$i",
+              );} )),))
           
           ],
         ),)

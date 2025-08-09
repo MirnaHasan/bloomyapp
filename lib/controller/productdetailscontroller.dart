@@ -1,6 +1,7 @@
 
 
 import 'package:bloomy/controller/cart_controller.dart';
+import 'package:bloomy/core/class/statusrequest.dart';
 import 'package:bloomy/data/model/items.dart';
 import 'package:get/get.dart';
 
@@ -11,6 +12,9 @@ abstract class ProductDetailsController extends GetxController {
 
 class ProductDetailsControllerImp extends ProductDetailsController{
 late ItemsModel itemsModel ;
+ late String heroTag;
+int ?countitems ;
+StatusRequest statusRequest = StatusRequest.none ;
 CartController cartController = Get.put(CartController()) ;
 List subItems = [
   {"name" : "small", 
@@ -29,10 +33,16 @@ List subItems = [
   @override
   void onInit() {
  initialData();
+
     super.onInit();
   }
-  initialData(){
+  initialData()async{
+    statusRequest= StatusRequest.loading ;
       itemsModel = Get.arguments['itemsmodel'];
+       heroTag = Get.arguments['heroTag'];
+      countitems= await cartController.getcountitemscart(itemsModel.itemsId.toString()) ;
+       statusRequest = StatusRequest.success ;
+       update();
   }
 
 }

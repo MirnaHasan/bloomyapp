@@ -11,14 +11,15 @@ import 'package:get/get.dart';
 
 class CustomListItems extends GetView<ItemscontrollerImp>  {
   final ItemsModel itemsModel ;
+    final String heroTag;
  
-  const CustomListItems( {super.key, required this.itemsModel , });
+  const CustomListItems( {super.key, required this.itemsModel ,required this.heroTag,  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
                     onTap: () {
-                      controller.goToProductDetails(itemsModel);
+                      controller.goToProductDetails(itemsModel , heroTag );
                     },
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -32,8 +33,9 @@ class CustomListItems extends GetView<ItemscontrollerImp>  {
                           children: [
                             // ✅ Expanded للصورة
                           Expanded(
-                                child: Hero(
-                                  tag: "${itemsModel.itemsId}",
+                                child:Hero(
+                                    tag: heroTag, // ← إضافة prefix لضمان التفرد
+                                  // tag: "${itemsModel.itemsId}",
                                   child: CachedNetworkImage(
                                     imageUrl: "${linkApi.linkimages}/${itemsModel.itemsImage}" ,
                                     fit: BoxFit.cover,

@@ -14,6 +14,7 @@ MyServices myServices = Get.find();
 StatusRequest statusRequest = StatusRequest.none ;
 CartData favoriteData = CartData(Get.find());
 
+
 add(String itemsid )async{
 
     statusRequest = StatusRequest.loading ;
@@ -32,7 +33,7 @@ add(String itemsid )async{
   
 }
 delete(String itemsid )async{
-  data.clear();
+
     statusRequest = StatusRequest.loading ;
     update() ; 
     var response = await favoriteData.deletfromcart(myServices.sharedPreferences.getInt("id").toString() , itemsid);
@@ -46,4 +47,33 @@ delete(String itemsid )async{
         statusRequest = StatusRequest.failure;
       }
     }
-}}
+}
+
+getcountitemscart(String itemsid )async{
+  
+    statusRequest = StatusRequest.loading ;
+    update() ; 
+    var response = await favoriteData.getcountitems(myServices.sharedPreferences.getInt("id").toString() , itemsid);
+        print(response);
+    statusRequest = await handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
+        int countItems = 0 ;
+       countItems = response['data'] ; 
+       print("======================================") ; 
+       print(countItems) ; 
+       return countItems ;
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
+}
+
+
+
+
+
+
+
+
+}

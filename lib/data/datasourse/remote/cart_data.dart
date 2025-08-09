@@ -23,5 +23,13 @@ class CartData{
     });
     return response.fold((l)=>l, (r)=>r);
   }
+  
+  getcountitems(String userid , String itemsid)async{
+    var response = await crud.postData(linkApi.linkgetcountitemscart, {
+         "userid" : userid , 
+      "itemsid" : itemsid ,
+    });
+    return response.fold((l)=>l, (r)=>r);
+  }
 
 }

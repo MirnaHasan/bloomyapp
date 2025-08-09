@@ -11,7 +11,7 @@ class TopPageItemsDetails extends GetView<ProductDetailsControllerImp> {
 
   @override
   Widget build(BuildContext context) {
-    return   Stack(
+    return Stack(
             clipBehavior: Clip.none,
             children: [
               // خلفية علوية
@@ -33,7 +33,8 @@ class TopPageItemsDetails extends GetView<ProductDetailsControllerImp> {
                 left: Get.width * 0.1,
                 right: Get.width * 0.1,
                 child: Hero(
-                  tag: "${controller.itemsModel.itemsId}",
+                    tag: controller.heroTag ,  
+                  // tag: "${controller.itemsModel.itemsId}",
                   child: ClipRRect(
                     
                     borderRadius: BorderRadius.circular(

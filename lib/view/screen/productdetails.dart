@@ -1,4 +1,5 @@
 import 'package:bloomy/controller/productdetailscontroller.dart';
+import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/core/functions/translatedatabase.dart';
 
@@ -14,9 +15,7 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ProductDetailsControllerImp controller = Get.put(
-      ProductDetailsControllerImp(),
-    );
+   Get.put(ProductDetailsControllerImp(),);
 
     return Scaffold(
       bottomNavigationBar: Container(
@@ -38,7 +37,9 @@ class ProductDetails extends StatelessWidget {
         ),
       ),
       backgroundColor: Colors.grey[100],
-      body: ListView(
+      body: GetBuilder<ProductDetailsControllerImp>
+      (builder: (controller)=>HandlingDataView(statusRequest:controller.statusRequest ,
+       widget: ListView(
         children: [
           TopPageItemsDetails(),
           SizedBox(height: 280),
@@ -83,10 +84,14 @@ class ProductDetails extends StatelessWidget {
                 PriceAndQuantityItems(
                   onAdd: () {
                     controller.cartController.add(controller.itemsModel.itemsId.toString());
+                    controller.cartController.getcountitemscart(controller.itemsModel.itemsId.toString()) ;
                   },
-                  onRemove: (){controller.cartController.delete((controller.itemsModel.itemsId.toString()));},
+                  onRemove: (){controller.cartController.delete((controller.itemsModel.itemsId.toString()));
+                     controller.cartController.getcountitemscart(controller.itemsModel.itemsId.toString()) ;
+                  
+                  },
                   price: "${controller.itemsModel.itemsPrice}",
-                  count: "${controller.itemsModel.itemsCount}",
+                  count: "${controller.countitems}",
                 ),
               ],
             ),
@@ -109,7 +114,7 @@ class ProductDetails extends StatelessWidget {
           // SubItemsSizeList(),
           SizedBox(height: 40),
         ],
-      ),
+      ),))
     );
   }
 }
