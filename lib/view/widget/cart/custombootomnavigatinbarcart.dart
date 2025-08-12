@@ -19,14 +19,14 @@ class CustomBottomNavigationBarCart extends StatelessWidget {
             children: [
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Text( price, style: TextStyle(
+                child: Text( "price", style: TextStyle(
                    fontWeight: FontWeight.normal ,
                    fontFamily: 'sans' ,
                 ),),
               ) , 
               Container(
                  padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Text("1200\$" ,  style: TextStyle(
+                child: Text("$price \$" ,  style: TextStyle(
                    fontWeight: FontWeight.normal ,
                    fontFamily: 'sans' ,
                 ),),
@@ -35,13 +35,13 @@ class CustomBottomNavigationBarCart extends StatelessWidget {
              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container( padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Text( shipping, style: TextStyle(
+                child: Text( "shipping", style: TextStyle(
                    fontWeight: FontWeight.normal ,
                    fontFamily: 'sans' ,
                 ),),
               ) , 
               Container(  padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Text("1200\$" ,  style: TextStyle(
+                child: Text("$shipping \$" ,  style: TextStyle(
                    fontWeight: FontWeight.normal ,
                    fontFamily: 'sans' ,
                 ),),
@@ -54,14 +54,14 @@ class CustomBottomNavigationBarCart extends StatelessWidget {
             children: [
               Container(
                  padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Text(totalprice  , style: TextStyle(
+                child: Text("totalprice"  , style: TextStyle(
                   color: AppColor.green,
                    fontFamily: 'sans' ,
                   
                 ),),
               ) , 
               Container(  padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Text("1200\$" ,  style: TextStyle(
+                child: Text("$totalprice \$" ,  style: TextStyle(
                   color: AppColor.green,
                  
                    fontFamily: 'sans' ,

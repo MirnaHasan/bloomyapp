@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 class TopAppBarCart extends StatelessWidget {
 const TopAppBarCart({super.key, required this.title});
@@ -15,7 +16,9 @@ const TopAppBarCart({super.key, required this.title});
                  
                   child: Container(
                     alignment: Alignment.topLeft,
-                    child: IconButton(onPressed: (){}, icon: Icon(Icons.arrow_back)))), 
+                    child: IconButton(onPressed: (){
+                      Get.back() ;
+                    }, icon: Icon(Icons.arrow_back)))), 
                 Expanded(
                   child: Container(
                     alignment: Alignment.center,

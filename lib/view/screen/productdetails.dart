@@ -1,6 +1,7 @@
 import 'package:bloomy/controller/productdetailscontroller.dart';
 import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
+import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/functions/translatedatabase.dart';
 
 
@@ -28,10 +29,11 @@ class ProductDetails extends StatelessWidget {
           ),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           onPressed: () {
+            Get.toNamed(AppRoutes.cart) ;
             // action here
           },
           child: Text(
-            "أضف إلى السلة",
+            "الذهاب إلى السلة",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),

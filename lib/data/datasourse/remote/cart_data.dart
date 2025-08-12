@@ -32,4 +32,14 @@ class CartData{
     return response.fold((l)=>l, (r)=>r);
   }
 
+  viewcart(String userid )async{
+    var response = await crud.postData(linkApi.linkviewcart, {
+         "userid" : userid , 
+      
+    });
+    return response.fold((l)=>l, (r)=>r);
+  }
+
+
+
 }
