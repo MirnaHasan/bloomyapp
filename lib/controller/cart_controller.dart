@@ -17,6 +17,15 @@ List<CartModel> data = [] ;
 double priceorders = 0.0 ; 
 int totalCountItems = 0 ; 
 
+resetVarCart(){
+  priceorders = 0.0 ; 
+  totalCountItems = 0 ; 
+  data.clear() ; 
+}
+refreshPageCart(){
+  resetVarCart() ; 
+  view() ; 
+}
 
 add(String itemsid )async{
 
@@ -33,7 +42,7 @@ add(String itemsid )async{
         statusRequest = StatusRequest.failure;
       }
     }
-  
+  update() ;
 }
 delete(String itemsid )async{
 
@@ -44,51 +53,35 @@ delete(String itemsid )async{
     statusRequest = await handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
-        // data.addAll(response['data']);
+       
         Get.rawSnackbar(title: "اشعار" , messageText:  Text("تم حذف المنتج من االسلة ") );
       } else {
         statusRequest = StatusRequest.failure;
       }
     }
-}
-
-getcountitemscart(String itemsid )async{
-  
-    statusRequest = StatusRequest.loading ;
-    update() ; 
-    var response = await cartData.getcountitems(myServices.sharedPreferences.getInt("id").toString() , itemsid);
-        print(response);
-    statusRequest = await handlingData(response);
-    if (StatusRequest.success == statusRequest) {
-      if (response['status'] == 'success') {
-        int countItems = 0 ;
-       countItems = response['data'] ; 
-       print("======================================") ; 
-       print(countItems) ; 
-       return countItems ;
-      } else {
-        statusRequest = StatusRequest.failure;
-      }
-    }
+    update() ;
 }
 
 
 view()async{
   
     statusRequest = StatusRequest.loading ;
+    
     update() ; 
     var response = await cartData.viewcart(myServices.sharedPreferences.getInt("id").toString() );
         print(response);
     statusRequest = await handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
-        List dataresponse = response['cartdata'] ;
+       if (response['cartdata']['status']== "success"){
+        List dataresponse = response['cartdata']['data'] ;
         Map dataresponsepricecount = response['pricecount'] ;
-        data.addAll(dataresponse.map((e)=>CartModel.fromJson(e))) ;
+        data.clear()
+;        data.addAll(dataresponse.map((e)=>CartModel.fromJson(e))) ;
         totalCountItems = int.parse(dataresponsepricecount['totalcountitems']);
         priceorders = (dataresponsepricecount['totalprice'] as num).toDouble();
+       }
 
-   
        
       } else {
         statusRequest = StatusRequest.failure;
@@ -96,6 +89,9 @@ view()async{
     }
     update() ;
 }
+
+
+
 @override
   void onInit() {
 view();

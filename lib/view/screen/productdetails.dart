@@ -16,7 +16,7 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   Get.put(ProductDetailsControllerImp(),);
+   ProductDetailsControllerImp controller = Get.put(ProductDetailsControllerImp(),);
 
     return Scaffold(
       bottomNavigationBar: Container(
@@ -30,6 +30,7 @@ class ProductDetails extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           onPressed: () {
             Get.toNamed(AppRoutes.cart) ;
+           
             // action here
           },
           child: Text(
@@ -90,7 +91,7 @@ class ProductDetails extends StatelessWidget {
                     
                   },
                   onRemove: (){
-                  controller.remove();
+                  controller.delete();
                   
                   
                   },

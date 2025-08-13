@@ -7,11 +7,19 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomItemsCardList extends StatelessWidget {
-  const CustomItemsCardList({super.key, required this.name, required this.price, required this.count, required this.imageName});
+  const CustomItemsCardList({super.key, required this.name, 
+  required this.price, 
+  required this.count, 
+  required this.imageName, 
+ required this.onAdd, 
+ required this.onRemove});
   final String name ; 
   final String price ; 
   final String count ;
-  final String imageName ;  
+  final String imageName ; 
+  final  void Function()? onAdd ; 
+  final  void Function()? onRemove ; 
+
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +53,7 @@ class CustomItemsCardList extends StatelessWidget {
                 children: [
                   Container(
                     height: 40,
-                    child: IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+                    child: IconButton(onPressed: onAdd, icon: Icon(Icons.add)),
                   ),
                   Container(
                     height: 30,
@@ -54,7 +62,7 @@ class CustomItemsCardList extends StatelessWidget {
                   Container(
                     height: 25,
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: onRemove,
                       icon: Icon(Icons.remove),
                     ),
                   ),
