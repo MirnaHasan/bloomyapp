@@ -40,7 +40,7 @@ class Cart extends StatelessWidget {
                 (index)=> CustomItemsCardList(
                   name: "${cartcontroller.data[index].itemsName}",
                   price: "${cartcontroller.data[index].itemsPrice}",
-                  count: "${cartcontroller.data[index].countitems}",
+                  count: "${cartcontroller.data[index].countitems}", imageName:"${cartcontroller.data[index].itemsImage}",
                 ),
               
                ) ,

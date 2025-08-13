@@ -94,6 +94,7 @@ view()async{
         statusRequest = StatusRequest.failure;
       }
     }
+    update() ;
 }
 @override
   void onInit() {

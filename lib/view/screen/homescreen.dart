@@ -2,6 +2,7 @@
 
 import 'package:bloomy/controller/homescreencontroller.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
+import 'package:bloomy/core/constant/approutes.dart';
 
 import 'package:bloomy/view/widget/home/custombottomappbarhome.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,9 @@ class HomeScreen extends StatelessWidget {
               shape: CircleBorder(),
               elevation: 5,
               backgroundColor: AppColor.green,
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(AppRoutes.cart) ;
+              },
               child: Icon(
                 Icons.shopping_basket_outlined,
                 color: const Color.fromARGB(255, 60, 122, 62),

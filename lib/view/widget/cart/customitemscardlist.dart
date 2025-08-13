@@ -1,14 +1,17 @@
 
 
 import 'package:bloomy/core/constant/appcolor.dart';
-import 'package:bloomy/core/constant/appimages.dart';
+import 'package:bloomy/linkapi.dart';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomItemsCardList extends StatelessWidget {
-  const CustomItemsCardList({super.key, required this.name, required this.price, required this.count});
+  const CustomItemsCardList({super.key, required this.name, required this.price, required this.count, required this.imageName});
   final String name ; 
   final String price ; 
-  final String count ; 
+  final String count ;
+  final String imageName ;  
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,14 @@ class CustomItemsCardList extends StatelessWidget {
           children: [
             Expanded(
               flex: 2,
-              child: Image.asset(AppImage.logoImage, fit: BoxFit.cover),
+              child: Container(
+           
+                child: CachedNetworkImage(
+              
+                //  fit: BoxFit.cover,
+                  imageUrl: "${linkApi.linkimages}/$imageName"
+                  ,height: 100,),
+              ),
             ),
             Expanded(
               flex: 3,
