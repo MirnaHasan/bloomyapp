@@ -73,6 +73,8 @@ class ListItemsSearch extends StatelessWidget {
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       itemCount: listDataModel.length,
-      itemBuilder: (context , index)=> Text("${listDataModel[index].itemsName})")) ;
+      itemBuilder: (context , index)=>  Text("${listDataModel[index].itemsName}")
+
+       ) ;
   }
 }
