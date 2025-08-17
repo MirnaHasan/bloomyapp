@@ -4,6 +4,7 @@ import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
 import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/data/datasourse/remote/homedata.dart';
+import 'package:bloomy/data/model/items.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
  abstract class HomeController extends GetxController {
@@ -23,6 +24,7 @@ class HomeComtrollerImp extends HomeController {
   List categories = [] ;
   TextEditingController? search ;
   bool isSearch = false ;
+  List<ItemsModel> listdata = [] ;
   @override
   initialData() {
     lang = myServices.sharedPreferences.getString("lang");
@@ -46,6 +48,7 @@ class HomeComtrollerImp extends HomeController {
   }
   onSearchItems(){
     isSearch = true ; 
+    searchdata() ;
     update() ;
   }
   
@@ -68,6 +71,28 @@ class HomeComtrollerImp extends HomeController {
         
       }
        update();
+  }
+  searchdata()async{
+
+ 
+   statusRequest = StatusRequest.loading;
+      update();
+      var response = await homeData.searchData(search!.text);
+     print("==================================$response");
+      statusRequest =  await handlingData(response);
+    
+      if (StatusRequest.success == statusRequest){
+        if(response['status']== 'success'){
+        List responsedata = response['data'] ; 
+        print("{$responsedata}") ;
+        listdata.addAll(responsedata.map((e)=>ItemsModel.fromJson(e))) ;
+        }else{
+          statusRequest = StatusRequest.failure ;
+        }
+        
+      }
+       update();
+
   }
   
   @override

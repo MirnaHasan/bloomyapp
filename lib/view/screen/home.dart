@@ -3,6 +3,7 @@
 import 'package:bloomy/controller/homecontroller.dart';
 import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/core/constant/approutes.dart';
+import 'package:bloomy/data/model/items.dart';
 
 import 'package:bloomy/view/widget/customappbar.dart';
 import 'package:bloomy/view/widget/home/customcardhome.dart';
@@ -19,7 +20,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
      Get.put(HomeComtrollerImp());
     return GetBuilder<HomeComtrollerImp>(builder: (controller)=> 
-      HandlingDataView(statusRequest: controller.statusRequest, widget: Container(
+    Container(
          padding: EdgeInsets.symmetric(horizontal: 15),
         child: ListView(
           children: [
@@ -35,7 +36,8 @@ class Home extends StatelessWidget {
            mycontroller: controller.search,
 
            ) ,
-           !controller.isSearch?
+             HandlingDataView(statusRequest: controller.statusRequest, widget: 
+           !controller.isSearch ?
            
            Column(
             children: [
@@ -51,12 +53,26 @@ class Home extends StatelessWidget {
           //  SizedBox(height: 16),
           //  ListItemsHome(),
             ],
-           ) :Container(child: Text("جاااري البحثثثثثثثثثثثثث"),)
-                  ] ,
+           ) : ListItemsSearch(listDataModel: controller.listdata )
+        )] ,
                 ),
               ),
-            ), 
-    );
+            );
+    
    
+  }
+}
+
+class ListItemsSearch extends StatelessWidget {
+  final List <ItemsModel> listDataModel ;
+  const ListItemsSearch({super.key, required this.listDataModel});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemCount: listDataModel.length,
+      itemBuilder: (context , index)=> Text("${listDataModel[index].itemsName})")) ;
   }
 }
