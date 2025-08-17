@@ -15,7 +15,7 @@ class ListCategoriesHome extends GetView<HomeComtrollerImp> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 210,
-      width: 170,
+      // width: 170,
       child: ListView.separated(
         separatorBuilder: (context, index) => SizedBox(width: 40),
 

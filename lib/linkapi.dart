@@ -28,8 +28,9 @@ class linkApi {
   static const String verifycodeforgetpasswordLink = "$linkServer/forgetpassword/verifycode.php";
   //==========================================home===========================================
     static const String homeLink = "$linkServer/home.php";
-    //===============================linkitems=============================
+    //===============================Items=============================
      static const String linkitems = "$linkServer/items/items.php";
+     static const String linksearchItems = "$linkServer/items/search.php";
      //=====================favorite============================================
       static const String linkaddfavorite = "$linkServer/favorite/add.php";
       static const String linkremovefavorite = "$linkServer/favorite/remove.php";
@@ -44,5 +45,6 @@ class linkApi {
       
       static const String linkaddtocart = "$linkServer/cart/addtocart.php";
       static const String linkgetcountitemscart = "$linkServer/cart/getcountitems.php";
+      
         
 }

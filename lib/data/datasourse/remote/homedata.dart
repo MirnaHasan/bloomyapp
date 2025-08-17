@@ -10,5 +10,11 @@ class HomeData{
     var response = await crud.postData(linkApi.homeLink, {});
     return response.fold((l)=>l, (r)=>r);
   }
+  searchData(String search)async{
+    var response = await crud.postData(linkApi.linksearchItems, {
+      "search": search , 
+    });
+    return response.fold((l)=>l, (r)=>r);
+  }
   
 }

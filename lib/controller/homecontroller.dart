@@ -4,17 +4,14 @@ import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
 import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/data/datasourse/remote/homedata.dart';
-
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-
  abstract class HomeController extends GetxController {
  initialData() ;
  getdata();
  goToItems(List categories , int selectedCategory , String categoryid) ;
 
 }
-
-
 class HomeComtrollerImp extends HomeController {
   String? username;
   String? lang ;
@@ -24,6 +21,8 @@ class HomeComtrollerImp extends HomeController {
   StatusRequest statusRequest = StatusRequest.none ;
   List items = [] ;
   List categories = [] ;
+  TextEditingController? search ;
+  bool isSearch = false ;
   @override
   initialData() {
     lang = myServices.sharedPreferences.getString("lang");
@@ -33,9 +32,21 @@ class HomeComtrollerImp extends HomeController {
 
   @override
   void onInit() {
+    search =TextEditingController() ;
     getdata();
     initialData();
     super.onInit();
+  }
+  checkSearch(val){
+    if(val== ''){
+      isSearch = false ; 
+
+    }
+    update() ;
+  }
+  onSearchItems(){
+    isSearch = true ; 
+    update() ;
   }
   
   @override

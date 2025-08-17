@@ -25,11 +25,11 @@ class Items extends StatelessWidget {
         padding: EdgeInsets.all(15),
         child:ListView(
           children: [
-            CustomAppBar(
-              titleAppBar: "Find Products",
-              // onPressedIcon: () {},
-              onPressedSearch: () {}, onPressedIconFavorite: () {  },
-            ),
+            // CustomAppBar(
+            //   titleAppBar: "Find Products",
+            //   // onPressedIcon: () {},
+            //   onPressedSearch: () {}, onPressedIconFavorite: () {  },
+            // ),
             SizedBox(height: 20),
             ListCategoriesItems(),
             GetBuilder<ItemscontrollerImp>(builder: (controller)=>
