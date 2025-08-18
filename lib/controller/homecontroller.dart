@@ -11,7 +11,7 @@ import 'package:get/get.dart';
  initialData() ;
  getdata();
  goToItems(List categories , int selectedCategory , String categoryid) ;
-  goToProductDetails(ItemsModel itemsModel ) ;
+goToProductDetails(ItemsModel itemsModel , String heroTag) ;
 
 }
 class HomeComtrollerImp extends HomeController {
@@ -68,11 +68,11 @@ class HomeComtrollerImp extends HomeController {
   "selectedcategory" : selectedCategory ,
   "categoryid" : categortid ,
    });
-  }
-   goToProductDetails(ItemsModel itemsModel , ) {
+  }  
+  goToProductDetails(ItemsModel itemsModel , String heroTag) {
   Get.toNamed(AppRoutes.productdetails , arguments: {
     "itemsmodel" : itemsModel , 
-   
+    "heroTag": heroTag,
   });
   }
 }

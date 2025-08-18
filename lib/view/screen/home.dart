@@ -77,7 +77,7 @@ class ListItemsSearch extends GetView<HomeComtrollerImp> {
       itemCount: listDataModel.length,
       itemBuilder: (context , index)=>  InkWell(
         onTap: () {
-          controller.goToProductDetails(listDataModel[index]) ;
+          controller.goToProductDetails(listDataModel[index] , "product_${listDataModel[index].itemsId}",) ;
         },
         child: Container(
             margin: EdgeInsets.symmetric(vertical: 20),
