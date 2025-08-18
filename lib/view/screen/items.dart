@@ -1,7 +1,9 @@
 import 'package:bloomy/controller/favoritecontroller.dart';
 import 'package:bloomy/controller/itemscontroller.dart';
 import 'package:bloomy/core/class/handlingdataview.dart';
+import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/data/model/items.dart';
+import 'package:bloomy/view/screen/home.dart';
 
 
 
@@ -18,23 +20,30 @@ class Items extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    Get.put(ItemscontrollerImp());
+   ItemscontrollerImp controller = Get.put(ItemscontrollerImp());
     FavoriteController controllerFavorite = Get.put( FavoriteController());
     return Scaffold(
       body: Container(
         padding: EdgeInsets.all(15),
         child:ListView(
           children: [
-            // CustomAppBar(
-            //   titleAppBar: "Find Products",
-            //   // onPressedIcon: () {},
-            //   onPressedSearch: () {}, onPressedIconFavorite: () {  },
-            // ),
+          CustomAppBar(
+          titleAppBar: "Find Products",
+          onPressedSearch:(){
+            controller.onSearchItems() ;
+          }, 
+          onPressedIconFavorite: () { Get.toNamed(AppRoutes.myfavorite); },
+           onChanged: ( val) {
+            controller.checkSearch(val) ;
+             }, 
+           mycontroller: controller.search,
+
+           ) ,
             SizedBox(height: 20),
             ListCategoriesItems(),
             GetBuilder<ItemscontrollerImp>(builder: (controller)=>
         HandlingDataView(statusRequest: controller.statusRequest,
-        widget: 
+        widget: !controller.isSearch ? 
              SizedBox(
               child: GridView.builder(
                 itemCount: controller.data.length,
@@ -51,7 +60,9 @@ class Items extends StatelessWidget {
             CustomListItems(
            itemsModel: itemModel,
     heroTag: "product_${itemModel.itemsId}_$i",
-              );} )),))
+              );} )) : 
+              ListItemsSearch(listDataModel: controller.listdata)
+              ))
           
           ],
         ),)

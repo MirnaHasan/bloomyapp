@@ -7,10 +7,11 @@ import 'package:bloomy/data/datasourse/remote/homedata.dart';
 import 'package:bloomy/data/model/items.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
- abstract class HomeController extends GetxController {
+ abstract class HomeController extends MixSearchController {
  initialData() ;
  getdata();
  goToItems(List categories , int selectedCategory , String categoryid) ;
+  goToProductDetails(ItemsModel itemsModel ) ;
 
 }
 class HomeComtrollerImp extends HomeController {
@@ -19,12 +20,10 @@ class HomeComtrollerImp extends HomeController {
   int? id ;
   MyServices myServices = Get.find();
   HomeData homeData =HomeData(Get.find());
-  StatusRequest statusRequest = StatusRequest.none ;
+
   List items = [] ;
   List categories = [] ;
-  TextEditingController? search ;
-  bool isSearch = false ;
-  List<ItemsModel> listdata = [] ;
+
   @override
   initialData() {
     lang = myServices.sharedPreferences.getString("lang");
@@ -39,6 +38,52 @@ class HomeComtrollerImp extends HomeController {
     initialData();
     super.onInit();
   }
+  
+  @override
+  getdata() async{
+    
+   statusRequest = StatusRequest.loading;
+      update();
+      var response = await homeData.postdata();
+     print("==================================$response");
+      statusRequest =  await handlingData(response);
+    
+      if (StatusRequest.success == statusRequest){
+        if(response['status']== 'success'){
+          
+      categories.addAll(response['categories']['data']);
+        items.addAll(response['items']['data']);
+        }else{
+          statusRequest = StatusRequest.failure ;
+        }
+        
+      }
+       update();
+  }
+  
+  @override
+  goToItems( categories ,selectedCategory ,categortid) {
+   Get.toNamed(AppRoutes.items, arguments: {
+  "categories" : categories , 
+  "selectedcategory" : selectedCategory ,
+  "categoryid" : categortid ,
+   });
+  }
+   goToProductDetails(ItemsModel itemsModel , ) {
+  Get.toNamed(AppRoutes.productdetails , arguments: {
+    "itemsmodel" : itemsModel , 
+   
+  });
+  }
+}
+
+
+class MixSearchController extends GetxController {
+    HomeData homeData =HomeData(Get.find());
+    TextEditingController? search ;
+  bool isSearch = false ;
+  List<ItemsModel> listdata = [] ;
+  StatusRequest statusRequest = StatusRequest.none ;
   checkSearch(val){
     if(val== ''){
       isSearch = false ; 
@@ -52,26 +97,6 @@ class HomeComtrollerImp extends HomeController {
     update() ;
   }
   
-  @override
-  getdata() async{
-    
-   statusRequest = StatusRequest.loading;
-      update();
-      var response = await homeData.postdata();
-     print("==================================$response");
-      statusRequest =  await handlingData(response);
-    
-      if (StatusRequest.success == statusRequest){
-        if(response['status']== 'success'){
-      categories.addAll(response['categories']['data']);
-        items.addAll(response['items']['data']);
-        }else{
-          statusRequest = StatusRequest.failure ;
-        }
-        
-      }
-       update();
-  }
   searchdata()async{
 
  
@@ -83,6 +108,7 @@ class HomeComtrollerImp extends HomeController {
     
       if (StatusRequest.success == statusRequest){
         if(response['status']== 'success'){
+          listdata.clear() ;
         List responsedata = response['data'] ; 
         print("{$responsedata}") ;
         listdata.addAll(responsedata.map((e)=>ItemsModel.fromJson(e))) ;
@@ -93,14 +119,5 @@ class HomeComtrollerImp extends HomeController {
       }
        update();
 
-  }
-  
-  @override
-  goToItems( categories ,selectedCategory ,categortid) {
-   Get.toNamed(AppRoutes.items, arguments: {
-  "categories" : categories , 
-  "selectedcategory" : selectedCategory ,
-  "categoryid" : categortid ,
-   });
   }
 }

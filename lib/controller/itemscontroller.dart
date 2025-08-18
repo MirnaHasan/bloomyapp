@@ -1,12 +1,14 @@
+import 'package:bloomy/controller/homecontroller.dart';
 import 'package:bloomy/core/class/statusrequest.dart';
 import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
 import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/data/datasourse/remote/itemsdata.dart';
 import 'package:bloomy/data/model/items.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-abstract class ItemsController extends GetxController {
+abstract class ItemsController extends MixSearchController {
   
   initialData();
   chaneCategory(int val, String cateval);
@@ -24,6 +26,7 @@ class ItemscontrollerImp extends ItemsController {
   late String cateid;
   @override
   void onInit() {
+    search = TextEditingController() ;
     initialData();
     super.onInit();
   }
