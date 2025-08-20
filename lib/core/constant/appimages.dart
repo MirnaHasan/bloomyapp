@@ -10,7 +10,8 @@ class AppImage{
   static const String logoImage            = "$rootImages/logo.png";
   static const String imageSinginSignup    = "$rootImages/imagefour.jpg" ;
     static const String avatar=     "$rootImages/avatar.jpg";
-
+    
+    static const String sale=     "$rootImages/salee.png";
     // static const String imageproduct= "$rootImages/1.jpg";
 
    static const String loading             = "$rootLottie/loading.json" ;

@@ -41,7 +41,7 @@ class Cart extends StatelessWidget {
                 cartcontroller.data.length , 
                 (index)=> CustomItemsCardList(
                   name: "${cartcontroller.data[index].itemsName}",
-                  price: "${cartcontroller.data[index].itemsPrice}",
+                  price: "${cartcontroller.data[index].itemsprice}",
                   count: "${cartcontroller.data[index].countitems}", imageName:"${cartcontroller.data[index].itemsImage}",
                    onAdd: () async{await cartcontroller.add( "${cartcontroller.data[index].itemsId}"); 
                    cartcontroller.refreshPageCart();

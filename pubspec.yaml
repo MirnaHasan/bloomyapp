@@ -107,6 +107,7 @@ flutter:
     - assets/lottieimages/nodata.json
     - assets/lottieimages/offline.json
     - assets/lottieimages/serverfailure.json
+    - assets/images/salee.png    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
