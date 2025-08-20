@@ -86,6 +86,7 @@ class MixSearchController extends GetxController {
   StatusRequest statusRequest = StatusRequest.none ;
   checkSearch(val){
     if(val== ''){
+      StatusRequest statusRequest = StatusRequest.none ;
       isSearch = false ; 
 
     }

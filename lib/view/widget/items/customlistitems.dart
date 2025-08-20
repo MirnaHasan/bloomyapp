@@ -82,7 +82,7 @@ class CustomListItems extends GetView<ItemscontrollerImp>  {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "${itemsModel.itemsPrice}\$",
+                                  "${itemsModel.itemspricediscount}\$",
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: AppColor.green,

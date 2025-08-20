@@ -8,12 +8,16 @@ class CustomTitleHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      title,
-      style: TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-        color: AppColor.green,
+    return Align(
+      alignment: AlignmentDirectional.centerStart, // ⬅️ يلتصق يسار بالإنجليزي ويمين بالعربي
+      child: Text(
+        title,
+        textAlign: TextAlign.start, // ⬅️ مهم حتى النص يتبع الاتجاه
+        style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          color: AppColor.green,
+        ),
       ),
     );
   }

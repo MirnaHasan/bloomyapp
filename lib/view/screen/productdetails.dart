@@ -95,7 +95,7 @@ class ProductDetails extends StatelessWidget {
                   
                   
                   },
-                  price: "${controller.itemsModel.itemsPrice}",
+                  price: "${controller.itemsModel.itemspricediscount}",
                   count: "${controller.countitems}",
                 ),
               ],

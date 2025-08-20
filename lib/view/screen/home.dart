@@ -45,10 +45,10 @@ class Home extends StatelessWidget {
             children: [
             CustomCardHome(titleCard: "A Summer Surprise", bodyCard: "Discount 20%" ),
            CustomTitleHome(title: "Categories",),
-          //  SizedBox(height: 16),
+           SizedBox(height: 16),
            ListCategoriesHome() ,
            CustomTitleHome(title: "Products For You",) ,
-          //  SizedBox(height: 16),
+            SizedBox(height: 16),
            ListItemsHome(),
           //  SizedBox(height: 10),
           //  CustomTitleHome(title: "Offers",),
