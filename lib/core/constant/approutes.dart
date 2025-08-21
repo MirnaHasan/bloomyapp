@@ -15,15 +15,19 @@ class AppRoutes{
   static const String successrestpassword         = "/successrestpassword";
   static const String checkEmail                  = "/checkemail";
   static const String verifycodesignup            = "/verifycodesignup";
-  ///
-  ///Home 
+
+  ///Home================================================================ 
    static const String homepage                  = "/homepage";
    static const String items                  = "/items";
    static const String productdetails                 = "/productdetails";
    //myfavorite
-      static const String myfavorite                 = "/myfavorite";
-      //============================cart=====================================//
-      static const String cart                 = "/cart";
+   static const String myfavorite                 = "/myfavorite";
+  //============================cart=====================================//
+  static const String cart                 = "/cart";
+  //================================Address==========================================
+   static const String addressView                = "/addressview";
+  static const String addressEdit                = "/addressedit";
+  static const String addressAdd                = "/addressadd";
 
 
 }

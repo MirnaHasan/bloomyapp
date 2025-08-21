@@ -4,10 +4,18 @@
 //هذا الملف من اجل تغيير ثيم الخط عند اختيار اللغة الانكليزية او العربية 
 // يجب ان يضاف الى sharedpref  لا تنسي ميرناااااا :) 
 
+import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:flutter/material.dart';
 
 
 ThemeData themeEnglish = ThemeData(
+  appBarTheme: AppBarTheme(
+    backgroundColor: AppColor.green , 
+
+  ),
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    backgroundColor: AppColor.green , 
+  ),
         fontFamily: "PlayfairDisplay",
         textTheme: TextTheme(
           titleMedium: TextStyle(

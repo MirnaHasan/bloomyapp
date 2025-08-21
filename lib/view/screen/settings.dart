@@ -2,6 +2,7 @@
 import 'package:bloomy/controller/settingscontroller.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/core/constant/appimages.dart';
+import 'package:bloomy/core/constant/approutes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,20 +13,22 @@ class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SettingsController controller = Get.put(SettingsController()) ;
-    return Container(
-   
-      child: ListView(
+    return Scaffold(
+   appBar: AppBar(),
+      body: ListView(
         children: [
           Stack(
             alignment: Alignment.center ,
             clipBehavior: Clip.none ,
             children: [
-              Container(height: Get.width/2 ,
+              Container(
+                height: Get.width/3 ,
+              
               color: AppColor.green, 
               
               ) , 
             Positioned(
-              top:  Get.width/ 2.8 ,
+              top:  Get.width/ 5.5 ,
               child: Container(
                 padding: EdgeInsets.all(4) ,
                 decoration: BoxDecoration(
@@ -57,7 +60,9 @@ class Settings extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   child: ListTile(title: Text("Address") , 
-                   onTap: () {},
+                   onTap: () {
+                    Get.toNamed(AppRoutes.addressView) ;
+                   },
                     trailing: Icon(Icons.location_on_outlined),
                   ),
                 ),
