@@ -26,7 +26,7 @@ class AppRoutes{
   static const String cart                 = "/cart";
   //================================Address==========================================
    static const String addressView                = "/addressview";
-  static const String addressEdit                = "/addressedit";
+  // static const String addressEdit                = "/addressedit";
   static const String addressAdd                = "/addressadd";
 
 

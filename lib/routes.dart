@@ -2,6 +2,7 @@
 
 import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/middleware/mymiddleware.dart';
+import 'package:bloomy/view/address/add.dart';
 import 'package:bloomy/view/address/view.dart';
 import 'package:bloomy/view/screen/Auth/forgetpassword/forgetpassword.dart';
 import 'package:bloomy/view/screen/Auth/forgetpassword/resetpassword.dart';
@@ -60,8 +61,9 @@ List<GetPage<dynamic>>? routes = [
    GetPage(name:   AppRoutes.cart  , page: ()=> Cart() ,) ,
    //==========================Address====================================//
       GetPage(name:   AppRoutes.addressView  , page: ()=> AddressView() ,) ,
+        GetPage(name:   AppRoutes.addressAdd  , page: ()=> AddressAdd() ,) ,
         // GetPage(name:   AppRoutes.addressEdit  , page: ()=> AddressView() ,) ,
-          // GetPage(name:   AppRoutes.addressAdd  , page: ()=> AddressView() ,) ,
+        
 
 ];
 
