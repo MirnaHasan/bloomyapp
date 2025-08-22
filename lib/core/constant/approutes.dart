@@ -28,6 +28,7 @@ class AppRoutes{
    static const String addressView                = "/addressview";
   // static const String addressEdit                = "/addressedit";
   static const String addressAdd                = "/addressadd";
+  static const String addressparttwo                = "/addressparttwo";
 
 
 }
