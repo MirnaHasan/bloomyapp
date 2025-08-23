@@ -49,7 +49,7 @@ class AddressAdd extends StatelessWidget {
                        child: MaterialButton(
                       minWidth: 200,  
                       onPressed: (){
-                        controllerpage.goToAddAddressPartTwo() ; 
+                        controllerpage.goToAddDetailsAddress() ; 
                       } , 
                        child: Text("اكمال" , 
                        style: TextStyle(

@@ -45,6 +45,12 @@ class linkApi {
       
       static const String linkaddtocart = "$linkServer/cart/addtocart.php";
       static const String linkgetcountitemscart = "$linkServer/cart/getcountitems.php";
-      
+      //==================================AddAddress===================================
+      static const String linkaddaddress = "$linkServer/address/add.php";
+      static const String linkeditaddress = "$linkServer/address/edit.php";
+      static const String linkviewaddress = "$linkServer/address/view.php";
+      static const String linkdeleteaddress = "$linkServer/address/delete.php";
+
+
         
 }
