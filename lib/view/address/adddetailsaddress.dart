@@ -2,6 +2,7 @@
 
 
 import 'package:bloomy/controller/address/adddetailsaddress_controller.dart';
+import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/core/shared/custombuttondefault.dart';
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
 import 'package:bloomy/view/widget/onboardingwidget/custommaterialbuttononboarding.dart';
@@ -23,9 +24,11 @@ class AddDetailsAddress extends StatelessWidget {
       appBar: AppBar(
         title: Text("Add details Address"),
       ),
-      body: Container(
+      body:  Container(
         padding: EdgeInsets.all(15),
-        child: ListView(
+        child: GetBuilder<AddDetailsaAddressController>(
+          builder: (controller)=>HandlingDataView(statusRequest: controller.statusRequest ,
+           widget: ListView(
           children: [
             CustomMaterialButtonAuth(
               labelText: "City",
@@ -51,10 +54,12 @@ class AddDetailsAddress extends StatelessWidget {
                   valid:(Val){} ,
                    isNumber: false) ,
                    SizedBox(height: 50,) , 
-                   CustomButtonDefault(textbutton: "Save The Address", onPressed:(){}) ,
+                   CustomButtonDefault(textbutton: "Save The Address", onPressed:(){
+                    controller.addDetailsAddress() ; 
+                   }) ,
 
           ],
-        ),
+        ),))
       )
     );
   }
