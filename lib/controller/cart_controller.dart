@@ -34,10 +34,13 @@ checkCoupon()async{
      Map<String, dynamic> couponData = response['data'] ; 
      couponModel = CouponModel.fromJson(couponData) ;
     discountcoupon = int.parse(couponModel!.couponDiscount.toString()) ;
+    couponname = couponModel!.couponName ;
 
        
       } else {
-        statusRequest = StatusRequest.failure;
+        // statusRequest = StatusRequest.failure;
+         discountcoupon = 0 ; 
+         couponname = null ;  
       }
     }
     update() ;

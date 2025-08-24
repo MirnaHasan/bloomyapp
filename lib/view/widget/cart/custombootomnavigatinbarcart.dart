@@ -1,8 +1,10 @@
 
+import 'package:bloomy/controller/cart_controller.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/view/widget/cart/custombuttoncart.dart';
 import 'package:bloomy/view/widget/cart/custombuttoncoupon.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomBottomNavigationBarCart extends StatelessWidget {
   final String price ;
@@ -20,15 +22,18 @@ class CustomBottomNavigationBarCart extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-
+            GetBuilder<CartController>(builder: (controller)=>
+              controller.couponname == null ? 
             Container(
               padding: EdgeInsets.all(10),
               child: Row(children: [
                 Expanded(
                   flex: 2,
                   child: TextFormField(
+                    
                     controller: controllercoupon,
                   decoration: InputDecoration(
+                    isDense: true,
                     hintText: "Coupon Name",
 
                     focusedBorder: OutlineInputBorder(
@@ -43,7 +48,33 @@ class CustomBottomNavigationBarCart extends StatelessWidget {
                   flex: 1,
                   child: CustomButtonCoupon(textButton: "Apply", onPressed: onApplyCoupon)) , 
               ],),
-            ) , 
+            ) :  
+            Container(
+              margin: EdgeInsets.all(50),
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+
+                border: Border.all(width: 2 , color: AppColor.green)
+              ),
+              child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Coupon Name Is" , style: TextStyle(
+                     fontSize: 16 , fontWeight: FontWeight.bold , 
+                     fontFamily: 'sans',
+                     color: AppColor.green , 
+                  ),),
+                  SizedBox(width: 7,) , 
+                  Text("${controller.couponname}" , 
+                   style: TextStyle(
+                      fontFamily: 'sans',
+                     fontSize: 16 , fontWeight: FontWeight.bold , 
+                     color: const Color.fromARGB(255, 172, 87, 18) , 
+                  ),
+                  )
+                ],
+              ),
+            ) ,   ) ,
             Container(
               padding: EdgeInsets.all(10),
               margin: EdgeInsets.all(30),
@@ -127,8 +158,9 @@ class CustomBottomNavigationBarCart extends StatelessWidget {
             
             ],
             ),) , 
-             SizedBox(height: 20,) ,
+             SizedBox(height: 10,) ,
             CustomButtonCart(textButton: "Place Order", onPressed: (){}) , 
+            SizedBox(height: 20,) ,
            
           ],
         ),
