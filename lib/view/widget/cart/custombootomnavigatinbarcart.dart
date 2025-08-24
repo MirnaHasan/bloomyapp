@@ -8,10 +8,11 @@ class CustomBottomNavigationBarCart extends StatelessWidget {
   final String price ;
   final String discount ;
   final String totalprice ;
+  final String shipping ;
   final void Function()?  onApplyCoupon ;
   final TextEditingController  controllercoupon ; 
   const CustomBottomNavigationBarCart({super.key, required this.price, required this.discount, 
-  required this.totalprice, required this.controllercoupon,required this.onApplyCoupon});
+  required this.totalprice, required this.controllercoupon,required this.onApplyCoupon, required this.shipping});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class CustomBottomNavigationBarCart extends StatelessWidget {
                   child: TextFormField(
                     controller: controllercoupon,
                   decoration: InputDecoration(
-                    hintText: "Coupon Code",
+                    hintText: "Coupon Name",
 
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: AppColor.greenAccent ,width: 2 ,
@@ -45,7 +46,7 @@ class CustomBottomNavigationBarCart extends StatelessWidget {
             ) , 
             Container(
               padding: EdgeInsets.all(10),
-              margin: EdgeInsets.all(10),
+              margin: EdgeInsets.all(30),
               decoration: BoxDecoration(
                 border: Border.all(color: AppColor.greenAccent , width: 4)
               ),
@@ -83,9 +84,26 @@ class CustomBottomNavigationBarCart extends StatelessWidget {
                 ),),
               ) , 
             ],) , 
+             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text( "Shipping", style: TextStyle(
+                   fontWeight: FontWeight.normal ,
+                   fontFamily: 'sans' ,
+                ),),
+              ) , 
+              Container(
+                 padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text("$shipping \$" ,  style: TextStyle(
+                   fontWeight: FontWeight.normal ,
+                   fontFamily: 'sans' ,
+                ),),
+              ) , 
+            ],) , 
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Divider(color: Colors.black,)) ,
+              child: Divider(color: AppColor.greenAccent,)) ,
              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
@@ -104,7 +122,10 @@ class CustomBottomNavigationBarCart extends StatelessWidget {
                 ),),
               ) , 
               
-            ],) , ],
+            ],) , 
+                       
+            
+            ],
             ),) , 
              SizedBox(height: 20,) ,
             CustomButtonCart(textButton: "Place Order", onPressed: (){}) , 

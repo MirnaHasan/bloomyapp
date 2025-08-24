@@ -4,20 +4,47 @@ import 'package:bloomy/core/functions/handlingdata.dart';
 import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/data/datasourse/remote/cart_data.dart';
 import 'package:bloomy/data/model/cartmodel.dart';
+import 'package:bloomy/data/model/couponmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
  
+ int? discountcoupon = 0 ;
+ String? couponname ;
 
 MyServices myServices = Get.find();
 StatusRequest statusRequest = StatusRequest.none ;
+CouponModel? couponModel ;
 late TextEditingController controllerCoupon ;
 CartData cartData = CartData(Get.find());
 List<CartModel> data = [] ; 
 double priceorders = 0.0 ; 
 int totalCountItems = 0 ; 
-onapplyCoupon(){}
+
+checkCoupon()async{
+    statusRequest = StatusRequest.loading ;
+    
+    update() ; 
+    var response = await cartData.checkCoupon(controllerCoupon.text);
+        print(response);
+    statusRequest = await handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
+     Map<String, dynamic> couponData = response['data'] ; 
+     couponModel = CouponModel.fromJson(couponData) ;
+    discountcoupon = int.parse(couponModel!.couponDiscount.toString()) ;
+
+       
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update() ;
+}
+gettotalprice(){
+  return (priceorders - priceorders*discountcoupon!/100 );
+}
 
 resetVarCart(){
   priceorders = 0.0 ; 

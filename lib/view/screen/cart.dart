@@ -24,9 +24,10 @@ class Cart extends StatelessWidget {
       GetBuilder<CartController>(builder: (controller)=>
       CustomBottomNavigationBarCart(
         price: "${cartcontroller.priceorders}",
-        discount: "10%",
-        totalprice: "1500", controllercoupon: controller.controllerCoupon,
-         onApplyCoupon: controller.onapplyCoupon,
+        discount: "${controller.discountcoupon.toString()}%",
+        totalprice: "${controller.gettotalprice()}", 
+        controllercoupon: controller.controllerCoupon,
+         onApplyCoupon: controller.checkCoupon, shipping: '10',
       ),) ,
       
       body: GetBuilder<CartController>(builder: (cartcontroller)=>HandlingDataView
