@@ -1,6 +1,7 @@
 
 import 'package:bloomy/controller/cart_controller.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
+import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/view/widget/cart/custombuttoncart.dart';
 import 'package:bloomy/view/widget/cart/custombuttoncoupon.dart';
 import 'package:flutter/material.dart';
@@ -159,7 +160,9 @@ class CustomBottomNavigationBarCart extends StatelessWidget {
             ],
             ),) , 
              SizedBox(height: 10,) ,
-            CustomButtonCart(textButton: "Place Order", onPressed: (){}) , 
+            CustomButtonCart(textButton: "Order", onPressed: (){
+              Get.toNamed(AppRoutes.checkout) ;
+            }) , 
             SizedBox(height: 20,) ,
            
           ],

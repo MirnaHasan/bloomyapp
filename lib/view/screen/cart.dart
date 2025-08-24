@@ -6,7 +6,7 @@ import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/view/widget/cart/custombootomnavigatinbarcart.dart';
 
 import 'package:bloomy/view/widget/cart/customitemscardlist.dart';
-import 'package:bloomy/view/widget/cart/topappbarcart.dart';
+
 import 'package:bloomy/view/widget/cart/topcardcart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,6 +20,13 @@ class Cart extends StatelessWidget {
   Widget build(BuildContext context) {
    CartController cartcontroller= Get.put(CartController());
     return Scaffold(
+      appBar: AppBar(
+      
+        title: Text(
+          
+          "My Cart" ,
+        ),
+      ),
       bottomNavigationBar: 
       GetBuilder<CartController>(builder: (controller)=>
       CustomBottomNavigationBarCart(
@@ -33,8 +40,8 @@ class Cart extends StatelessWidget {
       body: GetBuilder<CartController>(builder: (cartcontroller)=>HandlingDataView
       (statusRequest: cartcontroller.statusRequest , widget: ListView(
         children: [
-          TopAppBarCart(title: "My Cart"),
-          SizedBox(height: 10),
+     
+          SizedBox(height: 20),
           TopCardCart(message: "You Have ${cartcontroller.totalCountItems} Items In Your List "),
           Container(
             padding: EdgeInsets.all(10),

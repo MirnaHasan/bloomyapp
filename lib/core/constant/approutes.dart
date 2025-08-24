@@ -29,6 +29,8 @@ class AppRoutes{
   // static const String addressEdit                = "/addressedit";
   static const String addressAdd                = "/addressadd";
   static const String addaddressdetails               = "/addressparttwo";
+  //=====================checkout==============================
 
+  static const String checkout               = "/checkout";
 
 }

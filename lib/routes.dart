@@ -20,6 +20,7 @@ import 'package:bloomy/view/screen/Auth/success_signup.dart';
 
 import 'package:bloomy/view/screen/Auth/verifycodesignup.dart';
 import 'package:bloomy/view/screen/cart.dart';
+import 'package:bloomy/view/screen/checkout.dart';
 import 'package:bloomy/view/screen/home.dart';
 import 'package:bloomy/view/screen/homescreen.dart';
 import 'package:bloomy/view/screen/items.dart';
@@ -65,7 +66,7 @@ List<GetPage<dynamic>>? routes = [
         GetPage(name:   AppRoutes.addressAdd  , page: ()=> AddressAdd() ,) ,
         // GetPage(name:   AppRoutes.addressEdit  , page: ()=> AddressView() ,) ,
         GetPage(name:   AppRoutes.addaddressdetails  , page: ()=> AddDetailsAddress() ,) ,
-        
+         GetPage(name:   AppRoutes.checkout  , page: ()=> CheckOut() ,) ,
 
 ];
 
