@@ -12,10 +12,12 @@ class CartController extends GetxController {
 
 MyServices myServices = Get.find();
 StatusRequest statusRequest = StatusRequest.none ;
+late TextEditingController controllerCoupon ;
 CartData cartData = CartData(Get.find());
 List<CartModel> data = [] ; 
 double priceorders = 0.0 ; 
 int totalCountItems = 0 ; 
+onapplyCoupon(){}
 
 resetVarCart(){
   priceorders = 0.0 ; 
@@ -94,6 +96,7 @@ view()async{
 
 @override
   void onInit() {
+    controllerCoupon = TextEditingController() ; 
 view();
     super.onInit();
   }

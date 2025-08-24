@@ -2,9 +2,9 @@
 
 import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/middleware/mymiddleware.dart';
-import 'package:bloomy/view/address/add.dart';
-import 'package:bloomy/view/address/adddetailsaddress.dart';
-import 'package:bloomy/view/address/view.dart';
+import 'package:bloomy/view/screen/address/add.dart';
+import 'package:bloomy/view/screen/address/adddetailsaddress.dart';
+import 'package:bloomy/view/screen/address/view.dart';
 import 'package:bloomy/view/screen/Auth/forgetpassword/forgetpassword.dart';
 import 'package:bloomy/view/screen/Auth/forgetpassword/resetpassword.dart';
 import 'package:bloomy/view/screen/Auth/forgetpassword/successresetpassword.dart';
