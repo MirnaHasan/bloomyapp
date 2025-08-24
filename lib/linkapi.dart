@@ -50,7 +50,9 @@ class linkApi {
       static const String linkeditaddress = "$linkServer/address/edit.php";
       static const String linkviewaddress = "$linkServer/address/view.php";
       static const String linkdeleteaddress = "$linkServer/address/delete.php";
+      //==================================coupon===============================
 
+       static const String linkcouponcheck = "$linkServer/coupon/coupon.php";
 
         
 }
