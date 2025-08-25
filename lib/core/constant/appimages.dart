@@ -12,6 +12,8 @@ class AppImage{
     static const String avatar=     "$rootImages/avatar.jpg";
     
     static const String sale=     "$rootImages/salee.png";
+    static const String  delivery=     "$rootImages/delivery.png";
+    static const String deliverythru=     "$rootImages/delivery thru.png";
     // static const String imageproduct= "$rootImages/1.jpg";
 
    static const String loading             = "$rootLottie/loading.json" ;

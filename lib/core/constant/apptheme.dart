@@ -26,7 +26,7 @@ ThemeData themeEnglish = ThemeData(
     backgroundColor: AppColor.green , 
 
   ),
-        fontFamily: "PlayfairDisplay",
+        // fontFamily: "PlayfairDisplay",
         textTheme: TextTheme(
           titleMedium: TextStyle(
             fontSize: 15, 
@@ -44,9 +44,9 @@ ThemeData themeEnglish = ThemeData(
          color: const Color.fromARGB(255, 124, 122, 122)
           ), 
           bodyMedium: TextStyle(
-            fontSize: 20, 
-            fontWeight: FontWeight.bold,
-            color: const Color.fromARGB(255, 125, 123, 123)
+            fontSize: 18, 
+           
+          color: const Color.fromARGB(255, 79, 150, 92) , 
           ), 
           bodySmall:  TextStyle(
             fontSize: 16, 
@@ -77,8 +77,8 @@ ThemeData themeEnglish = ThemeData(
           ), 
           bodyMedium: TextStyle(
             fontSize: 20, 
-            fontWeight: FontWeight.bold,
-            color: const Color.fromARGB(255, 125, 123, 123)
+          
+          color: const Color.fromARGB(255, 79, 150, 92) , 
           ), 
           bodySmall:  TextStyle(
             fontSize: 16, 
