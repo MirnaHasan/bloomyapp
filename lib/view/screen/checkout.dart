@@ -1,6 +1,8 @@
-
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/core/constant/appimages.dart';
+import 'package:bloomy/view/widget/checkout/carddeliverytype.dart';
+import 'package:bloomy/view/widget/checkout/cardpaymentcheckoutmethod.dart';
+import 'package:bloomy/view/widget/checkout/cardshippingaddress.dart';
 import 'package:flutter/material.dart';
 
 class CheckOut extends StatelessWidget {
@@ -9,114 +11,73 @@ class CheckOut extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("CheckOut"),
+      appBar: AppBar(title: Text("CheckOut")),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        child: MaterialButton(
+          color: AppColor.greenAccent,
+          textColor: Colors.white,
+          onPressed: () {},
+          child: Text("CheckOut", style: TextStyle(fontSize: 20)),
+        ),
       ),
       body: Container(
-           padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(20),
         child: ListView(
           children: [
-          Text( textAlign: TextAlign.center , 
-            "Choose a Payment Method,Please" , 
-          style:  Theme.of(context).textTheme.bodyMedium , 
-          
-           ) , 
-           SizedBox(height: 10,) , 
-           Container(
-             alignment: Alignment.center,
-            padding: EdgeInsets.symmetric( vertical: 10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25) , 
-                 color: const Color.fromARGB(255, 202, 238, 130),
-              // color: AppColor.greenAccent
+            Text(
+              textAlign: TextAlign.center,
+              "Choose a Payment Method,Please",
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
-          
-            margin: EdgeInsets.symmetric(vertical: 10 , horizontal: 10),
-           
-              child: Text("Cash" , style: TextStyle(
-                // color: const Color.fromARGB(255, 72, 70, 70) , 
-                color: Colors.deepOrange , 
-            
-                fontSize: 18
-              ))),
-           
-       
-          Container(
-            
-            alignment: Alignment.center,
-            padding: EdgeInsets.symmetric( vertical: 10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25) , 
-              color: const Color.fromARGB(255, 163, 193, 131)
+            SizedBox(height: 10),
+            CardPaymentCheckOutMethod(
+              title: "Cash On Delivery",
+              isActive: true,
             ),
-          
-            margin: EdgeInsets.symmetric(vertical: 10 , horizontal: 10),
-           
-              child: Text("Payment Card" , style: TextStyle(
-                    color: const Color.fromARGB(255, 249, 247, 247) , 
-                fontSize: 18
-              ))),
-              SizedBox(height: 10,) , 
-              Text( textAlign: TextAlign.center , 
-            "Choose a Delivery Method ,Please" , 
-          style:  Theme.of(context).textTheme.bodyMedium , 
-          
-           ) , 
-           SizedBox(height: 10,) , 
-           Row(
+            CardPaymentCheckOutMethod(title: "Payment Card", isActive: false),
+
+            SizedBox(height: 10),
+            Text(
+              textAlign: TextAlign.center,
+              "Choose a Delivery Method ,Please",
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+            SizedBox(height: 20),
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  height: 130,
-                        width: 140,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 202, 238, 130),
-                          border: Border.all(
-                            color: AppColor.green , 
-                            width: 2
-                          )) , 
-                        
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-               
-                        
-                       Image.asset(AppImage.delivery , width: 60, 
-                             
-                           ),
-                           Text("Delivery" , style: TextStyle(
-                            color: Colors.deepOrange
-                           ),) , 
-                    
-                    
-                    ],)
-                  ),
-                  SizedBox(width: 20,) , 
-                   Container(
-                  height: 130,
-                        width: 140,
-                        decoration: BoxDecoration(
-                          // color: Colors.orange,
-                          border: Border.all(
-                            color: AppColor.green , 
-                            width: 2
-                          )) , 
-                        
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                          Image.asset(AppImage.deliverythru , width: 60,),
-                      Text("Drive Thru") , 
-                        
-                   
-                  
-                    
-                    
-                    ],)
-                  ),
+                CardDeliveryType(
+                  imageName: AppImage.delivery,
+                  isActive: true,
+                  title: "Delivery",
+                ),
+                SizedBox(width: 20),
+                CardDeliveryType(
+                  imageName: AppImage.deliverythru,
+                  isActive: false,
+                  title: "Drive Thru",
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Text(
+              textAlign: TextAlign.center,
+              "Shipping Address",
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+            SizedBox(height: 10),
 
-           ] ) , 
-              
+            CardShippingAddress(
+              title: "Home",
+              subtitle: "streeet23 ",
+              isActive: true,
+            ),
+            CardShippingAddress(
+              title: "Company",
+              subtitle: "latakiaaaaaaa",
+              isActive: false,
+            ),
           ],
         ),
       ),
