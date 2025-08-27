@@ -96,21 +96,28 @@ class CheckOut extends StatelessWidget {
             ),
             SizedBox(height: 10),
 
-            InkWell(
+            ListView.builder(
+                shrinkWrap: true, // يجعل الليست تبني على حسب حجم العناصر فقط
+  physics: NeverScrollableScrollPhysics(), 
+              itemCount: controller.data.length,
+              itemBuilder: (context , index)=>
+              
+               InkWell(
               onTap: (){
-                controller.chosseShippingAddress('' ) ; 
+                controller.chosseShippingAddress(controller.data[index].addressId.toString()) ; 
               },
               child: CardShippingAddress(
-                title: "Home",
-                subtitle: "streeet23 ",
-                isActive: true,
+                title: controller.data[index].addressName.toString(),
+
+                subtitle:
+                "${controller.data[index].addressCity.toString()}${controller.data[index].addressStreet.toString()}"  ,  
+                isActive: controller.addressId == controller.data[index].addressId.toString()  ? true : false
+
               ),
             ),
-            CardShippingAddress(
-              title: "Company",
-              subtitle: "latakiaaaaaaa",
-              isActive: false,
-            ),
+              )
+           
+           
             ],
            )  ]  , 
         ),
