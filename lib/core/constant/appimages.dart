@@ -20,6 +20,10 @@ class AppImage{
    static const String noData            = "$rootLottie/nodata.json" ;
    static const String offline            = "$rootLottie/offline.json" ;
    static const String serverfailure            = "$rootLottie/serverfailure.json" ;
+    static const String floweranimation            = "$rootLottie/flower animation.json" ;
+    static const String createflower           = "$rootLottie/create flower.json" ;
+    static const String pinkshoppingcart           = "$rootLottie/Pink shopping cart.json" ;
+    static const String ShoppingCart            = "$rootLottie/Shopping Cart.json" ;
 
 
 }

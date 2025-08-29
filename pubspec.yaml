@@ -107,6 +107,10 @@ flutter:
     - assets/lottieimages/nodata.json
     - assets/lottieimages/offline.json
     - assets/lottieimages/serverfailure.json
+    - assets/lottieimages/flower animation.json
+    - assets/lottieimages/create flower.json
+    - assets/lottieimages/Pink shopping cart.json
+    - assets/lottieimages/Shopping Cart.json
     - assets/images/salee.png    
     - assets/images/delivery thru.png
     - assets/images/delivery.png

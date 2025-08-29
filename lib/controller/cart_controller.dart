@@ -94,33 +94,39 @@ delete(String itemsid )async{
     update() ;
 }
 
+view() async {
+  statusRequest = StatusRequest.loading;
+  update(); // يظهر اللودينج
 
-view()async{
-  
-    statusRequest = StatusRequest.loading ;
-    
-    update() ; 
-    var response = await cartData.viewcart(myServices.sharedPreferences.getInt("id").toString() );
-        print(response);
-    statusRequest = await handlingData(response);
-    if (StatusRequest.success == statusRequest) {
-      if (response['status'] == 'success') {
-       if (response['cartdata']['status']== "success"){
-        List dataresponse = response['cartdata']['data'] ;
-        Map dataresponsepricecount = response['pricecount'] ;
-        data.clear()
-;        data.addAll(dataresponse.map((e)=>CartModel.fromJson(e))) ;
-        totalCountItems = int.parse(dataresponsepricecount['totalcountitems']);
-        priceorders = (dataresponsepricecount['totalprice'] as num).toDouble();
-       }
+  var response = await cartData.viewcart(
+      myServices.sharedPreferences.getInt("id").toString());
+  print(response);
 
-       
-      } else {
-        statusRequest = StatusRequest.failure;
+  // تحديث الحالة بعد المعالجة
+  statusRequest = await handlingData(response);
+
+  if (StatusRequest.success == statusRequest) {
+    if (response['status'] == 'success') {
+      if (response['cartdata']['status'] == "success") {
+        List dataresponse = response['cartdata']['data'];
+        Map dataresponsepricecount = response['pricecount'];
+        data.clear();
+        data.addAll(dataresponse.map((e) => CartModel.fromJson(e)));
+        totalCountItems =
+            int.parse(dataresponsepricecount['totalcountitems']);
+        priceorders =
+            (dataresponsepricecount['totalprice'] as num).toDouble();
       }
+    } else {
+      statusRequest = StatusRequest.failure;
     }
-    update() ;
+  }
+
+  // انتظر نصف ثانية قبل تحديث الـ UI النهائي
+  await Future.delayed(const Duration(milliseconds: 1000));
+  update();
 }
+
 
 
 

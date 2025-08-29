@@ -43,6 +43,7 @@ class Items extends StatelessWidget {
             ListCategoriesItems(),
             GetBuilder<ItemscontrollerImp>(builder: (controller)=>
         HandlingDataView(statusRequest: controller.statusRequest,
+        isCartPage: true,
         widget: !controller.isSearch ? 
              SizedBox(
               child: GridView.builder(

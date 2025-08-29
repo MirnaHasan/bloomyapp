@@ -63,6 +63,7 @@ class ItemscontrollerImp extends ItemsController {
         statusRequest = StatusRequest.failure;
       }
     }
+    await Future.delayed(const Duration(milliseconds: 500));
     update();
   }
   

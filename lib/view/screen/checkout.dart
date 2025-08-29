@@ -13,7 +13,7 @@ class CheckOut extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CheckOutController controller = Get.put(CheckOutController()) ;
+   Get.put(CheckOutController()) ;
     return Scaffold(
       appBar: AppBar(title: Text("CheckOut")),
       bottomNavigationBar: Container(
