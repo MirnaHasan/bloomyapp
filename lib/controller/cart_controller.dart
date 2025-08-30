@@ -40,7 +40,7 @@ class CartController extends GetxController {
         couponname = couponModel!.couponName;
          couponid =  couponModel!.couponDiscount;  
       } else {
-        // statusRequest = StatusRequest.failure;
+         statusRequest = StatusRequest.failure;
         discountcoupon = 0;
         couponname = null;
         couponid = null ; 
@@ -53,10 +53,48 @@ class CartController extends GetxController {
     return (priceorders - priceorders * discountcoupon! / 100);
   }
   goToCheckoutPage (){
-    if (data.isEmpty) {
-      Get.snackbar("تنبيه", "السلة فارغة" , 
-      
-      )  ; }else {
+   if (data.isEmpty) {
+  Get.snackbar(
+    "", // نخليه فاضي لأننا بنستخدم titleText و messageText
+    "",
+    titleText: const Text(
+      "تنبيه",
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 20,
+       color: Color.fromARGB(255, 6, 50, 9), 
+      ),
+    ),
+    messageText: const Text(
+      "السلة فارغة",
+      style: TextStyle(
+        fontSize: 18,
+      color: Color.fromARGB(255, 6, 50, 9),
+      ),
+    ),
+    snackPosition: SnackPosition.TOP,
+    backgroundGradient: LinearGradient(
+      colors: [
+         Color(0xFFDFFFD6), // أخضر باهت (Pastel green)
+        Color(0xFFB5EAD7), // Mint هادئ
+      ],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    ),
+    borderRadius: 20,
+    margin: const EdgeInsets.all(15),
+    padding: const EdgeInsets.all(15),
+    icon: const Icon(Icons.eco, color: Color.fromARGB(255, 6, 50, 9), size: 30),
+    shouldIconPulse: true,
+    duration: const Duration(seconds: 3),
+    barBlur: 15,
+    overlayBlur: 1,
+    isDismissible: true,
+    forwardAnimationCurve: Curves.easeOutBack,
+  );
+
+
+     }else {
       Get.toNamed(AppRoutes.checkout , arguments: {
         "couponid" : couponid ?? "0" , 
         "priceorder" : priceorders.toString()
