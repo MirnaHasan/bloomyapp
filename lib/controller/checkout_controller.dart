@@ -19,6 +19,8 @@ String? paymentMethod ;
 String? deliveryType ;
 
 String? addressId ;
+late int couponid ; 
+ late double priceorder ;
 
 chossePaymentMethod(String val){
  paymentMethod = val ;
@@ -56,6 +58,9 @@ getShippingAddress()async{
 }
 @override
   void onInit() {
+   couponid = Get.arguments['couponid'] ; 
+    priceorder = Get.arguments['priceorder'] ; 
+
   getShippingAddress() ; 
     super.onInit();
   }

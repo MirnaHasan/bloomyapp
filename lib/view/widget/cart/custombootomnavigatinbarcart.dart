@@ -7,7 +7,7 @@ import 'package:bloomy/view/widget/cart/custombuttoncoupon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CustomBottomNavigationBarCart extends StatelessWidget {
+class CustomBottomNavigationBarCart extends GetView<CartController> {
   final String price ;
   final String discount ;
   final String totalprice ;
@@ -161,7 +161,8 @@ class CustomBottomNavigationBarCart extends StatelessWidget {
             ),) , 
              SizedBox(height: 10,) ,
             CustomButtonCart(textButton: "Order", onPressed: (){
-              Get.toNamed(AppRoutes.checkout) ;
+              controller.goToCheckoutPage() ; 
+              // Get.toNamed(AppRoutes.checkout) ;
             }) , 
             SizedBox(height: 20,) ,
            
