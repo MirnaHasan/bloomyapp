@@ -28,7 +28,9 @@ class CheckOut extends StatelessWidget {
         ),
       ),
       body: GetBuilder<CheckOutController>(builder: (controller) =>
-      HandlingDataView(statusRequest: controller.statusRequest, widget:  Container(
+      HandlingDataView(
+           isCartPage: true,
+        statusRequest: controller.statusRequest, widget:  Container(
         padding: EdgeInsets.all(20),
         child: ListView(
           children: [

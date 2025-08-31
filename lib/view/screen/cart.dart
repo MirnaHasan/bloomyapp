@@ -3,7 +3,6 @@
 
 import 'package:bloomy/controller/cart_controller.dart';
 import 'package:bloomy/core/class/handlingdataview.dart';
-import 'package:bloomy/core/constant/appimages.dart' show AppImage;
 import 'package:bloomy/view/widget/cart/custombootomnavigatinbarcart.dart';
 
 import 'package:bloomy/view/widget/cart/customitemscardlist.dart';
@@ -11,8 +10,7 @@ import 'package:bloomy/view/widget/cart/customitemscardlist.dart';
 import 'package:bloomy/view/widget/cart/topcardcart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
-import 'package:lottie/lottie.dart';
+
 
 
 class Cart extends StatelessWidget {
