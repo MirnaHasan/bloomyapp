@@ -40,20 +40,20 @@ class CheckOut extends StatelessWidget {
             SizedBox(height: 10),
             InkWell(
               onTap: () {
-                controller.chossePaymentMethod("cash") ;
+                controller.chossePaymentMethod("0") ; //0=>cash 
               },
               child: CardPaymentCheckOutMethod(
                 title: "Cash On Delivery",
-                isActive: controller.paymentMethod == 'cash' ? true : false,
+                isActive: controller.paymentMethod == '0' ? true : false,
               ),
             ),
             InkWell(
               onTap: (){
-                  controller.chossePaymentMethod("card") ;
+                  controller.chossePaymentMethod("1") ; //1=> paymentcard
               },
               child: CardPaymentCheckOutMethod(
               title: "Payment Card", 
-              isActive: controller.paymentMethod == 'card' ? true : false)),
+              isActive: controller.paymentMethod == '1' ? true : false)),
 
             SizedBox(height: 10),
             Text(
@@ -67,28 +67,28 @@ class CheckOut extends StatelessWidget {
               children: [
                 InkWell(
                    onTap: (){
-                    controller.chossedeliveryType('delivery') ;
+                    controller.chossedeliveryType('0') ; //0 => delivery
                    },
                   child: CardDeliveryType(
                     imageName: AppImage.delivery,
-                    isActive: controller.deliveryType == 'delivery' ? true : false,
+                    isActive: controller.deliveryType == '0' ? true : false,
                     title: "Delivery",
                   ),
                 ),
                 SizedBox(width: 20),
                 InkWell(
                   onTap: (){
-                    controller.chossedeliveryType('drivethru') ;
+                    controller.chossedeliveryType('1') ; // 1 => drivethru
                   },
                   child: CardDeliveryType(
                     imageName: AppImage.deliverythru,
-                    isActive: controller.deliveryType == 'drivethru' ? true : false,
+                    isActive: controller.deliveryType == '1' ? true : false,
                     title: "Drive Thru",
                   ),
                 ),
               ],
             ),
-            if (controller.deliveryType == 'delivery') Column(
+            if (controller.deliveryType == '0') Column(
             children: [
                SizedBox(height: 20),
             Text(
