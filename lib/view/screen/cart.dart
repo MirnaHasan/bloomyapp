@@ -34,7 +34,7 @@ class Cart extends StatelessWidget {
         discount: "${controller.discountcoupon.toString()}%",
         totalprice: "${controller.gettotalprice()}", 
         controllercoupon: controller.controllerCoupon,
-         onApplyCoupon: controller.checkCoupon, shipping: '10',
+         onApplyCoupon: controller.checkCoupon, shipping: '0',
       ),) ,
       
       body: GetBuilder<CartController>(builder: (cartcontroller)=>HandlingDataView
@@ -55,7 +55,10 @@ class Cart extends StatelessWidget {
                 cartcontroller.data.length , 
                 (index)=> CustomItemsCardList(
                   name: "${cartcontroller.data[index].itemsName}",
-                  price: "${cartcontroller.data[index].itemsprice}",
+                  price: "${cartcontroller.data[index].itemsprice
+                  
+                  }",
+                  
                   count: "${cartcontroller.data[index].countitems}", imageName:"${cartcontroller.data[index].itemsImage}",
                    onAdd: () async{await cartcontroller.add( "${cartcontroller.data[index].itemsId}"); 
                    cartcontroller.refreshPageCart();

@@ -42,10 +42,10 @@ class CustomItemsCardList extends StatelessWidget {
               flex: 3,
               child: ListTile(
                 title: Text(name, style: TextStyle(fontSize: 15)),
-                subtitle: Text(
-                  price,
-                  style: TextStyle(fontSize: 18, color: AppColor.green),
-                ),
+                // subtitle: Text(
+                //   price,
+                //   style: TextStyle(fontSize: 18, color: AppColor.green),
+                // ),
               ),
             ),
             Expanded(

@@ -81,6 +81,7 @@ class CheckOut extends StatelessWidget {
                 InkWell(
                   onTap: (){
                     controller.chossedeliveryType('1') ; // 1 => drivethru
+              
                   },
                   child: CardDeliveryType(
                     imageName: AppImage.deliverythru,

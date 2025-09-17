@@ -54,7 +54,7 @@ class linkApi {
 
        static const String linkcouponcheck = "$linkServer/coupon/checkcoupon.php";
        //==================================checkOut===============================
-        static const String linkcheckorder = "$linkServer/orders/check.php"; 
+        static const String linkcheckorder = "$linkServer/orders/checkout.php"; 
 
         
 }

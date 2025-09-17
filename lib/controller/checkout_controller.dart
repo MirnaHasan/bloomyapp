@@ -7,7 +7,6 @@ import 'package:bloomy/data/datasourse/remote/checkoutdata.dart';
 import 'package:bloomy/data/model/addressmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 class CheckOutController extends GetxController {
   final CheckOutData checkOutData = Get.put(CheckOutData(Get.find()));
   final AddressData addressData = Get.put(AddressData(Get.find()));
@@ -18,6 +17,7 @@ class CheckOutController extends GetxController {
   String addressId = "0";
   late String couponid;
   late String priceorder;
+  late String discountcoupon;
 
   StatusRequest statusRequest = StatusRequest.none;
   List<AddressModel> data = [];
@@ -30,27 +30,19 @@ class CheckOutController extends GetxController {
   }) {
     Get.snackbar(
       "", "",
-      titleText: Text(
-        title,
-        style: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 20,
-          color: Color.fromARGB(255, 6, 50, 9),
-        ),
-      ),
-      messageText: Text(
-        message,
-        style: const TextStyle(
-          fontSize: 18,
-          color: Color.fromARGB(255, 6, 50, 9),
-        ),
-      ),
+      titleText: Text(title,
+          style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: Color.fromARGB(255, 6, 50, 9))),
+      messageText: Text(message,
+          style: const TextStyle(
+              fontSize: 18, color: Color.fromARGB(255, 6, 50, 9))),
       snackPosition: SnackPosition.TOP,
       backgroundGradient: const LinearGradient(
-        colors: [Color(0xFFDFFFD6), Color(0xFFB5EAD7)],
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-      ),
+          colors: [Color(0xFFDFFFD6), Color(0xFFB5EAD7)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight),
       borderRadius: 20,
       margin: const EdgeInsets.all(15),
       padding: const EdgeInsets.all(15),
@@ -85,17 +77,17 @@ class CheckOutController extends GetxController {
     statusRequest = StatusRequest.loading;
     update();
 
-    final response =
-        await addressData.viewaddress(myServices.sharedPreferences.getInt("id").toString());
+    final response = await addressData.viewaddress(
+        myServices.sharedPreferences.getInt("id").toString());
 
-    // نضمن ظهور اللودينغ على الأقل ثانية
     await Future.delayed(const Duration(seconds: 1));
 
     statusRequest = await handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
         List shippingAddressData = response['data'];
-        data.addAll(shippingAddressData.map((e) => AddressModel.fromJson(e)));
+        data.addAll(
+            shippingAddressData.map((e) => AddressModel.fromJson(e)));
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -104,16 +96,19 @@ class CheckOutController extends GetxController {
   }
 
   Future<void> checkOut() async {
+    // ======= Validation =======
     if (paymentMethod == null) {
       return _showSnackbar(title: "تنبيه", message: "Choose payment method");
     }
     if (deliveryType == null) {
       return _showSnackbar(title: "تنبيه", message: "Choose order delivery type");
     }
+  
 
     statusRequest = StatusRequest.loading;
     update();
 
+    // ======= Checkout Data =======
     final checkoutdata = {
       "usersid": myServices.sharedPreferences.getInt("id").toString(),
       "addressid": addressId,
@@ -122,11 +117,13 @@ class CheckOutController extends GetxController {
       "couponid": couponid,
       "orderprice": priceorder,
       "orderpricedelivery": "10",
+      "discountcoupon": discountcoupon,
+      
     };
+  
 
     final response = await checkOutData.checkout(checkoutdata);
 
-    // نضمن ظهور اللودينغ على الأقل ثانية
     await Future.delayed(const Duration(seconds: 1));
 
     statusRequest = await handlingData(response);
@@ -134,12 +131,14 @@ class CheckOutController extends GetxController {
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
         Get.offAllNamed(AppRoutes.homepage);
-        _showSnackbar(title: "تنبيه", message: "The product was ordered successfully");
+        _showSnackbar(
+            title: "تنبيه",
+            message: "The product was ordered successfully");
       } else {
         statusRequest = StatusRequest.none;
         _showSnackbar(
           title: "تنبيه",
-          message: "Try Again",
+          message: response['message'] ?? "Try Again",
           icon: Icons.error_outline_outlined,
         );
       }
@@ -150,8 +149,10 @@ class CheckOutController extends GetxController {
   // ==================== Lifecycle ====================
   @override
   void onInit() {
-    couponid = Get.arguments['couponid'];
+    couponid = Get.arguments['couponid'].toString();
     priceorder = Get.arguments['priceorder'];
+    discountcoupon = Get.arguments["discountcoupon"];
+
     getShippingAddress();
     super.onInit();
   }
