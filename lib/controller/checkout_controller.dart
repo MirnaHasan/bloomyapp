@@ -1,6 +1,7 @@
 import 'package:bloomy/core/class/statusrequest.dart';
 import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
+import 'package:bloomy/core/functions/showsnackbar.dart';
 import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/data/datasourse/remote/address/addressdata.dart';
 import 'package:bloomy/data/datasourse/remote/checkoutdata.dart';
@@ -23,38 +24,38 @@ class CheckOutController extends GetxController {
   List<AddressModel> data = [];
 
   // ==================== Helpers ====================
-  void _showSnackbar({
-    required String title,
-    required String message,
-    IconData icon = Icons.eco,
-  }) {
-    Get.snackbar(
-      "", "",
-      titleText: Text(title,
-          style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: Color.fromARGB(255, 6, 50, 9))),
-      messageText: Text(message,
-          style: const TextStyle(
-              fontSize: 18, color: Color.fromARGB(255, 6, 50, 9))),
-      snackPosition: SnackPosition.TOP,
-      backgroundGradient: const LinearGradient(
-          colors: [Color(0xFFDFFFD6), Color(0xFFB5EAD7)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight),
-      borderRadius: 20,
-      margin: const EdgeInsets.all(15),
-      padding: const EdgeInsets.all(15),
-      icon: Icon(icon, color: const Color.fromARGB(255, 6, 50, 9), size: 30),
-      shouldIconPulse: true,
-      duration: const Duration(seconds: 3),
-      barBlur: 15,
-      overlayBlur: 1,
-      isDismissible: true,
-      forwardAnimationCurve: Curves.easeOutBack,
-    );
-  }
+  // void _showSnackbar({
+  //   required String title,
+  //   required String message,
+  //   IconData icon = Icons.eco,
+  // }) {
+  //   Get.snackbar(
+  //     "", "",
+  //     titleText: Text(title,
+  //         style: const TextStyle(
+  //             fontWeight: FontWeight.bold,
+  //             fontSize: 20,
+  //             color: Color.fromARGB(255, 6, 50, 9))),
+  //     messageText: Text(message,
+  //         style: const TextStyle(
+  //             fontSize: 18, color: Color.fromARGB(255, 6, 50, 9))),
+  //     snackPosition: SnackPosition.TOP,
+  //     backgroundGradient: const LinearGradient(
+  //         colors: [Color(0xFFDFFFD6), Color(0xFFB5EAD7)],
+  //         begin: Alignment.topLeft,
+  //         end: Alignment.bottomRight),
+  //     borderRadius: 20,
+  //     margin: const EdgeInsets.all(15),
+  //     padding: const EdgeInsets.all(15),
+  //     icon: Icon(icon, color: const Color.fromARGB(255, 6, 50, 9), size: 30),
+  //     shouldIconPulse: true,
+  //     duration: const Duration(seconds: 3),
+  //     barBlur: 15,
+  //     overlayBlur: 1,
+  //     isDismissible: true,
+  //     forwardAnimationCurve: Curves.easeOutBack,
+  //   );
+  // }
 
   // ==================== Setters ====================
   void chossePaymentMethod(String val) {
@@ -98,10 +99,10 @@ class CheckOutController extends GetxController {
   Future<void> checkOut() async {
     // ======= Validation =======
     if (paymentMethod == null) {
-      return _showSnackbar(title: "تنبيه", message: "Choose payment method");
+      return showSnackbar(title: "تنبيه", message: "Choose payment method");
     }
     if (deliveryType == null) {
-      return _showSnackbar(title: "تنبيه", message: "Choose order delivery type");
+      return showSnackbar(title: "تنبيه", message: "Choose order delivery type");
     }
   
 
@@ -131,12 +132,12 @@ class CheckOutController extends GetxController {
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
         Get.offAllNamed(AppRoutes.homepage);
-        _showSnackbar(
+        showSnackbar(
             title: "تنبيه",
             message: "The product was ordered successfully");
       } else {
         statusRequest = StatusRequest.none;
-        _showSnackbar(
+        showSnackbar(
           title: "تنبيه",
           message: response['message'] ?? "Try Again",
           icon: Icons.error_outline_outlined,

@@ -56,6 +56,24 @@ class Settings extends StatelessWidget {
                    
                     trailing: Switch(value: true, onChanged: (Val){}),),
                 ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: ListTile(title: Text("Orders") , 
+                   onTap: () {
+                    // Get.toNamed(AppRoutes.orderscartcheckout) ;
+                   },
+                    trailing: Icon(Icons.shopping_cart_checkout_outlined , color: AppColor.green,),
+                  ),
+                ),
+                 Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: ListTile(title: Text("Archive Orders") , 
+                   onTap: () {
+                  
+                   },
+                    trailing: Icon(Icons.archive_sharp, color: AppColor.green,),
+                  ),
+                ),
                 // Divider(),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 10),
