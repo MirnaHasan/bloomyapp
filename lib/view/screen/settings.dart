@@ -60,7 +60,7 @@ class Settings extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   child: ListTile(title: Text("Orders") , 
                    onTap: () {
-                    // Get.toNamed(AppRoutes.orderscartcheckout) ;
+                     Get.toNamed(AppRoutes.pendingorders) ;
                    },
                     trailing: Icon(Icons.shopping_cart_checkout_outlined , color: AppColor.green,),
                   ),

@@ -32,8 +32,9 @@ class AppRoutes{
   //=====================checkout==============================
 
   static const String checkout               = "/checkout";
-  
-  static const String orderscartcheckout               = "/orderscartcheckout";
+  //==========================orders===========================================
+  static const String pendingorders               = "/pendingorders";
+  static const String archiveorders               = "/archiveorders";
 
 
 

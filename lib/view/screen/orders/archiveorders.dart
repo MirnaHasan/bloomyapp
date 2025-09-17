@@ -8,7 +8,9 @@ class ArchiveOrders extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Archive Orders"),
+      ),
       body: Container(
         padding: EdgeInsets.all(20),
         child: ListView(

@@ -1,11 +1,17 @@
 
 
-import 'package:bloomy/core/constant/appcolor.dart';
+import 'package:bloomy/controller/orders/pendingorderscontroller.dart';
 import 'package:flutter/material.dart';
 
-class OrdersCartCheckOut extends StatelessWidget {
-  const OrdersCartCheckOut({super.key});
+import 'package:get/instance_manager.dart';
 
+
+// ignore: must_be_immutable
+class PendingOrders extends StatelessWidget {
+   PendingOrders({super.key});
+  PendingOrdersController controller = Get.put(PendingOrdersController()) ; 
+
+///pending orders تستخدم لعرض كل المنتجات المعلقة اي الموجودة في جدول الorders
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +20,7 @@ class OrdersCartCheckOut extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text("Orders  CheckOut" , 
+            Text("Pending Orders" , 
             ),
             Icon(Icons.shopping_cart_checkout_sharp , )
           ],
