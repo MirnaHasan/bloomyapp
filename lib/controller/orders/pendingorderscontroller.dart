@@ -34,5 +34,11 @@ List<PendingOrdersModel> data = [] ;
     await Future.delayed(const Duration(milliseconds: 500));
     update();
   }
+  @override
+  void onInit() {
+    // TODO: implement onInit
+     getItems(null) ;
+    super.onInit();
+  }
 
 }

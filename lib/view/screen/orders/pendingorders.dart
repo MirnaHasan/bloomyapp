@@ -1,39 +1,264 @@
 
-
 import 'package:bloomy/controller/orders/pendingorderscontroller.dart';
+import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import 'package:get/instance_manager.dart';
-
-
-// ignore: must_be_immutable
 class PendingOrders extends StatelessWidget {
-   PendingOrders({super.key});
-  PendingOrdersController controller = Get.put(PendingOrdersController()) ; 
+  PendingOrders({super.key});
 
-///pending orders تستخدم لعرض كل المنتجات المعلقة اي الموجودة في جدول الorders
+  final PendingOrdersController controller = Get.put(PendingOrdersController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF5F9F6),
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: AppColor.green,
         centerTitle: true,
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Text("Pending Orders" , 
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(Icons.local_florist, color: Colors.white),
+            SizedBox(width: 8),
+            Text(
+              "Pending Orders",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1,
+              ),
             ),
-            Icon(Icons.shopping_cart_checkout_sharp , )
           ],
         ),
       ),
-      body: 
-      Container(
-        padding: EdgeInsets.all(20),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
         child: ListView(
           children: [
-            Text("Orderrrssssssssssssssssssssssssssss")
+            // كارت أول
+            Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              elevation: 5,
+              margin: const EdgeInsets.symmetric(vertical: 12),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: const LinearGradient(
+                    colors: [Colors.white, Color(0xFFE8F5E9)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                ),
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.confirmation_number, color: AppColor.green),
+                        const SizedBox(width: 8),
+                        Text(
+                          "Order Number: #23",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: AppColor.green,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Divider(thickness: 1, color: Colors.greenAccent),
+                    const SizedBox(height: 6),
+
+                    Row(
+                      children: [
+                        Icon(Icons.delivery_dining, color: Colors.grey[700]),
+                        const SizedBox(width: 8),
+                        const Text("Order Type: Delivery"),
+                      ],
+                    ),
+                    const SizedBox(height: 6),
+
+                    Row(
+                      children: [
+                        Icon(Icons.local_offer, color: Colors.grey[700]),
+                        const SizedBox(width: 8),
+                        const Text("Order Price: 100\$"),
+                      ],
+                    ),
+                    const SizedBox(height: 6),
+
+                    Row(
+                      children: [
+                        Icon(Icons.local_shipping, color: Colors.grey[700]),
+                        const SizedBox(width: 8),
+                        const Text("Delivery Price: 10\$"),
+                      ],
+                    ),
+                    const SizedBox(height: 6),
+
+                    Row(
+                      children: [
+                        Icon(Icons.account_balance_wallet,
+                            color: Colors.grey[700]),
+                        const SizedBox(width: 8),
+                        const Text("Payment Method: Cash On Delivery"),
+                      ],
+                    ),
+
+                    const Divider(thickness: 1, color: Colors.greenAccent),
+                    const SizedBox(height: 6),
+
+                    Row(
+                      children: [
+                        Text(
+                          "Total Price: 210\$",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: AppColor.green,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const Spacer(),
+                        ElevatedButton.icon(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColor.green,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          onPressed: () {
+                            // تنقل لصفحة تفاصيل الطلب
+                          },
+                          icon: const Icon(Icons.info_outline,
+                              color: Colors.white),
+                          label: const Text(
+                            "Order Details",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            // كارت ثاني
+            Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              elevation: 5,
+              margin: const EdgeInsets.symmetric(vertical: 12),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: const LinearGradient(
+                    colors: [Colors.white, Color(0xFFE8F5E9)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                ),
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.confirmation_number, color: AppColor.green),
+                        const SizedBox(width: 8),
+                        Text(
+                          "Order Number: #24",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: AppColor.green,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Divider(thickness: 1, color: Colors.greenAccent),
+                    const SizedBox(height: 6),
+
+                    Row(
+                      children: [
+                        Icon(Icons.delivery_dining, color: Colors.grey[700]),
+                        const SizedBox(width: 8),
+                        const Text("Order Type: Pickup"),
+                      ],
+                    ),
+                    const SizedBox(height: 6),
+
+                    Row(
+                      children: [
+                        Icon(Icons.local_offer, color: Colors.grey[700]),
+                        const SizedBox(width: 8),
+                        const Text("Order Price: 50\$"),
+                      ],
+                    ),
+                    const SizedBox(height: 6),
+
+                    Row(
+                      children: [
+                        Icon(Icons.local_shipping, color: Colors.grey[700]),
+                        const SizedBox(width: 8),
+                        const Text("Delivery Price: 0\$"),
+                      ],
+                    ),
+                    const SizedBox(height: 6),
+
+                    Row(
+                      children: [
+                        Icon(Icons.account_balance_wallet,
+                            color: Colors.grey[700]),
+                        const SizedBox(width: 8),
+                        const Text("Payment Method: Visa"),
+                      ],
+                    ),
+
+                    const Divider(thickness: 1, color: Colors.greenAccent),
+                    const SizedBox(height: 6),
+
+                    Row(
+                      children: [
+                        Text(
+                          "Total Price: 50\$",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: AppColor.green,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const Spacer(),
+                        ElevatedButton.icon(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColor.green,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          onPressed: () {
+                            // تنقل لصفحة تفاصيل الطلب
+                          },
+                          icon: const Icon(Icons.info_outline,
+                              color: Colors.white),
+                          label: const Text(
+                            "Order Details",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
-        ))
+        ),
+      ),
     );
   }
 }
