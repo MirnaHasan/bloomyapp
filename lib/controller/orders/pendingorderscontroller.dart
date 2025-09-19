@@ -12,6 +12,36 @@ class PendingOrdersController extends GetxController {
   PendingOrdersData pendingordersData = PendingOrdersData(Get.find());
 StatusRequest statusRequest = StatusRequest.none;
 List<PendingOrdersModel> data = [] ; 
+String printOrderType(String val ){
+  if (val == "0"){
+    return "Delivery" ; 
+  }else{
+    return "Dreive Thru" ; 
+  }
+} 
+
+String printpaymentMethode(String val){
+  if (val == "0"){
+    return "Cash On Delivery" ; 
+  }else{
+    return "Payment Card" ; 
+  }
+}
+
+String printOrderStatus(String val){
+  if (val == "0"){
+    return "Pending Approval" ;
+  }
+  else if (val == "1"){
+    return "The Order Is Prepared" ; 
+  }
+    else if (val == "2"){
+      return "On The Way" ; 
+    }
+    else{
+      return "Archive" ; 
+    }
+}
   
   getItems(categoryid) async {
     data.clear() ;
