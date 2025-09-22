@@ -1,11 +1,12 @@
 
 import 'package:bloomy/binding/mybinding.dart';
+import 'package:bloomy/core/functions/fcmconfig.dart';
 import 'package:bloomy/core/localization/changelocale.dart';
 import 'package:bloomy/core/localization/mytranslation.dart';
 import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/routes.dart';
 
-import 'package:bloomy/view/screen/language.dart';
+
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,9 +15,11 @@ import 'package:get/get.dart';
 
 
 void main() async{
-  
-   WidgetsFlutterBinding.ensureInitialized();
+      
+  WidgetsFlutterBinding.ensureInitialized();
  await initialService();
+   // خدمات عامة
+
   
   runApp( MyApp());
 }

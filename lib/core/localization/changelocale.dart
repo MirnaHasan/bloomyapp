@@ -2,7 +2,9 @@
 
 
 import 'package:bloomy/core/constant/apptheme.dart';
+import 'package:bloomy/core/functions/fcmconfig.dart';
 import 'package:bloomy/core/services/services.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:geolocator/geolocator.dart';
@@ -47,6 +49,8 @@ LocationPermission permission;
 @override
   void onInit() {
     requestPermissionLocation() ;
+   requestpermissionNotification() ; 
+   fcmconfig() ;
  String? initLang =  myService.sharedPreferences.getString("lang") ;
  if (initLang == "ar"){
   language = Locale("ar");
@@ -60,6 +64,8 @@ LocationPermission permission;
  }
     super.onInit();
   }
+
+
 
 
 

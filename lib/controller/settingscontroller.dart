@@ -2,13 +2,17 @@
 
 import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/services/services.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 
 class SettingsController extends GetxController {
-  MyServices myservices = Get.find() ; 
+  MyServices myServices = Get.find() ; 
 
   logout(){
-    myservices.sharedPreferences.clear() ; 
+     String userid = myServices.sharedPreferences.getInt("id").toString() ;
+    FirebaseMessaging.instance.unsubscribeFromTopic("users") ; 
+              FirebaseMessaging.instance.unsubscribeFromTopic("users$userid") ; 
+    myServices.sharedPreferences.clear() ; 
     Get.offAllNamed(AppRoutes.signInScreen) ;
 
   }

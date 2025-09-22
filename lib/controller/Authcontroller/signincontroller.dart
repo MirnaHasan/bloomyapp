@@ -42,13 +42,31 @@ class SignInControllerImp extends SignInController{
       statusRequest =  handlingData(response);
       print("==============$response");
       if (StatusRequest.success == statusRequest){
-        if(response["status"] == "success"){
-          if (response['data']['users_approve']== 1){
-          myServices.sharedPreferences.setInt("id", response['data']['users_id']);
-           myServices.sharedPreferences.setString("username", response['data']['users_name']);
-            myServices.sharedPreferences.setString("phone", response['data']['users_phone']);
-             myServices.sharedPreferences.setString("email", response['data']['users_email']);
-              myServices.sharedPreferences.setString("step", "2");
+        if (response["status"] == "success") {
+          if (response['data']['users_approve'] == 1) {
+            myServices.sharedPreferences.setInt(
+              "id",
+              response['data']['users_id'],
+            );
+            String userid = myServices.sharedPreferences.getInt("id").toString() ;
+            myServices.sharedPreferences.setString(
+              "username",
+              response['data']['users_name'],
+            );
+            myServices.sharedPreferences.setString(
+              "phone",
+              response['data']['users_phone'],
+            );
+            myServices.sharedPreferences.setString(
+              "email",
+              response['data']['users_email'],
+            );
+            myServices.sharedPreferences.setString("step", "2");
+             
+            FirebaseMessaging.instance.subscribeToTopic("users") ; 
+              FirebaseMessaging.instance.subscribeToTopic("users$userid") ; 
+   
+
           //  data.addAll(response); 
     Get.offNamed(AppRoutes.homepage );
           }else{
