@@ -5,7 +5,7 @@ import 'package:bloomy/core/functions/handlingdata.dart';
 import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/data/datasourse/remote/homedata.dart';
 import 'package:bloomy/data/model/items.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
  abstract class HomeController extends MixSearchController {
@@ -34,19 +34,18 @@ class HomeComtrollerImp extends HomeController {
 
   @override
   void onInit() {
+    //   FirebaseMessaging.instance.getToken().then((value) {
+    //   print("=================================================") ;
+    //   print(value);
+    //   String? token = value ;
+      
+    // },);
+
 
     search =TextEditingController() ;
     getdata();
     initialData();
-      // FirebaseMessaging.instance.subscribeToTopic("users") ; 
-      FirebaseMessaging.instance.subscribeToTopic("users").then((_) {
-  print("Subscribed to topic users");
-});
-FirebaseMessaging.instance.requestPermission(
-  alert: true,
-  badge: true,
-  sound: true,
-);
+
     super.onInit();
   }
   

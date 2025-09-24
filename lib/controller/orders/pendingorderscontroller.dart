@@ -43,7 +43,7 @@ String printOrderStatus(String val){
     }
 }
   
-  getItems(categoryid) async {
+  getItems() async {
     data.clear() ;
     statusRequest = StatusRequest.loading ;
     update() ; 
@@ -64,10 +64,13 @@ String printOrderStatus(String val){
     await Future.delayed(const Duration(milliseconds: 500));
     update();
   }
+  refreshorder(){
+    getItems() ;
+  }
   @override
   void onInit() {
     // TODO: implement onInit
-     getItems(null) ;
+     getItems() ;
     super.onInit();
   }
 

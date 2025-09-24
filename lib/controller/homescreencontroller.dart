@@ -1,6 +1,7 @@
 
 
 import 'package:bloomy/view/screen/home.dart';
+import 'package:bloomy/view/screen/notifications.dart';
 import 'package:bloomy/view/screen/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -18,10 +19,11 @@ class HomescreencontrollerImp extends HomeScreenController {
   int currentpage = 0 ; 
   List <Widget> listPage = [
     Home() , 
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [Center(child: Text("setting") )]
-    ),
+    // Column(
+    //   mainAxisAlignment: MainAxisAlignment.center,
+    //   children: [Center(child: Text("setting") )]
+    // ),
+    NotificationsView() , 
     Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [Center(child: Text("profile"))]

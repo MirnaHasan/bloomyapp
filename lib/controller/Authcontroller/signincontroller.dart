@@ -64,10 +64,11 @@ class SignInControllerImp extends SignInController{
             myServices.sharedPreferences.setString("step", "2");
              
             FirebaseMessaging.instance.subscribeToTopic("users") ; 
-              FirebaseMessaging.instance.subscribeToTopic("users$userid") ; 
-   
-
+            FirebaseMessaging.instance.subscribeToTopic("users$userid") ; 
+  
           //  data.addAll(response); 
+    
+
     Get.offNamed(AppRoutes.homepage );
           }else{
             Get.toNamed(AppRoutes.verifycodesignup , arguments: {
@@ -97,7 +98,7 @@ update();
 @override
   void onInit() {
     FirebaseMessaging.instance.getToken().then((value) {
-      print("====================================") ;
+      print("=================================================") ;
       print(value);
       String? token = value ;
       

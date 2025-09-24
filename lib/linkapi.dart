@@ -58,5 +58,8 @@ class linkApi {
         ///=====================================order============================
         static const String linkpendingorders = "$linkServer/orders/pendingorders.php"; 
 
-        
-}
+        //=====================================NOTIFICATIONS ================ 
+      static const String linkviewnotifications = "$linkServer/notifications.php"; 
+                                                                           
+                              
+} 

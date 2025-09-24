@@ -24,7 +24,8 @@ class PendingOrdersModel  {
 		ordersDatetime = json['orders_datetime'];
 		ordersCoupon = json['orders_coupon'];
 		ordersPaymentmethod = json['orders_paymentmethod'];
-		ordersTotalprice = json['orders_totalprice'];
+		// ordersTotalprice = json['orders_totalprice'];
+    ordersTotalprice = (json['orders_totalprice'] as num).toDouble();
 		ordersStatus = json['orders_status'];
 		ordersAddress = json['orders_address'];
 	}
