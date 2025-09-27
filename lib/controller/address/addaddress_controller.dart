@@ -9,7 +9,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 class AddAddressController extends GetxController {
   StatusRequest statusRequest = StatusRequest.loading ;
   Position? position;
-  CameraPosition? kGooglePlex ;
+  CameraPosition? cameraPosition ;
   Completer<GoogleMapController>? controllercompleter ;
   double? lat ; 
   double? long ;
@@ -29,7 +29,7 @@ class AddAddressController extends GetxController {
   }
   getCurrentLocation () async {
     position = await Geolocator.getCurrentPosition();
-    kGooglePlex = CameraPosition(
+    cameraPosition = CameraPosition(
       target: LatLng(position!.latitude, position!.longitude),
       zoom: 14.4746,
     );

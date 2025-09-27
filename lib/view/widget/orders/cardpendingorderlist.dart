@@ -2,9 +2,11 @@
 
 import 'package:bloomy/controller/orders/pendingorderscontroller.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
+import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/data/model/pendingorders.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
+import 'package:get/get.dart';
+
 import 'package:jiffy/jiffy.dart';
 
 class CardPendingOrder extends GetView <PendingOrdersController> {
@@ -13,7 +15,7 @@ class CardPendingOrder extends GetView <PendingOrdersController> {
 
   @override
   Widget build(BuildContext context) {
-    return     Card(
+    return  Card(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
               elevation: 5,
@@ -33,14 +35,14 @@ class CardPendingOrder extends GetView <PendingOrdersController> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.confirmation_number, color: AppColor.green),
+                        Icon(Icons.confirmation_number, color:  Colors.green.shade700, ),
                         const SizedBox(width: 8),
                         Text(
                           "Order Number: ${pendingordermodel.ordersId}",
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: AppColor.green,
+                            color:  Colors.green.shade700,
                           ),
                         ),
                         Spacer(), 
@@ -48,7 +50,7 @@ class CardPendingOrder extends GetView <PendingOrdersController> {
                         Text("${Jiffy.parse(pendingordermodel.ordersDatetime!).fromNow() }",  style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: AppColor.green,
+                            color:  Colors.green.shade700,
                           ),)
 
                       ],
@@ -109,20 +111,23 @@ class CardPendingOrder extends GetView <PendingOrdersController> {
                           "Total Price: ${pendingordermodel.ordersTotalprice}\$",
                           style: TextStyle(
                             fontSize: 16,
-                            color: AppColor.green,
+                            color:  Colors.green.shade700, 
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         const Spacer(),
                         ElevatedButton.icon(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColor.green,
+                            backgroundColor:  Colors.green.shade700,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
                           onPressed: () {
+                           
                             // تنقل لصفحة تفاصيل الطلب
+                      controller.goToDetailsOrder(); 
+                          
                           },
                           icon: const Icon(Icons.info_outline,
                               color: Colors.white),

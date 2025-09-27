@@ -18,9 +18,8 @@ class PendingOrders extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F9F6),
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: AppColor.green,
-        centerTitle: true,
+    
+       
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [

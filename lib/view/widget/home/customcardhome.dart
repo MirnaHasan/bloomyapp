@@ -18,7 +18,7 @@ class CustomCardHome extends GetView<HomeComtrollerImp> {
                   alignment: Alignment.center,
                   height: 180 , 
                 decoration: BoxDecoration(
-                  color: AppColor.green , 
+                  color:  Colors.green.shade400, 
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 child: ListTile(
@@ -41,7 +41,7 @@ class CustomCardHome extends GetView<HomeComtrollerImp> {
                   height: 180,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(180),
-                     color: const Color.fromARGB(255, 131, 182, 70)
+                     color: Colors.green.shade300, 
                   ),
                 ))
 

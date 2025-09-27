@@ -1,6 +1,7 @@
 
 
 import 'package:bloomy/core/class/statusrequest.dart';
+import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
 import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/data/datasourse/remote/orders_data.dart';
@@ -12,6 +13,8 @@ class PendingOrdersController extends GetxController {
   PendingOrdersData pendingordersData = PendingOrdersData(Get.find());
 StatusRequest statusRequest = StatusRequest.none;
 List<PendingOrdersModel> data = [] ; 
+ PendingOrdersModel? ordermodel ;
+
 String printOrderType(String val ){
   if (val == "0"){
     return "Delivery" ; 
@@ -67,6 +70,13 @@ String printOrderStatus(String val){
   refreshorder(){
     getItems() ;
   }
+
+ goToDetailsOrder(){
+      Get.toNamed(AppRoutes.detailsorders , 
+                          arguments: {
+                            "orderdetails" : ordermodel 
+                          }) ;
+ }
   @override
   void onInit() {
     // TODO: implement onInit

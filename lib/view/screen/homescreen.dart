@@ -22,13 +22,13 @@ class HomeScreen extends StatelessWidget {
               
               shape: CircleBorder(),
               elevation: 5,
-              backgroundColor: AppColor.green,
+              
               onPressed: () {
                 Get.toNamed(AppRoutes.cart) ;
               },
               child: Icon(
                 Icons.shopping_basket_outlined,
-                color: const Color.fromARGB(255, 60, 122, 62),
+                color:  Colors.green.shade200, 
               ),
             ),
             bottomNavigationBar: CustomBottomAppBarHome(),

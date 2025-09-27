@@ -25,7 +25,7 @@ class AddressAdd extends StatelessWidget {
         widget: Column(
         children: [
           // ignore: unnecessary_null_comparison
-          if (controllerpage.kGooglePlex != null) 
+          if (controllerpage.cameraPosition != null) 
        Expanded(
          child: Stack(
           alignment: Alignment.center,
@@ -37,7 +37,7 @@ class AddressAdd extends StatelessWidget {
                 controllerpage.addMarkers(latlong) ;
                
               },
-              initialCameraPosition: controllerpage.kGooglePlex!,
+              initialCameraPosition: controllerpage.cameraPosition!,
               onMapCreated: (GoogleMapController controllermap) {
                 controllerpage.controllercompleter!.complete(controllermap);
               },

@@ -24,7 +24,8 @@ class Settings extends StatelessWidget {
               Container(
                 height: Get.width/3 ,
               
-              color: AppColor.green, 
+              color:  
+      Colors.green.shade700, 
               
               ) , 
             Positioned(
@@ -62,7 +63,7 @@ class Settings extends StatelessWidget {
                    onTap: () {
                      Get.toNamed(AppRoutes.pendingorders) ;
                    },
-                    trailing: Icon(Icons.shopping_cart_checkout_outlined , color: AppColor.green,),
+                    trailing: Icon(Icons.shopping_cart_checkout_outlined , color: Colors.green.shade700,),
                   ),
                 ),
                  Container(
@@ -71,7 +72,7 @@ class Settings extends StatelessWidget {
                    onTap: () {
                   
                    },
-                    trailing: Icon(Icons.archive_sharp, color: AppColor.green,),
+                    trailing: Icon(Icons.archive_sharp, color: Colors.green.shade700, ),
                   ),
                 ),
                 // Divider(),

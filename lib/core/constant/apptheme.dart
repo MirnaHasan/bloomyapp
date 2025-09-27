@@ -10,9 +10,11 @@ import 'package:flutter/material.dart';
 
 ThemeData themeEnglish = ThemeData(
   appBarTheme: AppBarTheme(
-    backgroundColor: AppColor.greenAccent , 
+
       centerTitle: true,
+      
         elevation: 0,
+        backgroundColor: Colors.green.shade700,
         iconTheme: IconThemeData(
           color: Colors.white
         ),
@@ -23,7 +25,7 @@ ThemeData themeEnglish = ThemeData(
 
   ),
   floatingActionButtonTheme: FloatingActionButtonThemeData(
-    backgroundColor: AppColor.green , 
+    backgroundColor: Colors.green.shade700,  
 
   ),
         // fontFamily: "PlayfairDisplay",

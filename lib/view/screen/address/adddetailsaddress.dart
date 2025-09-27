@@ -5,8 +5,7 @@ import 'package:bloomy/controller/address/adddetailsaddress_controller.dart';
 import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/core/shared/custombuttondefault.dart';
 import 'package:bloomy/view/widget/auth/custommaterialbottonauth.dart';
-import 'package:bloomy/view/widget/onboardingwidget/custommaterialbuttononboarding.dart';
-import 'package:bloomy/view/widget/signupsignin/custombuttonsigninsignup.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

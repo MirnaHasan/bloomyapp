@@ -29,6 +29,7 @@ import 'package:bloomy/view/screen/myfavorite.dart';
 
 import 'package:bloomy/view/screen/onboardingscreen.dart';
 import 'package:bloomy/view/screen/orders/archiveorders.dart';
+import 'package:bloomy/view/screen/orders/orderdetails.dart';
 import 'package:bloomy/view/screen/orders/pendingorders.dart';
 import 'package:bloomy/view/screen/productdetails.dart';
 
@@ -72,6 +73,7 @@ List<GetPage<dynamic>>? routes = [
         //======================orders====================================================
         GetPage(name:   AppRoutes.pendingorders  , page: ()=> PendingOrders() ,) ,
         GetPage(name:   AppRoutes.archiveorders  , page: ()=> ArchiveOrders() ,) ,
+         GetPage(name:   AppRoutes.detailsorders  , page: ()=> OrderDetails() ,) ,
 
 ];
 
