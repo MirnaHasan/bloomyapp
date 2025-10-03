@@ -2,8 +2,12 @@
 
 import 'dart:async';
 
+import 'package:bloomy/core/class/statusrequest.dart';
+import 'package:bloomy/core/functions/handlingdata.dart';
+import 'package:bloomy/data/datasourse/remote/orders/detailsordersdata.dart';
+import 'package:bloomy/data/model/orderdetailsmodel.dart';
 import 'package:bloomy/data/model/pendingorders.dart';
-import 'package:geolocator/geolocator.dart';
+
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 class OrdersDetailsController extends GetxController {
@@ -13,23 +17,55 @@ class OrdersDetailsController extends GetxController {
   // Completer<GoogleMapController>? controllercompleter ;
   Completer<GoogleMapController> controllercompleter = Completer();
   double? lat ; 
-  double? long ;
+double? long ;
   List <Marker> markers = [] ;
+    
+ DetailsOrdersData detailsordersData= DetailsOrdersData (Get.find()) ; 
+   List<OrdersDetailsModel> data = [];
+  StatusRequest statusRequest = StatusRequest.none ;
 
 
 initialData()async{
-
-    cameraPosition = CameraPosition(
-      target: LatLng(34.22, 37.3),
+if (ordermodel!.ordersType.toString() == "0"){
+   cameraPosition = CameraPosition(
+      target: LatLng(ordermodel!.addressLat!, ordermodel!.addressLong!),
       zoom: 12.4746,
     );
+    markers.add(Marker(markerId: MarkerId("1") , position: LatLng(ordermodel!.addressLat!, ordermodel!.addressLong!)) ) ;
     update() ;
+}
+   
 }
   @override
   void onInit() {
-    ordermodel = Get.arguments["orderdetails"] ; 
+ordermodel = Get.arguments["orderdetails"] ; 
     initialData() ;
+      getData() ; 
     super.onInit();
   }
+
+
+
+    
+    getData()async{
+      statusRequest = StatusRequest.loading;
+      // update();
+      var response = await detailsordersData.getData(ordermodel!.ordersId.toString());
+      print(response);
+      statusRequest =  await handlingData(response);
+      if (StatusRequest.success == statusRequest){
+        if(response['status']== 'success'){
+         List listdata = response['data'] ; 
+         data.addAll(listdata.map((e)=> OrdersDetailsModel.fromJson(e))) ;
+        }else{
+          statusRequest = StatusRequest.failure ;
+        }
+        
+      }
+       update();
+
+
+    }
+ 
 
 }

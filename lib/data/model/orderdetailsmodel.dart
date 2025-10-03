@@ -1,4 +1,4 @@
-class CartModel {
+class OrdersDetailsModel {
   int? itemsprice;      // الاجمالي (من SUM في الـ View)
   int? countitems;      // عدد القطع
   int? cartId;
@@ -17,7 +17,7 @@ class CartModel {
   String? itemsDate;
   int? itemsCat;
 
-  CartModel({
+  OrdersDetailsModel ({
     this.itemsprice,
     this.countitems,
     this.cartId,
@@ -37,7 +37,7 @@ class CartModel {
     this.itemsCat,
   });
 
-  CartModel.fromJson(Map<String, dynamic> json) {
+  OrdersDetailsModel .fromJson(Map<String, dynamic> json) {
     itemsprice   = json['itemsprice']; // مهم: هاد اللي كان ناقص
     countitems   = json['countitems'];
     cartId       = json['cart_id'];

@@ -90,7 +90,8 @@ class CardPendingOrder extends GetView <PendingOrdersController> {
                         Icon(Icons.account_balance_wallet,
                             color: Colors.grey[700]),
                         const SizedBox(width: 8),
-                        Text("Payment Method: ${controller.printpaymentMethode(pendingordermodel.ordersPricedelivery.toString())}"),
+                        Text("Payment Method: ${controller.printpaymentMethode(pendingordermodel.ordersPaymentmethod.toString())}")
+
                       ],
                     ),
                        const SizedBox(height: 6),
@@ -126,8 +127,11 @@ class CardPendingOrder extends GetView <PendingOrdersController> {
                           onPressed: () {
                            
                             // تنقل لصفحة تفاصيل الطلب
-                      controller.goToDetailsOrder(); 
-                          
+                    Get.toNamed(AppRoutes.detailsorders , 
+                          arguments: {
+                            "orderdetails" : pendingordermodel 
+                          }) ;
+                          // controller.goToDetailsOrder() ; 
                           },
                           icon: const Icon(Icons.info_outline,
                               color: Colors.white),

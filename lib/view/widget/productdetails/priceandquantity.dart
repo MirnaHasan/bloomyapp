@@ -38,7 +38,7 @@ class PriceAndQuantityItems extends StatelessWidget {
                               height: 1.1,
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
-                              color: AppColor.primaryColor,
+                              color: Colors.green.shade700,
                             ),
                           ),
           

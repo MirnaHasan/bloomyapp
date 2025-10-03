@@ -1,5 +1,3 @@
-
-
 class AddressModel {
   int? addressId;
   String? addressName;
@@ -9,34 +7,41 @@ class AddressModel {
   double? addressLong;
   double? addressLat;
 
-  AddressModel(
-      {this.addressId,
-      this.addressName,
-      this.addressUsersid,
-      this.addressCity,
-      this.addressStreet,
-      this.addressLong,
-      this.addressLat});
+  AddressModel({
+    this.addressId,
+    this.addressName,
+    this.addressUsersid,
+    this.addressCity,
+    this.addressStreet,
+    this.addressLong,
+    this.addressLat,
+  });
 
-  AddressModel.fromJson(Map<String, dynamic> json) {
-    addressId = json['address_id'];
-    addressName = json['address_name'];
-    addressUsersid = json['address_usersid'];
-    addressCity = json['address_city'];
-    addressStreet = json['address_street'];
-    addressLong = json['address_long'];
-    addressLat = json['address_lat'];
+  factory AddressModel.fromJson(Map<String, dynamic> json) {
+    return AddressModel(
+      addressId: json['address_id'],
+      addressName: json['address_name'],
+      addressUsersid: json['address_usersid'],
+      addressCity: json['address_city'],
+      addressStreet: json['address_street'],
+      addressLong: json['address_long'] != null
+          ? double.parse(json['address_long'].toString())
+          : null,
+      addressLat: json['address_lat'] != null
+          ? double.parse(json['address_lat'].toString())
+          : null,
+    );
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['address_id'] = this.addressId;
-    data['address_name'] = this.addressName;
-    data['address_usersid'] = this.addressUsersid;
-    data['address_city'] = this.addressCity;
-    data['address_street'] = this.addressStreet;
-    data['address_long'] = this.addressLong;
-    data['address_lat'] = this.addressLat;
-    return data;
+    return {
+      'address_id': addressId,
+      'address_name': addressName,
+      'address_usersid': addressUsersid,
+      'address_city': addressCity,
+      'address_street': addressStreet,
+      'address_long': addressLong,
+      'address_lat': addressLat,
+    };
   }
 }

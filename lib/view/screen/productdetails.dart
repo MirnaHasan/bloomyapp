@@ -19,11 +19,12 @@ class ProductDetails extends StatelessWidget {
    ProductDetailsControllerImp controller = Get.put(ProductDetailsControllerImp(),);
 
     return Scaffold(
+      backgroundColor : Colors.green.shade100 , 
       bottomNavigationBar: Container(
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         height: 50,
         child: MaterialButton(
-          color: AppColor.greenAccent,
+          color: Colors.green.shade700,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
@@ -39,7 +40,7 @@ class ProductDetails extends StatelessWidget {
           ),
         ),
       ),
-      backgroundColor: Colors.grey[100],
+      // backgroundColor: Colors.grey[100],
       body: GetBuilder<ProductDetailsControllerImp>
       (builder: (controller)=>HandlingDataView(statusRequest:controller.statusRequest ,
        widget: ListView(
@@ -72,7 +73,7 @@ class ProductDetails extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: AppColor.primaryColor,
+                    color: Colors.green.shade700,
                   ),
                 ),
                 SizedBox(height: 10),
@@ -81,7 +82,7 @@ class ProductDetails extends StatelessWidget {
                     "${controller.itemsModel.itemsDescAr}",
                     "${controller.itemsModel.itemsDesc}",
                   ),
-                  style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+                  style: TextStyle(fontSize: 16, color: Colors.green.shade800),
                 ),
                 SizedBox(height: 20),
                 PriceAndQuantityItems(

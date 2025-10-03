@@ -1,4 +1,5 @@
 import 'package:bloomy/controller/orders/detailscontroller.dart';
+import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -25,7 +26,11 @@ class OrderDetails extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: ListView(
+        child: GetBuilder<OrdersDetailsController>(
+          
+          builder: (controller)=>
+          HandlingDataView(statusRequest: controller.statusRequest,
+           widget:  ListView(
           children: [
             // عنوان المنتجات
             const Text(
@@ -75,43 +80,45 @@ class OrderDetails extends StatelessWidget {
                   const Divider(height: 0),
 
                   // صف 1
-                  Container(
+                  // Container(
+                  //   padding: const EdgeInsets.symmetric(
+                  //       vertical: 12, horizontal: 16),
+                  //   child: const Row(
+                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //     children: [
+                  //       Expanded(
+                  //           child: Text("Gardenia",
+                  //               textAlign: TextAlign.center)),
+                  //       Expanded(
+                  //           child: Text("3", textAlign: TextAlign.center)),
+                  //       Expanded(
+                  //           child: Text("\$2000",
+                  //               textAlign: TextAlign.center)),
+                  //     ],
+                  //   ),
+                  // ),
+                  ...List.generate(controller.data.length,
+                  (index)=>   Container(
                     padding: const EdgeInsets.symmetric(
                         vertical: 12, horizontal: 16),
-                    child: const Row(
+                    child:  Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
-                            child: Text("Gardenia",
+                            child: Text("${controller.data[index].itemsNameAr}",
                                 textAlign: TextAlign.center)),
                         Expanded(
-                            child: Text("3", textAlign: TextAlign.center)),
+                            child: Text("${controller.data[index].itemsCount}", textAlign: TextAlign.center)),
                         Expanded(
-                            child: Text("\$2000",
+                            child: Text("${controller.data[index].itemsPrice}\$",
                                 textAlign: TextAlign.center)),
                       ],
                     ),
-                  ),
+                  ), ) ,
                   const Divider(height: 0),
 
                   // صف 2
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 12, horizontal: 16),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                            child:
-                                Text("Flora", textAlign: TextAlign.center)),
-                        Expanded(
-                            child: Text("5", textAlign: TextAlign.center)),
-                        Expanded(
-                            child: Text("\$1200",
-                                textAlign: TextAlign.center)),
-                      ],
-                    ),
-                  ),
+               
                 ],
               ),
             ),
@@ -130,7 +137,7 @@ class OrderDetails extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children:  [
                     Text(
                       "Total Price",
                       style: TextStyle(
@@ -140,7 +147,7 @@ class OrderDetails extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "\$2300",
+                      "${controller.ordermodel!.ordersTotalprice}\$",
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -155,6 +162,7 @@ class OrderDetails extends StatelessWidget {
             const SizedBox(height: 20),
 
             // عنوان الشحن
+            if (controller.ordermodel!.ordersType.toString() == "0")
             Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
@@ -162,15 +170,16 @@ class OrderDetails extends StatelessWidget {
               elevation: 2,
               child: ListTile(
                 leading: Icon(LucideIcons.mapPin, color: Colors.green.shade700),
-                title: const Text(
+                title:  Text(
                   "Shipping Address",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                subtitle: const Text("Damascus, Street One"),
+                subtitle: Text("${controller.ordermodel!.addressCity} ${controller.ordermodel!.addressStreet}")
               ),
             ),
             SizedBox(height: 20,) , 
           // الخريطة
+ if (controller.ordermodel!.ordersType.toString() == "0")
 Card(
   child: Container(
     padding: EdgeInsets.symmetric(horizontal: 20 , vertical: 10),
@@ -193,7 +202,8 @@ Card(
 ),
 
           ],
-        ),
+        ),)
+        )
       ),
     );
   }
