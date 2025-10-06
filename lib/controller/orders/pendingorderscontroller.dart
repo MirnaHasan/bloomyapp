@@ -77,6 +77,31 @@ class PendingOrdersController extends GetxController {
     update();
   }
 
+  deleteItems(String orderid) async {
+    data.clear();
+    statusRequest = StatusRequest.loading;
+    update();
+
+    var response = await pendingordersData.deleteData(orderid);
+
+    print("==================Deleteorderscontroller==============================");
+    print("RAW RESPONSE => $response");
+
+    statusRequest = await handlingData(response);
+
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
+      refreshorder() ;
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
+
+  await Future.delayed(const Duration(milliseconds: 500));
+    update();
+  }
+
+
   refreshorder() {
     getItems();
   }

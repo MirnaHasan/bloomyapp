@@ -105,43 +105,69 @@ class CardPendingOrder extends GetView <PendingOrdersController> {
                     ),
                     const Divider(thickness: 1, color: Colors.greenAccent),
                     const SizedBox(height: 6),
+Row(
+  children: [
+    // النص يأخذ مساحة مرنة ويُقلّص عند الحاجة
+    Expanded(
+      child: Text(
+        "Total Price: ${pendingordermodel.ordersTotalprice}\$",
+        style: TextStyle(
+          fontSize: 16,
+          color: Colors.green.shade700,
+          fontWeight: FontWeight.bold,
+        ),
+        overflow: TextOverflow.ellipsis, // يمنع تجاوز النص
+      ),
+    ),
 
-                    Row(
-                      children: [
-                        Text(
-                          "Total Price: ${pendingordermodel.ordersTotalprice}\$",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color:  Colors.green.shade700, 
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const Spacer(),
-                        ElevatedButton.icon(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor:  Colors.green.shade700,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          onPressed: () {
-                           
-                            // تنقل لصفحة تفاصيل الطلب
-                    Get.toNamed(AppRoutes.detailsorders , 
-                          arguments: {
-                            "orderdetails" : pendingordermodel 
-                          }) ;
-                          // controller.goToDetailsOrder() ; 
-                          },
-                          icon: const Icon(Icons.info_outline,
-                              color: Colors.white),
-                          label: const Text(
-                            "Order Details",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
+    // زر تفاصيل الطلب (تم تصغيره)
+    ElevatedButton.icon(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.green.shade700,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+        minimumSize: const Size(90, 36), // عرض وارتفاع الزر
+      ),
+      onPressed: () {
+        Get.toNamed(
+          AppRoutes.detailsorders,
+          arguments: {"orderdetails": pendingordermodel},
+        );
+      },
+      icon: const Icon(Icons.info_outline, color: Colors.white, size: 16),
+      label: const Text(
+        "Details",
+        style: TextStyle(color: Colors.white, fontSize: 12),
+      ),
+    ),
+
+    const SizedBox(width: 6),
+
+    // زر الحذف (إن وُجد)
+    if (pendingordermodel.ordersStatus == 0)
+      ElevatedButton.icon(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.red.shade700,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+          minimumSize: const Size(80, 36),
+        ),
+        onPressed: () {
+          controller.deleteItems(pendingordermodel.ordersId.toString());
+        },
+        icon: const Icon(Icons.delete_outline, color: Colors.white, size: 16),
+        label: const Text(
+          "Delete",
+          style: TextStyle(color: Colors.white, fontSize: 12),
+        ),
+      ),
+  ],
+)
+
                   ],
                 ),
               ),

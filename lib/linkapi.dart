@@ -54,10 +54,12 @@ class linkApi {
 
        static const String linkcouponcheck = "$linkServer/coupon/checkcoupon.php";
        //==================================checkOut===============================
-        static const String linkcheckorder = "$linkServer/orders/checkout.php"; 
+        // static const String linkcheckorder = "$linkServer/orders/checkout.php"; 
         ///=====================================order============================
         static const String linkpendingorders = "$linkServer/orders/pendingorders.php"; 
-             static const String linkdetailsorders = "$linkServer/orders/details.php"; 
+         static const String linkcheckorder = "$linkServer/orders/checkout.php"; 
+        static const String linkdetailsorders = "$linkServer/orders/details.php"; 
+        static const String linkdeleteorders = "$linkServer/orders/delete.php"; 
 
         //=====================================NOTIFICATIONS ================ 
       static const String linkviewnotifications = "$linkServer/notifications.php"; 
