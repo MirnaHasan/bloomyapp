@@ -1,15 +1,20 @@
 
 
+
+
+// ignore_for_file: strict_top_level_inference, avoid_print
+
 import 'package:bloomy/core/class/statusrequest.dart';
 import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
 import 'package:bloomy/core/services/services.dart';
+import 'package:bloomy/data/datasourse/remote/orders/archiveorder_data.dart';
 import 'package:bloomy/data/datasourse/remote/orders/pending_orders_data.dart';
 import 'package:bloomy/data/model/pendingorders.dart';
 import 'package:get/get.dart';
-class PendingOrdersController extends GetxController {
+class OrdersArchiveController extends GetxController {
   MyServices myServices = Get.find();
-  PendingOrdersData pendingordersData = PendingOrdersData(Get.find());
+  OrderArchiveData ordersarchiveData =  OrderArchiveData(Get.find());
 
   StatusRequest statusRequest = StatusRequest.none;
   List<PendingOrdersModel> data = [];
@@ -31,7 +36,7 @@ class PendingOrdersController extends GetxController {
     }
   }
 
-   String printOrderStatus(String val) {
+  String printOrderStatus(String val) {
     if (val == "0") {
       return "Pending Approval";
     } else if (val == "1") {
@@ -51,7 +56,7 @@ class PendingOrdersController extends GetxController {
     statusRequest = StatusRequest.loading;
     update();
 
-    var response = await pendingordersData.getData(
+    var response = await ordersarchiveData.getData(
         myServices.sharedPreferences.getInt("id").toString());
 
     print("==================pendingorderscontroller==============================");
@@ -80,31 +85,7 @@ class PendingOrdersController extends GetxController {
     update();
   }
 
-  deleteItems(String orderid) async {
-    data.clear();
-    statusRequest = StatusRequest.loading;
-    update();
-
-    var response = await pendingordersData.deleteData(orderid);
-
-    print("==================Deleteorderscontroller==============================");
-    print("RAW RESPONSE => $response");
-
-    statusRequest = await handlingData(response);
-
-    if (StatusRequest.success == statusRequest) {
-      if (response['status'] == 'success') {
-      refreshorder() ;
-      } else {
-        statusRequest = StatusRequest.failure;
-      }
-    }
-
-  await Future.delayed(const Duration(milliseconds: 500));
-    update();
-  }
-
-
+  
   refreshorder() {
     getItems();
   }

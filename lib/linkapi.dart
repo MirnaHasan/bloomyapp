@@ -60,6 +60,9 @@ class linkApi {
          static const String linkcheckorder = "$linkServer/orders/checkout.php"; 
         static const String linkdetailsorders = "$linkServer/orders/details.php"; 
         static const String linkdeleteorders = "$linkServer/orders/delete.php"; 
+                                                                               
+         static const String linkarchiveorders = "$linkServer/orders/archive.php"; 
+                                                                               
 
         //=====================================NOTIFICATIONS ================ 
       static const String linkviewnotifications = "$linkServer/notifications.php"; 

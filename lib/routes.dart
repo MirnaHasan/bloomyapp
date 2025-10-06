@@ -72,7 +72,7 @@ List<GetPage<dynamic>>? routes = [
         GetPage(name:   AppRoutes.checkout  , page: ()=> CheckOut() ,) ,
         //======================orders====================================================
         GetPage(name:   AppRoutes.pendingorders  , page: ()=> PendingOrders() ,) ,
-        GetPage(name:   AppRoutes.archiveorders  , page: ()=> ArchiveOrders() ,) ,
+        GetPage(name:   AppRoutes.archiveorders  , page: ()=> ArchiveOrdersView() ,) ,
          GetPage(name:   AppRoutes.detailsorders  , page: ()=> OrderDetails() ,) ,
 
 ];

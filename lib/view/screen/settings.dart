@@ -70,7 +70,7 @@ class Settings extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   child: ListTile(title: Text("Archive Orders") , 
                    onTap: () {
-                  
+                  Get.toNamed(AppRoutes.archiveorders) ;
                    },
                     trailing: Icon(Icons.archive_sharp, color: Colors.green.shade700, ),
                   ),
