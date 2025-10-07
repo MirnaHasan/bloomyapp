@@ -5,6 +5,7 @@ import 'package:bloomy/core/constant/appimages.dart';
 import 'package:bloomy/core/constant/approutes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class Settings extends StatelessWidget {
@@ -96,7 +97,9 @@ class Settings extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   child: ListTile(title: Text("Contact Us") , 
-                   onTap: () {},
+                   onTap: () async{
+                   await  launchUrl(Uri.parse("tel:+963994281581"));
+                   },
                     trailing: Icon(Icons.phone_callback_outlined),),
                 ),
                 // Divider(),

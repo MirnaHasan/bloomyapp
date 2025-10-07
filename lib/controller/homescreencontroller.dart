@@ -2,6 +2,7 @@
 
 import 'package:bloomy/view/screen/home.dart';
 import 'package:bloomy/view/screen/notifications.dart';
+import 'package:bloomy/view/screen/offers.dart';
 import 'package:bloomy/view/screen/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -24,15 +25,13 @@ class HomescreencontrollerImp extends HomeScreenController {
     //   children: [Center(child: Text("setting") )]
     // ),
     NotificationsView() , 
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [Center(child: Text("profile"))]
-    ),
-    Settings() ,
     // Column(
     //   mainAxisAlignment: MainAxisAlignment.center,
-    //   children: [Center(child: Text("favourite"))],
-    // ),     
+    //   children: [Center(child: Text("offers"))]
+    // ),
+    Settings() ,
+   
+    OffersView() ,     
   ];
   List bottomappbar = [
    {"title" : "home" , 
