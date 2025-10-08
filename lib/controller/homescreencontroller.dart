@@ -38,13 +38,14 @@ class HomescreencontrollerImp extends HomeScreenController {
    "icon" : Icons.home ,
    } ,
     {"title" : "notifications" , 
-   "icon" : Icons.notifications_active_outlined ,
-   } ,
-    {"title" : "profile" , 
-   "icon" : Icons.person_pin_sharp ,
+   "icon" : Icons.notifications_active_rounded ,
    } ,
     {"title" : "settings" , 
-   "icon" : Icons.settings ,
+   "icon" :   Icons.settings ,
+   } ,
+    {"title" :  "offers"  , 
+   "icon" :  Icons.local_offer_rounded,
+  
    } ,
   ] ;
   @override

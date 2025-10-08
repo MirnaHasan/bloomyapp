@@ -1,10 +1,12 @@
+import 'package:bloomy/controller/homecontroller.dart';
 import 'package:bloomy/core/class/statusrequest.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
 import 'package:bloomy/data/datasourse/remote/offers_data.dart';
 import 'package:bloomy/data/model/items.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-class OffersController extends GetxController {
+class OffersController extends MixSearchController {
   OffersData offersData = OffersData(Get.find());
   List<ItemsModel> data = [];
   StatusRequest statusRequest = StatusRequest.none;
@@ -21,8 +23,8 @@ class OffersController extends GetxController {
 
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
-        List listData = response['data'];
-        data = listData.map((e) => ItemsModel.fromJson(e)).toList();
+        List listData2 = response['data'];
+        data = listData2.map((e) => ItemsModel.fromJson(e)).toList();
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -38,6 +40,7 @@ class OffersController extends GetxController {
 
   @override
   void onInit() {
+    search = TextEditingController() ;
     getDataFromDatabase();
     super.onInit();
   }

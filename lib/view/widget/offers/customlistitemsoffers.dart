@@ -36,7 +36,9 @@ class CustomListItemsOffers extends GetView<OffersController> {
             children: [
               // ✅ صورة المنتج + أيقونة Sale
               SizedBox(
-                height: 180, // تحديد ارتفاع ثابت للصورة
+                 width: double.infinity,
+                height: 400, 
+               // تحديد ارتفاع ثابت للصورة
                 child: Hero(
                   tag: heroTag,
                   child: ClipRRect(
@@ -45,6 +47,7 @@ class CustomListItemsOffers extends GetView<OffersController> {
                       children: [
                         Positioned.fill(
                           child: CachedNetworkImage(
+                             
                             imageUrl:
                                 "${linkApi.linkimages}/${itemsModel.itemsImage}",
                             fit: BoxFit.cover,
@@ -52,15 +55,31 @@ class CustomListItemsOffers extends GetView<OffersController> {
                         ),
                         if (itemsModel.itemsDiscount != null &&
                             itemsModel.itemsDiscount! > 0)
-                          Positioned(
-                            top: 8,
-                            left: 8,
-                            child: Image.asset(
-                              AppImage.sale,
-                              width: 45,
-                              height: 45,
-                            ),
-                          ),
+                            Positioned(
+  top: 8,
+  left: 8,
+  child: ClipRRect(
+    borderRadius: BorderRadius.circular(50), // 🔸 يجعلها دائرية
+    child: Container(
+      width: 90,
+      height: 90,
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.0), // خلفية شفافة
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 4,
+            offset: Offset(2, 2),
+          ),
+        ],
+      ),
+      child: Image.asset(
+        AppImage.sale,
+        fit: BoxFit.fill, // ✅ يحافظ على الكلمة "SALE" كاملة
+      ),
+    ),
+  ),
+),
                       ],
                     ),
                   ),

@@ -57,14 +57,30 @@ class CustomListItems extends GetView<ItemscontrollerImp> {
                         if (itemsModel.itemsDiscount != null &&
                             itemsModel.itemsDiscount! > 0)
                           Positioned(
-                            top: 8,
-                            left: 8,
-                            child: Image.asset(
-                              AppImage.sale,
-                              width: 45,
-                              height: 45,
-                            ),
-                          ),
+  top: 8,
+  left: 8,
+  child: ClipRRect(
+    borderRadius: BorderRadius.circular(50), // 🔸 يجعلها دائرية
+    child: Container(
+      width: 90,
+      height: 90,
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.0), // خلفية شفافة
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 4,
+            offset: Offset(2, 2),
+          ),
+        ],
+      ),
+      child: Image.asset(
+        AppImage.sale,
+        fit: BoxFit.fill, // ✅ يحافظ على الكلمة "SALE" كاملة
+      ),
+    ),
+  ),
+),
                       ],
                     ),
                   ),
