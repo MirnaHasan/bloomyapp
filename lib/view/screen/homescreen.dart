@@ -1,8 +1,11 @@
 
 
+import 'dart:io';
+
 import 'package:bloomy/controller/homescreencontroller.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/core/constant/approutes.dart';
+import 'package:bloomy/core/functions/showsnackbar.dart';
 
 import 'package:bloomy/view/widget/home/custombottomappbarhome.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +35,36 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             bottomNavigationBar: CustomBottomAppBarHome(),
-            body: controller.listPage.elementAt(controller.currentpage),
+            body: WillPopScope(child: controller.listPage.elementAt(controller.currentpage),
+             onWillPop: (){
+             Get.defaultDialog(
+                  title: "هل تريد مغادرة المتجر؟ 🌿",
+                  titleStyle: TextStyle(
+                    color: AppColor.green,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                  middleText: "نأسف لرؤيتك تغادر! هل ترغب بالخروج من التطبيق؟",
+                  middleTextStyle: TextStyle(
+                    color: Colors.grey[900],
+                    fontSize: 15,
+                  ),
+                  backgroundColor: Colors.white,
+                  radius: 15,
+                  confirmTextColor: Colors.white,
+                  cancelTextColor: AppColor.greenAccent,
+                  textConfirm: "خروج",
+                  textCancel: "إلغاء",
+                  buttonColor: AppColor.greenAccent,
+                  onConfirm: () {
+                    exit(0);
+                  },
+                  onCancel: () {},
+                );
+
+      
+              return Future.value(false) ;
+             })
           ),
     );
   }
