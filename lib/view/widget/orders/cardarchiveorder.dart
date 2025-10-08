@@ -5,6 +5,7 @@ import 'package:bloomy/controller/orders/pendingorderscontroller.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/data/model/pendingorders.dart';
+import 'package:bloomy/view/widget/orders/ordersrating.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -145,6 +146,25 @@ Row(
     ),
 
     const SizedBox(width: 6),
+     ElevatedButton.icon(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.green.shade700,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+        minimumSize: const Size(90, 36), // عرض وارتفاع الزر
+      ),
+      onPressed: () {
+        showDialogRating(context) ; 
+      },
+      icon: const Icon(Icons.info_outline, color: Colors.white, size: 16),
+      label: const Text(
+        "Rating",
+        style: TextStyle(color: Colors.white, fontSize: 12),
+      ),
+    ),
+
 
    
   ],

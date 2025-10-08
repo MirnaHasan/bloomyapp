@@ -104,25 +104,25 @@ class CustomListItems extends GetView<ItemscontrollerImp> {
               const SizedBox(height: 5),
 
               // التقييم
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Rating 3.5",
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontFamily: 'cairo',
-                      color: AppColor.greytwo,
-                    ),
-                  ),
-                  Row(
-                    children: List.generate(
-                      5,
-                      (i) => const Icon(Icons.star, size: 15),
-                    ),
-                  ),
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     Text(
+              //       "Rating 3.5",
+              //       style: TextStyle(
+              //         fontSize: 14,
+              //         fontFamily: 'cairo',
+              //         color: AppColor.greytwo,
+              //       ),
+              //     ),
+              //     Row(
+              //       children: List.generate(
+              //         5,
+              //         (i) => const Icon(Icons.star, size: 15),
+              //       ),
+              //     ),
+              //   ],
+              // ),
 
               const SizedBox(height: 10),
 

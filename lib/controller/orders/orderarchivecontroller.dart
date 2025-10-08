@@ -84,6 +84,9 @@ class OrdersArchiveController extends GetxController {
     await Future.delayed(const Duration(milliseconds: 500));
     update();
   }
+   submitRating (double rating , String comment){
+    
+   }
 
   
   refreshorder() {
