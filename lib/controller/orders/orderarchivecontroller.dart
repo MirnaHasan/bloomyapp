@@ -9,16 +9,17 @@ import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
 import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/data/datasourse/remote/orders/archiveorder_data.dart';
-import 'package:bloomy/data/datasourse/remote/orders/pending_orders_data.dart';
-import 'package:bloomy/data/model/pendingorders.dart';
+
+import 'package:bloomy/data/model/ordermodel.dart';
+
 import 'package:get/get.dart';
 class OrdersArchiveController extends GetxController {
   MyServices myServices = Get.find();
   OrderArchiveData ordersarchiveData =  OrderArchiveData(Get.find());
 
   StatusRequest statusRequest = StatusRequest.none;
-  List<PendingOrdersModel> data = [];
-  late PendingOrdersModel ordermodel;
+  List<OrdersModel> data = [];
+  late OrdersModel ordermodel;
 
   String printOrderType(String val) {
     if (val == "0") {
@@ -75,7 +76,7 @@ class OrdersArchiveController extends GetxController {
           print("First Order = ${listdata[0]}");
         }
 
-        data.addAll(listdata.map((e) => PendingOrdersModel.fromJson(e)));
+        data.addAll(listdata.map((e) => OrdersModel.fromJson(e)));
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -84,9 +85,33 @@ class OrdersArchiveController extends GetxController {
     await Future.delayed(const Duration(milliseconds: 500));
     update();
   }
-   submitRating (double rating , String comment){
-    
-   }
+
+  submitRating(String orderId, double rating, String comment) async {
+  statusRequest = StatusRequest.loading;
+  update();
+
+  var response = await ordersarchiveData.rating(
+    orderId,
+    comment,
+    rating.toString(),
+  );
+
+  statusRequest = await handlingData(response);
+
+  if (StatusRequest.success == statusRequest) {
+    if (response['status'] == 'success') {
+      getItems() ; 
+      // Get.offNamed(AppRoutes.archiveorders) ;
+      print("=================Success Rating=========================");
+    } else {
+      statusRequest = StatusRequest.failure;
+    }
+  }
+
+  await Future.delayed(const Duration(milliseconds: 500));
+  update();
+}
+
 
   
   refreshorder() {

@@ -8,7 +8,13 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:rating_dialog/rating_dialog.dart';
 
-final _dialog = RatingDialog(
+
+void showDialogRating(BuildContext context , String orderid) {
+  showDialog(
+    context: context,
+    barrierDismissible: true, // set to false if you want to force a rating
+    builder: (context) => 
+RatingDialog(
   initialRating: 1.0,
   // your app's name?
   title: Text(
@@ -32,14 +38,9 @@ final _dialog = RatingDialog(
   onCancelled: () => print('cancelled'),
   onSubmitted: (response) {
     OrdersArchiveController controller = Get.find() ;
+   controller.submitRating(orderid , response.rating , response.comment) ;
     print('rating: ${response.rating}, comment: ${response.comment}');
   },
-);
-
-void showDialogRating(BuildContext context) {
-  showDialog(
-    context: context,
-    barrierDismissible: true, // set to false if you want to force a rating
-    builder: (context) => _dialog,
+)
   );
 }

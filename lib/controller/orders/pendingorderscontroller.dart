@@ -5,6 +5,7 @@ import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
 import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/data/datasourse/remote/orders/pending_orders_data.dart';
+import 'package:bloomy/data/model/ordermodel.dart';
 import 'package:bloomy/data/model/pendingorders.dart';
 import 'package:get/get.dart';
 class PendingOrdersController extends GetxController {
@@ -12,8 +13,8 @@ class PendingOrdersController extends GetxController {
   PendingOrdersData pendingordersData = PendingOrdersData(Get.find());
 
   StatusRequest statusRequest = StatusRequest.none;
-  List<PendingOrdersModel> data = [];
-  late PendingOrdersModel ordermodel;
+  List<OrdersModel> data = [];
+  late OrdersModel ordermodel;
 
   String printOrderType(String val) {
     if (val == "0") {
@@ -70,7 +71,7 @@ class PendingOrdersController extends GetxController {
           print("First Order = ${listdata[0]}");
         }
 
-        data.addAll(listdata.map((e) => PendingOrdersModel.fromJson(e)));
+        data.addAll(listdata.map((e) => OrdersModel.fromJson(e)));
       } else {
         statusRequest = StatusRequest.failure;
       }

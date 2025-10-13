@@ -3,6 +3,7 @@
 import 'package:bloomy/controller/orders/pendingorderscontroller.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/core/constant/approutes.dart';
+import 'package:bloomy/data/model/ordermodel.dart';
 import 'package:bloomy/data/model/pendingorders.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,7 +11,7 @@ import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
 
 class CardPendingOrder extends GetView <PendingOrdersController> {
-  final PendingOrdersModel pendingordermodel ; 
+  final OrdersModel pendingordermodel ; 
   CardPendingOrder({super.key, required this.pendingordermodel});
 
   @override

@@ -4,6 +4,7 @@ import 'package:bloomy/controller/orders/orderarchivecontroller.dart';
 import 'package:bloomy/controller/orders/pendingorderscontroller.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/core/constant/approutes.dart';
+import 'package:bloomy/data/model/ordermodel.dart';
 import 'package:bloomy/data/model/pendingorders.dart';
 import 'package:bloomy/view/widget/orders/ordersrating.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
 
 class CardArchiveOrder extends GetView <OrdersArchiveController> {
-  final PendingOrdersModel pendingordermodel ; 
+  final OrdersModel pendingordermodel ; 
   CardArchiveOrder({super.key, required this.pendingordermodel});
 
   @override
@@ -146,6 +147,7 @@ Row(
     ),
 
     const SizedBox(width: 6),
+    if (pendingordermodel.ordersRating == "0") 
      ElevatedButton.icon(
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.green.shade700,
@@ -156,7 +158,7 @@ Row(
         minimumSize: const Size(90, 36), // عرض وارتفاع الزر
       ),
       onPressed: () {
-        showDialogRating(context) ; 
+        showDialogRating(context , pendingordermodel.ordersId.toString()) ; 
       },
       icon: const Icon(Icons.info_outline, color: Colors.white, size: 16),
       label: const Text(

@@ -68,6 +68,8 @@ class linkApi {
       static const String linkviewnotifications = "$linkServer/notifications.php"; 
       //=======================================offers======================
 
-          static const String linkoffers = "$linkServer/offers.php";                                                                      
+          static const String linkoffers = "$linkServer/offers.php";     
+      //===================================orders rating====================   
+        static const String linkratingorder = "$linkServer/rating.php";                                                             
                               
 } 

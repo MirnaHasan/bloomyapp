@@ -5,13 +5,16 @@ import 'dart:async';
 import 'package:bloomy/core/class/statusrequest.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
 import 'package:bloomy/data/datasourse/remote/orders/detailsordersdata.dart';
+import 'package:bloomy/data/model/cartmodel.dart';
+import 'package:bloomy/data/model/items.dart';
 import 'package:bloomy/data/model/orderdetailsmodel.dart';
+import 'package:bloomy/data/model/ordermodel.dart';
 import 'package:bloomy/data/model/pendingorders.dart';
 
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 class OrdersDetailsController extends GetxController {
-  PendingOrdersModel? ordermodel ; 
+OrdersModel? ordermodel ; 
   //  Position? position;
   CameraPosition? cameraPosition ;
   // Completer<GoogleMapController>? controllercompleter ;
@@ -21,7 +24,7 @@ double? long ;
   List <Marker> markers = [] ;
     
  DetailsOrdersData detailsordersData= DetailsOrdersData (Get.find()) ; 
-   List<OrdersDetailsModel> data = [];
+   List<CartModel> data = [];
   StatusRequest statusRequest = StatusRequest.none ;
 
 
@@ -56,7 +59,7 @@ ordermodel = Get.arguments["orderdetails"] ;
       if (StatusRequest.success == statusRequest){
         if(response['status']== 'success'){
          List listdata = response['data'] ; 
-         data.addAll(listdata.map((e)=> OrdersDetailsModel.fromJson(e))) ;
+         data.addAll(listdata.map((e)=> CartModel.fromJson(e))) ;
         }else{
           statusRequest = StatusRequest.failure ;
         }
