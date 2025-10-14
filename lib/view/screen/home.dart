@@ -47,7 +47,7 @@ class Home extends StatelessWidget {
            CustomTitleHome(title: "Categories",),
            SizedBox(height: 16),
            ListCategoriesHome() ,
-           CustomTitleHome(title: "Products For You",) ,
+           CustomTitleHome(title: "Top Selling",) ,
             SizedBox(height: 16),
            ListItemsHome(),
           //  SizedBox(height: 10),
