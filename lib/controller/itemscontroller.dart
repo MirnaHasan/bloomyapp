@@ -24,8 +24,10 @@ class ItemscontrollerImp extends ItemsController {
   List categories = [];
   int? selectedCategory;
   late String cateid;
+  String deliverytime = "";
   @override
   void onInit() {
+    deliverytime = myServices.sharedPreferences.getString("deliverytime").toString() ; 
     search = TextEditingController() ;
     initialData();
     super.onInit();

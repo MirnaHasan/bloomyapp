@@ -103,26 +103,25 @@ class CustomListItems extends GetView<ItemscontrollerImp> {
 
               const SizedBox(height: 5),
 
-              // التقييم
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     Text(
-              //       "Rating 3.5",
-              //       style: TextStyle(
-              //         fontSize: 14,
-              //         fontFamily: 'cairo',
-              //         color: AppColor.greytwo,
-              //       ),
-              //     ),
-              //     Row(
-              //       children: List.generate(
-              //         5,
-              //         (i) => const Icon(Icons.star, size: 15),
-              //       ),
-              //     ),
-              //   ],
-              // ),
+              // delivery time
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                    Container(
+                    // margin: EdgeInsets.only(left: 7 , right: 10),
+                    child: Icon(Icons.timer_sharp , color: AppColor.green,)) , 
+                  Text(
+                    "${controller.deliverytime} Minutes",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontFamily: 'sans',
+                        color: AppColor.green,
+                    ),
+                  ),
+                  
+                
+                ],
+              ),
 
               const SizedBox(height: 10),
 

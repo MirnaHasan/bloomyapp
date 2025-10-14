@@ -43,10 +43,10 @@ class Home extends StatelessWidget {
            
            Column(
             children: [
-           if (controller.settings.isNotEmpty)
+         
   CustomCardHome(
-    titleCard: "${controller.settings[0]['settings_titlehome']}",
-    bodyCard: "${controller.settings[0]['settings_bodyhome']}",
+    titleCard: controller.titlehomecard,
+    bodyCard: controller.bodyhomecard,
   ),
 
            CustomTitleHome(title: "Categories",),

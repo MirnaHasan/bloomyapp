@@ -52,12 +52,12 @@ class Settings extends StatelessWidget {
             mainAxisSize:MainAxisSize.min , 
             children: [
               
-              Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: ListTile(title: Text("Disable Notifications" , ) ,
+              // Container(
+              //     padding: EdgeInsets.symmetric(horizontal: 10),
+              //     child: ListTile(title: Text("Disable Notifications" , ) ,
                    
-                    trailing: Switch(value: true, onChanged: (Val){}),),
-                ),
+              //       trailing: Switch(value: true, onChanged: (Val){}),),
+              //   ),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   child: ListTile(title: Text("Orders") , 
@@ -87,7 +87,7 @@ class Settings extends StatelessWidget {
                   ),
                 ),
                 // Divider(),
-                Container(
+                Container( // معلومات عن المتجر
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   child: ListTile(title: Text("About Us"), 
                    onTap: () {},

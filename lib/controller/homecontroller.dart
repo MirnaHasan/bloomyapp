@@ -21,7 +21,9 @@ class HomeComtrollerImp extends HomeController {
   int? id ;
   MyServices myServices = Get.find();
   HomeData homeData =HomeData(Get.find());
-
+String titlehomecard = "" ;
+String bodyhomecard= "" ; 
+String deliverytime = "" ; 
   List items = [] ;
   List categories = [] ;
   List settings = [] ;
@@ -35,19 +37,9 @@ class HomeComtrollerImp extends HomeController {
 
   @override
   void onInit() {
-    //   FirebaseMessaging.instance.getToken().then((value) {
-    //   print("=================================================") ;
-    //   print(value);
-    //   String? token = value ;
-      
-    // },);
-
-
     search =TextEditingController() ;
      initialData();
     getdata();
-   
-
     super.onInit();
   }
   
@@ -66,6 +58,11 @@ class HomeComtrollerImp extends HomeController {
       categories.addAll(response['categories']['data']);
         items.addAll(response['items']['data']);
        settings.addAll(response['settings']['data']);
+       titlehomecard = settings[0]['settings_titlehome'];
+       bodyhomecard = settings[0]['settings_bodyhome'];
+       deliverytime = settings[0]['settings_deliverytime'].toString();
+       myServices.sharedPreferences.setString("deliverytime", deliverytime) ;
+        // خزنتdeliverytime in sharedpreferences لان عم استخدمه ب اكثر من مكان
         }else{
           statusRequest = StatusRequest.failure ;
         }
