@@ -24,6 +24,7 @@ class HomeComtrollerImp extends HomeController {
 
   List items = [] ;
   List categories = [] ;
+  List settings = [] ;
 
   @override
   initialData() {
@@ -43,8 +44,9 @@ class HomeComtrollerImp extends HomeController {
 
 
     search =TextEditingController() ;
+     initialData();
     getdata();
-    initialData();
+   
 
     super.onInit();
   }
@@ -63,6 +65,7 @@ class HomeComtrollerImp extends HomeController {
           
       categories.addAll(response['categories']['data']);
         items.addAll(response['items']['data']);
+       settings.addAll(response['settings']['data']);
         }else{
           statusRequest = StatusRequest.failure ;
         }

@@ -19,8 +19,8 @@ class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
-  Widget build(BuildContext context) {
-     Get.put(HomeComtrollerImp());
+  Widget build(BuildContext context) {    HomeComtrollerImp controller = 
+ Get.put(HomeComtrollerImp());
     return GetBuilder<HomeComtrollerImp>(builder: (controller)=> 
     Container(
          padding: EdgeInsets.symmetric(horizontal: 15),
@@ -43,7 +43,12 @@ class Home extends StatelessWidget {
            
            Column(
             children: [
-            CustomCardHome(titleCard: "A Summer Surprise", bodyCard: "Discount 20%" ),
+           if (controller.settings.isNotEmpty)
+  CustomCardHome(
+    titleCard: "${controller.settings[0]['settings_titlehome']}",
+    bodyCard: "${controller.settings[0]['settings_bodyhome']}",
+  ),
+
            CustomTitleHome(title: "Categories",),
            SizedBox(height: 16),
            ListCategoriesHome() ,
