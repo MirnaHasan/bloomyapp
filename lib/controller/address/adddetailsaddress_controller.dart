@@ -1,6 +1,7 @@
 import 'package:bloomy/core/class/statusrequest.dart';
 import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/core/functions/handlingdata.dart';
+import 'package:bloomy/core/functions/showsnackbar.dart';
 import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/data/datasourse/remote/address/addressdata.dart';
 import 'package:flutter/widgets.dart';
@@ -34,6 +35,7 @@ TextEditingController? name ;
       if (StatusRequest.success == statusRequest){
         if(response['status'] == 'success'){
           Get.offAllNamed(AppRoutes.homepage) ;
+          showSnackbar(title: "تنبيه", message: "Now You Can Order To This Address") ; 
              
         }else{
           statusRequest = StatusRequest.failure ;

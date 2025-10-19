@@ -74,27 +74,34 @@ class CheckOutController extends GetxController {
   }
 
   // ==================== API Calls ====================
-  Future<void> getShippingAddress() async {
-    statusRequest = StatusRequest.loading;
-    update();
+ Future<void> getShippingAddress() async {
+  statusRequest = StatusRequest.loading;
+  update();
 
-    final response = await addressData.viewaddress(
-        myServices.sharedPreferences.getInt("id").toString());
+  final response = await addressData.viewaddress(
+      myServices.sharedPreferences.getInt("id").toString());
 
-    await Future.delayed(const Duration(seconds: 1));
+  await Future.delayed(const Duration(seconds: 1));
 
-    statusRequest = await handlingData(response);
-    if (statusRequest == StatusRequest.success) {
-      if (response['status'] == 'success') {
-        List shippingAddressData = response['data'];
-        data.addAll(
-            shippingAddressData.map((e) => AddressModel.fromJson(e)));
-      } else {
-        statusRequest = StatusRequest.failure;
-      }
+  statusRequest = await handlingData(response);
+
+  if (statusRequest == StatusRequest.success) {
+    if (response['status'] == 'success') {
+      List shippingAddressData = response['data'];
+      data.addAll(
+          shippingAddressData.map((e) => AddressModel.fromJson(e)));
+          addressId = data[0].addressId.toString() ;
+      // إذا لا يوجد عناوين، نترك statusRequest.success مع data فارغة
+    } else {
+      // بدل failure، نترك success لتجنب ظهور "No Data"
+      statusRequest = StatusRequest.success;
+      data = [];
     }
-    update();
   }
+
+  update();
+}
+
 
   Future<void> checkOut() async {
     // ======= Validation =======
@@ -104,6 +111,13 @@ class CheckOutController extends GetxController {
     if (deliveryType == null) {
       return showSnackbar(title: "تنبيه", message: "Choose order delivery type");
     }
+    // if (data.isEmpty){
+    //         return showSnackbar(title: "تنبيه", message: "Please Enter Your Address");
+    // }
+      if (deliveryType == '0' && (addressId == "0" || addressId.isEmpty)) {
+      return showSnackbar(title: "تنبيه", message: "Please select your shipping address");
+    }
+
   
 
     statusRequest = StatusRequest.loading;

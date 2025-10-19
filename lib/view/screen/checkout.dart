@@ -2,6 +2,7 @@ import 'package:bloomy/controller/checkout_controller.dart';
 import 'package:bloomy/core/class/handlingdataview.dart';
 import 'package:bloomy/core/constant/appcolor.dart';
 import 'package:bloomy/core/constant/appimages.dart';
+import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/view/widget/checkout/carddeliverytype.dart';
 import 'package:bloomy/view/widget/checkout/cardpaymentcheckoutmethod.dart';
 import 'package:bloomy/view/widget/checkout/cardshippingaddress.dart';
@@ -94,11 +95,22 @@ class CheckOut extends StatelessWidget {
             if (controller.deliveryType == '0') Column(
             children: [
                SizedBox(height: 20),
+               if (controller.data.isNotEmpty) 
             Text(
               textAlign: TextAlign.center,
               "Shipping Address",
               style: Theme.of(context).textTheme.bodyMedium,
             ),
+            if (controller.data.isEmpty)
+              InkWell(
+                onTap: () {
+                Get.toNamed(AppRoutes.addressAdd) ;
+                },
+                 child: Container(child: Center(child: Text("Please Enter Your Shipping Address \n Click Here" ,
+                 
+                  textAlign: TextAlign.center),) , ),
+               ) , 
+            
             SizedBox(height: 10),
 
             ListView.builder(
