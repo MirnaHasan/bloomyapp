@@ -34,7 +34,7 @@ class CustomItemsCardList extends StatelessWidget {
                 child: CachedNetworkImage(
               
                 //  fit: BoxFit.cover,
-                  imageUrl: "${linkApi.linkimages}/$imageName"
+                  imageUrl: "${linkApi.linkitemsimages}/$imageName"
                   ,height: 100,),
               ),
             ),

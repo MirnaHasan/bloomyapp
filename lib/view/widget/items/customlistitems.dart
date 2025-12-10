@@ -48,7 +48,7 @@ class CustomListItems extends GetView<ItemscontrollerImp> {
                         Positioned.fill(
                           child: CachedNetworkImage(
                             imageUrl:
-                                "${linkApi.linkimages}/${itemsModel.itemsImage}",
+                                "${linkApi.linkitemsimages}/${itemsModel.itemsImage}",
                             fit: BoxFit.cover,
                           ),
                         ),

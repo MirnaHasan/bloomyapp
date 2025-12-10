@@ -21,16 +21,17 @@ import 'package:bloomy/view/screen/Auth/success_signup.dart';
 import 'package:bloomy/view/screen/Auth/verifycodesignup.dart';
 import 'package:bloomy/view/screen/cart.dart';
 import 'package:bloomy/view/screen/checkout.dart';
-import 'package:bloomy/view/screen/home.dart';
+
 import 'package:bloomy/view/screen/homescreen.dart';
 import 'package:bloomy/view/screen/items.dart';
 import 'package:bloomy/view/screen/language.dart';
 import 'package:bloomy/view/screen/myfavorite.dart';
-import 'package:bloomy/view/screen/offers.dart';
+
 
 import 'package:bloomy/view/screen/onboardingscreen.dart';
 import 'package:bloomy/view/screen/orders/archiveorders.dart';
 import 'package:bloomy/view/screen/orders/orderdetails.dart';
+import 'package:bloomy/view/screen/orders/ordertracking.dart';
 import 'package:bloomy/view/screen/orders/pendingorders.dart';
 import 'package:bloomy/view/screen/productdetails.dart';
 
@@ -75,8 +76,11 @@ List<GetPage<dynamic>>? routes = [
         GetPage(name:   AppRoutes.pendingorders  , page: ()=> PendingOrders() ,) ,
         GetPage(name:   AppRoutes.archiveorders  , page: ()=> ArchiveOrdersView() ,) ,
          GetPage(name:   AppRoutes.detailsorders  , page: ()=> OrderDetails() ,) ,
+             GetPage(name:   AppRoutes.trackingorder  , page: ()=> OrderTracking() ,) ,
+
          //==================================offers===============================
         //  GetPage(name:   AppRoutes.offers  , page: ()=> OffersView() ,) ,
+        //================
 
 ];
 

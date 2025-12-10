@@ -38,7 +38,7 @@ class CustomListFavoriteItems extends GetView <MyFavoriteController> {
                                 child: Hero(
                                   tag: "${itemsModel.itemsId}",
                                   child: CachedNetworkImage(
-                                    imageUrl: "${linkApi.linkimages}/${itemsModel.itemsImage}" ,
+                                    imageUrl: "${linkApi.linkitemsimages}/${itemsModel.itemsImage}" ,
                                     fit: BoxFit.cover,
                                   ),
                                 ),

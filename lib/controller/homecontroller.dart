@@ -56,7 +56,7 @@ String deliverytime = "" ;
         if(response['status']== 'success'){
           
       categories.addAll(response['categories']['data']);
-        items.addAll(response['items']['data']);
+      items.addAll(response['items']['data'] ??[]);
        settings.addAll(response['settings']['data']);
        titlehomecard = settings[0]['settings_titlehome'];
        bodyhomecard = settings[0]['settings_bodyhome'];

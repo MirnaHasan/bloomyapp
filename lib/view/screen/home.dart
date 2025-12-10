@@ -94,7 +94,7 @@ class ListItemsSearch extends GetView<HomeComtrollerImp> {
                 children: [
                   Expanded(child: CachedNetworkImage(height: 150,
                   
-                    imageUrl: "${linkApi.linkimages}/${listDataModel[index].itemsImage}")) , 
+                    imageUrl: "${linkApi.linkitemsimages}/${listDataModel[index].itemsImage}")) , 
                   Expanded(flex: 2 , child: ListTile(
                     title: Text("${listDataModel[index].itemsName}"),
                     subtitle: Text("${listDataModel[index].categoriesName}"),

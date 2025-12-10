@@ -1,6 +1,6 @@
 
 import 'package:bloomy/binding/mybinding.dart';
-import 'package:bloomy/core/functions/fcmconfig.dart';
+
 import 'package:bloomy/core/localization/changelocale.dart';
 import 'package:bloomy/core/localization/mytranslation.dart';
 import 'package:bloomy/core/services/services.dart';

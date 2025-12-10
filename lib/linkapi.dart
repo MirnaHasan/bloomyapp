@@ -7,9 +7,8 @@ class linkApi {
     // ==============images==========================================
 
   
-  static const String linkimages = "$linkServer/upload";
-  //  static const String linkcategoriesimages = "$linkimages/categories";
-  //  static const String linkitemsimages = "$linkimages/items";
+    static const String linkcategoriesimages = "$linkServer/upload/categories";
+  static const String linkitemsimages = "$linkServer/upload/items";
 
  
 

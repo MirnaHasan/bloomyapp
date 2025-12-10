@@ -23,7 +23,7 @@ class ListCategoriesHome extends GetView<HomeComtrollerImp> {
         itemCount: controller.categories.length,
         itemBuilder: (context, index) {
           print(
-            "${linkApi.linkimages}/${controller.categories[index]['categories_image']}",
+            "${linkApi.linkcategoriesimages}/${controller.categories[index]['categories_image']}",
           );
         
 
@@ -65,7 +65,7 @@ class Categories extends GetView<HomeComtrollerImp> {
                       width: 160,
                       height: 160,
       
-                      "${linkApi.linkimages}/${categoriesModel.categoriesImage}",
+                      "${linkApi.linkcategoriesimages}/${categoriesModel.categoriesImage}",
                       fit: BoxFit.cover,
                     ),
                   ),

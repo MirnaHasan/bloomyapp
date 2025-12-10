@@ -44,7 +44,7 @@ class TopPageItemsDetails extends GetView<ProductDetailsControllerImp> {
 
                     ),
                     child: Image.network(
-                      "${linkApi.linkimages}/${controller.itemsModel.itemsImage}",
+                      "${linkApi.linkitemsimages}/${controller.itemsModel.itemsImage}",
                       
                       height: 400,
                       fit: BoxFit.cover,

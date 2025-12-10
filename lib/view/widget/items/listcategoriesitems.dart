@@ -27,7 +27,7 @@ class ListCategoriesItems extends GetView<ItemscontrollerImp> {
         itemCount: controller.categories.length,
         itemBuilder: (context, index) {
           print(
-            "${linkApi.linkimages}/${controller.categories[index]['categories_image']}",
+            "${linkApi.linkcategoriesimages}/${controller.categories[index]['categories_image']}",
           );
         
 

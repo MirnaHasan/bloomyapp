@@ -1,10 +1,10 @@
 
 
 import 'package:bloomy/controller/orders/pendingorderscontroller.dart';
-import 'package:bloomy/core/constant/appcolor.dart';
+
 import 'package:bloomy/core/constant/approutes.dart';
 import 'package:bloomy/data/model/ordermodel.dart';
-import 'package:bloomy/data/model/pendingorders.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -101,19 +101,28 @@ class CardPendingOrder extends GetView <PendingOrdersController> {
                         Icon(Icons.mode_comment_sharp,
                             color: Colors.grey[700]),
                         const SizedBox(width: 8),
-                        Text("Order Status: ${controller.printOrderStatus(pendingordermodel.ordersStatus.toString())}"),
+                      Flexible(
+      child: Text(
+        "Order Status: ${controller.printOrderStatus(pendingordermodel.ordersStatus.toString())}",
+        softWrap: true,
+        overflow: TextOverflow.visible,
+      ),
+    ),
                       ],
                     ),
                     const Divider(thickness: 1, color: Colors.greenAccent),
                     const SizedBox(height: 6),
 Row(
+ 
   children: [
     // النص يأخذ مساحة مرنة ويُقلّص عند الحاجة
     Expanded(
+     
       child: Text(
+        
         "Total Price: ${pendingordermodel.ordersTotalprice}\$",
         style: TextStyle(
-          fontSize: 16,
+          fontSize: 14,
           color: Colors.green.shade700,
           fontWeight: FontWeight.bold,
         ),
@@ -163,6 +172,25 @@ Row(
         icon: const Icon(Icons.delete_outline, color: Colors.white, size: 16),
         label: const Text(
           "Delete",
+          style: TextStyle(color: Colors.white, fontSize: 12),
+        ),
+      ),
+        if (pendingordermodel.ordersStatus == 3)
+      ElevatedButton.icon(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.red.shade700,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+          minimumSize: const Size(80, 36),
+        ),
+        onPressed: () {
+        controller.goToPageTracking(pendingordermodel) ;
+        },
+        icon: const Icon(Icons.place_rounded, color: Colors.white, size: 16),
+        label: const Text(
+          "Tracking Order",
           style: TextStyle(color: Colors.white, fontSize: 12),
         ),
       ),

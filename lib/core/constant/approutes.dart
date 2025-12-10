@@ -38,6 +38,9 @@ class AppRoutes{
   static const String detailsorders               = "/detailsorders";
   //===========================offers=============================
   static const String offers               = "/offers";
+  //============================trackings=========================
+   static const String trackingorder               = "/trackingorder";
+
 
 
 

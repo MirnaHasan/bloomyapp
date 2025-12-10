@@ -49,7 +49,7 @@ class CustomListItemsOffers extends GetView<OffersController> {
                           child: CachedNetworkImage(
                              
                             imageUrl:
-                                "${linkApi.linkimages}/${itemsModel.itemsImage}",
+                                "${linkApi.linkitemsimages}/${itemsModel.itemsImage}",
                             fit: BoxFit.cover,
                           ),
                         ),

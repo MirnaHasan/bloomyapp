@@ -55,7 +55,7 @@ class ItemsHome extends GetView<HomeComtrollerImp> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(
-                  "${linkApi.linkimages}/${itemsModel.itemsImage}",
+                  "${linkApi.linkitemsimages}/${itemsModel.itemsImage}",
                   height: 180,
                   width: 160,
                   fit: BoxFit.cover,

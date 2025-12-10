@@ -6,7 +6,7 @@ import 'package:bloomy/core/functions/handlingdata.dart';
 import 'package:bloomy/core/services/services.dart';
 import 'package:bloomy/data/datasourse/remote/orders/pending_orders_data.dart';
 import 'package:bloomy/data/model/ordermodel.dart';
-import 'package:bloomy/data/model/pendingorders.dart';
+
 import 'package:get/get.dart';
 class PendingOrdersController extends GetxController {
   MyServices myServices = Get.find();
@@ -45,6 +45,10 @@ class PendingOrdersController extends GetxController {
     else {
       return "Archive";
     }
+  }
+  goToPageTracking(OrdersModel ordermodel){
+      Get.toNamed(AppRoutes.trackingorder , 
+       arguments: {"orderdetails": ordermodel},) ;
   }
 
   getItems() async {
